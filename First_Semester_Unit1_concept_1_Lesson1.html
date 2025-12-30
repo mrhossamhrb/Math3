@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* النجوم الزينة */
     .star {
       position: fixed;
       background: var(--yellow-accent);
@@ -56,7 +55,6 @@
       }
     }
 
-    /* الفقاعات الزينة */
     .bubble {
       position: fixed;
       background: rgba(96, 165, 250, 0.1);
@@ -308,7 +306,6 @@
       content: "✅";
     }
 
-    /* تصميم الأسئلة العادية */
     .math-question {
       margin-bottom: 20px;
       padding: 20px;
@@ -340,7 +337,6 @@
       content: "🧮";
     }
 
-    /* تصميم أسئلة اختيار العبارات */
     .circle-question {
       margin-bottom: 25px;
       padding: 20px;
@@ -438,7 +434,8 @@
       transform: translateX(5px);
     }
 
-    .circle-option input[type="checkbox"] {
+    .circle-option input[type="checkbox"],
+    .circle-option input[type="radio"] {
       width: 22px;
       height: 22px;
       margin-right: 15px;
@@ -538,7 +535,6 @@
       vertical-align: middle;
     }
 
-    /* تصميم الأسئلة العادية في نفس السطر */
     .question-line {
       display: flex;
       align-items: center;
@@ -612,7 +608,6 @@
       display: block;
     }
 
-    /* زر العودة */
     #backBtn {
       display: inline-block;
       margin-top: 20px;
@@ -636,7 +631,6 @@
       background: linear-gradient(90deg, var(--light-blue), var(--yellow-accent));
     }
 
-    /* شريط التقدم */
     .progress-container {
       width: 100%;
       height: 10px;
@@ -686,7 +680,6 @@
       }
     }
 
-    /* تصميم متجاوب */
     @media (max-width: 768px) {
 
       .container,
@@ -822,7 +815,6 @@
       }
     }
 
-    /* تأثيرات خاصة للإجابات الصحيحة والخاطئة */
     .correct {
       color: var(--correct-green) !important;
       border-color: var(--correct-green) !important;
@@ -843,7 +835,6 @@
       border-color: var(--wrong-red) !important;
     }
 
-    /* تأكيد عند الإرسال */
     @keyframes celebrate {
       0% {
         transform: scale(1);
@@ -862,7 +853,6 @@
       animation: celebrate 0.5s ease-in-out 3;
     }
 
-    /* إخفاء العناصر المطبوعة */
     @media print {
 
       button,
@@ -915,7 +905,6 @@
       }
     }
 
-    /* تعليمات السؤال */
     .instructions {
       background: rgba(59, 130, 246, 0.1);
       border-left: 4px solid var(--light-blue);
@@ -949,6 +938,100 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       transition: all 0.3s;
       position: relative;
+    }
+
+    /* تنسيقات سؤال الصورة */
+    .image-question {
+      background: linear-gradient(135deg, #3b4252, #4c566a);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 8px solid var(--light-blue);
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .math-figure {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      border: 2px solid var(--light-blue);
+    }
+
+    .fraction-visual {
+      text-align: center;
+    }
+
+    .fraction-text {
+      font-size: 48px;
+      font-weight: bold;
+      color: var(--yellow-accent);
+      margin-bottom: 15px;
+    }
+
+    .rectangle {
+      width: 200px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 3px solid white;
+      border-radius: 8px;
+      display: flex;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .colored-part {
+      background: var(--math-green);
+      height: 100%;
+    }
+
+    .uncolored-part {
+      background: rgba(255, 255, 255, 0.1);
+      height: 100%;
+    }
+
+    .caption {
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: var(--light-blue);
+    }
+
+    /* تنسيقات سؤال صح/خطأ */
+    .true-false-question {
+      background: linear-gradient(135deg, #2d3748, #3b4252);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 8px solid var(--yellow-accent);
+    }
+
+    .true-false-question label {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .true-false-question label:hover {
+      background: rgba(96, 165, 250, 0.2);
+    }
+
+    .true-false-question input[type="radio"] {
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -993,225 +1076,155 @@
       <input type="text" id="studentName" placeholder="Type your name here...">
     </div>
 
-
-    <!-- مجموعة أسئلة "اختر العبارات الصحيحة" -->
+    <!-- سؤال 1: مسألة الضرب -->
     <div class="question-group">
-      <!-- ############################################# -->
-      <!-- اكمل 6 -->
-      <div class="question-group">
-        <h3>Multiplication Questions (×)</h3>
+      <h3>Multiplication Questions (×)</h3>
+      <div class="math-question">
+        <div class="question-line">
+          <span class="question-number">1</span>
+          <span class="question-text">(</span>
+          <input type="text" class="small-input" id="blank1_1" placeholder="?">
+          <span class="question-text">×</span>
+          <input type="text" class="small-input" id="blank1_2" placeholder="?">
+          <span class="question-text">) ×</span>
+          <input type="text" class="small-input" id="blank1_3" placeholder="?">
+          <span class="question-text">=</span>
+          <input type="text" class="small-input" id="blank1_4" placeholder="?">
+          <span class="question-text">× (</span>
+          <input type="text" class="small-input" id="blank1_5" placeholder="?">
+          <span class="question-text">×</span>
+          <input type="text" class="small-input" id="blank1_6" placeholder="?">
+          <span class="question-text">)</span>
+        </div>
+        <div class="blank-feedback" id="fb-blank1"></div>
+      </div>
+    </div>
 
-        <div class="math-question">
-          <div class="question-line">
-            <span class="question-number">1</span>
-
-            <span class="question-text">(</span>
-            <input type="text" class="small-input" id="blank1_1" placeholder="?">
-            <span class="question-text">×</span>
-            <input type="text" class="small-input" id="blank1_2" placeholder="?">
-            <span class="question-text">) ×</span>
-
-            <input type="text" class="small-input" id="blank1_3" placeholder="?">
-            <span class="question-text">=</span>
-
-            <input type="text" class="small-input" id="blank1_4" placeholder="?">
-            <span class="question-text">× (</span>
-
-            <input type="text" class="small-input" id="blank1_5" placeholder="?">
-            <span class="question-text">×</span>
-
-            <input type="text" class="small-input" id="blank1_6" placeholder="?">
-            <span class="question-text">)</span>
-          </div>
-
-          <div class="blank-feedback" id="fb-blank1"></div>
+    <!-- سؤال 2: اختيار من متعدد -->
+    <div class="circle-question">
+      <h3>Which of the following is considered an element?</h3>
+      <div class="circle-header">
+        <span class="circle-number">2</span>
+        <div class="circle-main-expression">Choose ONE correct answer</div>
+      </div>
+      <div class="circle-options">
+        <div class="circle-option">
+          <input type="radio" id="q2_a" name="q2" value="a">
+          <label for="q2_a">
+            <span class="option-letter">a</span>
+            <span class="option-expression">Water (H₂O)</span>
+          </label>
+        </div>
+        <div class="circle-option">
+          <input type="radio" id="q2_b" name="q2" value="b">
+          <label for="q2_b">
+            <span class="option-letter">b</span>
+            <span class="option-expression">Hydrogen (H)</span>
+          </label>
+        </div>
+        <div class="circle-option">
+          <input type="radio" id="q2_c" name="q2" value="c">
+          <label for="q2_c">
+            <span class="option-letter">c</span>
+            <span class="option-expression">Carbon dioxide (CO₂)</span>
+          </label>
         </div>
       </div>
-      <!-- ############################################# -->
-      <!--  اختيار1 من متعدد -->
-      <div class="circle-question">
-        <h3>Which of the following is considered an element?</h3>
+      <div class="circle-feedback" id="fb-circle2"></div>
+    </div>
 
-        <div class="circle-header">
-          <span class="circle-number">2</span>
-          <div class="circle-main-expression">Choose ONE correct answer</div>
-        </div>
-
-        <div class="circle-options">
-
-          <div class="circle-option">
-            <input type="radio" id="q2_a" name="q2" value="a">
-            <label for="q2_a">
-              <span class="option-letter">a</span>
-              <span class="option-expression">Water (H₂O)</span>
-            </label>
-          </div>
-
-          <div class="circle-option">
-            <input type="radio" id="q2_b" name="q2" value="b">
-            <label for="q2_b">
-              <span class="option-letter">b</span>
-              <span class="option-expression">Hydrogen (H)</span>
-            </label>
-          </div>
-
-          <div class="circle-option">
-            <input type="radio" id="q2_c" name="q2" value="c">
-            <label for="q2_c">
-              <span class="option-letter">c</span>
-              <span class="option-expression">Carbon dioxide (CO₂)</span>
-            </label>
-          </div>
-
-        </div>
-
-        <div class="circle-feedback" id="fb-circle2"></div>
+    <!-- سؤال 3: اختر العبارات الصحيحة -->
+    <div class="circle-question">
+      <h3>Circle all the correct statements that have the same value</h3>
+      <div class="circle-header">
+        <span class="circle-number">3</span>
+        <div class="circle-main-expression">3 × 2 × 4</div>
       </div>
-      <!-- ############################################# -->
-      <!-- Circle all the correct  -->
-      <div class="circle-question">
-        <h3>Circle all the correct statements that have the same value</h3>
-        <div class="circle-header">
-          <span class="circle-number">3</span>
-          <div class="circle-main-expression">3 × 2 × 4</div>
+      <div class="circle-options">
+        <div class="circle-option">
+          <input type="checkbox" id="q3_a" name="q3" value="a">
+          <label for="q3_a">
+            <span class="option-letter">a</span>
+            <span class="option-expression">(3 × 2) × 4</span>
+          </label>
         </div>
-        <div class="circle-options">
-          <div class="circle-option">
-            <input type="checkbox" id="q1_a" name="q1" value="a">
-            <label for="q1_a">
-              <span class="option-letter">α</span>
-              <span class="option-expression">(3 × 2) × 4</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q1_b" name="q1" value="b">
-            <label for="q1_b">
-              <span class="option-letter">b</span>
-              <span class="option-expression">3 × (2 + 4)</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q1_c" name="q1" value="c">
-            <label for="q1_c">
-              <span class="option-letter">c</span>
-              <span class="option-expression">(3 × 4) × 2</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q1_d" name="q1" value="d">
-            <label for="q1_d">
-              <span class="option-letter">d</span>
-              <span class="option-expression">3 × (2 × 4)</span>
-            </label>
-          </div>
+        <div class="circle-option">
+          <input type="checkbox" id="q3_b" name="q3" value="b">
+          <label for="q3_b">
+            <span class="option-letter">b</span>
+            <span class="option-expression">3 × (2 + 4)</span>
+          </label>
         </div>
-        <div class="circle-feedback" id="fb-circle1"></div>
+        <div class="circle-option">
+          <input type="checkbox" id="q3_c" name="q3" value="c">
+          <label for="q3_c">
+            <span class="option-letter">c</span>
+            <span class="option-expression">(3 × 4) × 2</span>
+          </label>
+        </div>
+        <div class="circle-option">
+          <input type="checkbox" id="q3_d" name="q3" value="d">
+          <label for="q3_d">
+            <span class="option-letter">d</span>
+            <span class="option-expression">3 × (2 × 4)</span>
+          </label>
+        </div>
       </div>
-      <!-- ############################################# -->
-      <!--اكمل 1 -->
-      <div class="question-group">
-        <h3>Multiplication Questions (×)</h3>
+      <div class="circle-feedback" id="fb-circle3"></div>
+    </div>
 
-        <div class="math-question">
-          <div class="question-line">
-            <span class="question-number">4</span>
-            <span class="question-text">(2 × 1) × 3 = 2 × (1 ×</span>
-            <input type="text" class="small-input" id="blank1" placeholder="?">
-            <span class="question-text">)</span>
-          </div>
-          <div class="blank-feedback" id="fb-blank1"></div>
+    <!-- سؤال 4: مسألة ضرب بسيطة -->
+    <div class="question-group">
+      <h3>Multiplication Questions (×)</h3>
+      <div class="math-question">
+        <div class="question-line">
+          <span class="question-number">4</span>
+          <span class="question-text">(2 × 1) × 3 = 2 × (1 ×</span>
+          <input type="text" class="small-input" id="blank4" placeholder="?">
+          <span class="question-text">)</span>
         </div>
-        <!-- ############################################# -->
+        <div class="blank-feedback" id="fb-blank4"></div>
+      </div>
+    </div>
 
-           <!-- سؤال 3: صح/خطأ -->
-    <div class="math-question">
+    <!-- سؤال 5: صح/خطأ -->
+    <div class="true-false-question">
       <h3>3️⃣ Helium is an inert gas and does not react easily:</h3>
       <label><input type="radio" name="q5" value="true"> ✅ True - It's very stable!</label>
       <label><input type="radio" name="q5" value="false"> ❌ False - It reacts easily</label>
-      <div class="blank-feedback" id="f5"></div>
+      <div class="blank-feedback" id="fb5"></div>
     </div>
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
-      <!-- ############################################# -->
 
-      
-    <div class="question image-question">
-  <div class="question-header">
-    <span class="question-number">5</span>
-    <h3>انظر إلى الصورة وأجب</h3>
-  </div>
-  
-  <div class="image-container">
-    <div class="math-figure">
-      <!-- يمكن استبدال هذا بصورة حقيقية -->
-      <div class="fraction-visual">
-        <div class="fraction-text">⅗</div>
-        <div class="rectangle">
-          <div class="colored-part" style="width: 60%"></div>
-          <div class="uncolored-part" style="width: 40%"></div>
-        </div>
-        <div class="caption">A rectangle divided into 5 equal parts</div>
+    <!-- سؤال 6: سؤال الصورة -->
+    <div class="image-question">
+      <div class="circle-header">
+        <span class="circle-number">6</span>
+        <h3>Look at the picture and answer</h3>
       </div>
-    </div>
-  </div>
-  
-  <div class="question-text">
-    <p>What fraction is represented by color in the picture?</p>
-  </div>
-  
-  <div class="answer-input">
-    <input type="text" id="q5_answer" placeholder="Write the fraction (example: 3/5)">
-    <span class="hint">💡 Hint: Write the fraction in numerator/denominator form</span>
-  </div>
-  
-  <div class="feedback" id="fb5"></div>
-</div>
 
-<script>
-function checkImageQuestion(questionNum, correctAnswer) {
-  const input = document.getElementById(`q${questionNum}_answer`);
-  const feedback = document.getElementById(`fb${questionNum}`);
-  const userAnswer = input.value.trim().toLowerCase();
-  
-  // قبول عدة صيغ: 3/5، ٣/٥، 3\5، ثلاث أخماس
-  const normalizedAnswer = userAnswer
-    .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
-    .replace('\\', '/')
-    .replace('ثلث', '1/3')
-    .replace('نصف', '1/2')
-    .replace('ربع', '1/4')
-    .replace('خمس', '1/5');
-  
-  if (normalizedAnswer === correctAnswer || userAnswer === correctAnswer) {
-    input.classList.add('correct');
-    input.classList.remove('wrong');
-    feedback.innerHTML = "✅ إجابة صحيحة! الكسر هو 3/5";
-    feedback.style.color = "#10b981";
-    return 1;
-  } else if (userAnswer === "") {
-    feedback.innerHTML = "⚠️ اكتب إجابتك أولاً";
-    return 0;
-  } else {
-    input.classList.add('wrong');
-    input.classList.remove('correct');
-    feedback.innerHTML = `❌ الكسر الصحيح هو: ${correctAnswer}`;
-    feedback.style.color = "#ef4444";
-    return 0;
-  }
-}
-</script>
-    
-    
-          <!-- ############################################# -->
-    </div>
+      <div class="image-container">
+        <div class="math-figure">
+          <div class="fraction-visual">
+            <div class="fraction-text">⅗</div>
+            <div class="rectangle">
+              <div class="colored-part" style="width: 60%"></div>
+              <div class="uncolored-part" style="width: 40%"></div>
+            </div>
+            <div class="caption">A rectangle divided into 5 equal parts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-text">
+        <p>What fraction is represented by color in the picture?</p>
+      </div>
+
+      <div class="answer-input">
+        <input type="text" id="q6_answer" placeholder="Write the fraction (example: 3/5)">
+        <span class="hint">💡 Hint: Write the fraction in numerator/denominator form</span>
+      </div>
+
+      <div class="blank-feedback" id="fb6"></div>
     </div>
 
     <button id="saveBtn" onclick="generateImage()">
@@ -1264,28 +1277,37 @@ function checkImageQuestion(questionNum, correctAnswer) {
 
     // تحديث شريط التقدم
     function updateProgress() {
-      const textInputs = document.querySelectorAll('.small-input');
+      const textInputs = document.querySelectorAll('.small-input, #q6_answer');
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      const totalInputs = textInputs.length + checkboxes.length;
+      const radios = document.querySelectorAll('input[type="radio"]');
+
+      const totalInputs = textInputs.length + checkboxes.length + 2; // +2 للأسئلة الإلزامية
+
       let filledCount = 0;
 
+      // حساب الحقول النصية
       textInputs.forEach(input => {
         if (input.value.trim() !== '') {
           filledCount++;
         }
       });
 
-      // نعتبر أن سؤال الاختيار المتعدد قد تمت الإجابة عليه إذا تم تحديد خيار واحد على الأقل
-      const questionGroups = ['q1', 'q2', 'q3', 'q4'];
-      questionGroups.forEach(group => {
-        const checked = document.querySelectorAll(`input[name="${group}"]:checked`).length;
-        if (checked > 0) {
-          filledCount++;
-        }
-      });
+      // حساب الأسئلة متعددة الخيارات
+      const hasQ2 = document.querySelector('input[name="q2"]:checked') !== null;
+      const hasQ5 = document.querySelector('input[name="q5"]:checked') !== null;
 
-      const progress = (filledCount / totalInputs) * 100;
-      const progressBar = document.getElementById('progressBar');
+      if (hasQ2) filledCount++;
+      if (hasQ5) filledCount++;
+
+      // حساب المربعات المختارة
+      let hasQ3 = false;
+      document.querySelectorAll('input[name="q3"]:checked').forEach(() => {
+        hasQ3 = true;
+      });
+      if (hasQ3) filledCount++;
+
+      const progress = Math.min(100, (filledCount / totalInputs) * 100);
+      const progressBar = document.getElementById("progressBar");
       if (progressBar) {
         progressBar.style.width = progress + '%';
       }
@@ -1297,7 +1319,7 @@ function checkImageQuestion(questionNum, correctAnswer) {
       createBubbles();
 
       // تحديث شريط التقدم عند أي تغيير
-      document.querySelectorAll('.small-input, input[type="checkbox"]').forEach(element => {
+      document.querySelectorAll('.small-input, #q6_answer, input[type="checkbox"], input[type="radio"]').forEach(element => {
         element.addEventListener('input', updateProgress);
         element.addEventListener('change', updateProgress);
       });
@@ -1345,104 +1367,196 @@ function checkImageQuestion(questionNum, correctAnswer) {
         return;
       }
 
-      // الإجابات الصحيحة للأسئلة العادية
+      // الإجابات الصحيحة للأسئلة النصية (السؤال 1)
+      const fillAnswers1 = {
+        blank1_1: "2",
+        blank1_2: "3",
+        blank1_3: "4",
+        blank1_4: "2",
+        blank1_5: "3",
+        blank1_6: "4"
+      };
+
+      // الإجابات الصحيحة للأسئلة الأخرى
       const fillAnswers = {
-        blank1: "3",
-        blank2: "3"
+        blank4: "3"
       };
 
-      // الإجابات الصحيحة لأسئلة "اختر العبارات الصحيحة"
-      // كل مفتاح هو رقم السؤال، والقيمة هي مصفوفة بالخيارات الصحيحة
+      // إجابات أسئلة الاختيار المتعدد
+      const mcqAnswers = {
+        q2: "b",      // Hydrogen (H) هو العنصر
+        q5: "true"    // Helium is inert
+      };
+
+      // إجابات أسئلة "اختر العبارات الصحيحة" (السؤال 3)
       const circleAnswers = {
-        q1: ["a", "c", "d"],  // (3×2)×4, (3×4)×2, 3×(2×4)
-        q2: ["a", "b", "c"],  // 3×(1×2), (3×1)×2, (3×2)×1
-        q3: ["b", "c", "d"],  // (4×2)×1, (4×1)×2, 4×(2×1)
-        q4: ["c", "d"]        // 2×(5×3), (2×3)×5
+        q3: ["a", "c", "d"]  // (3×2)×4, (3×4)×2, 3×(2×4)
       };
 
-      // تصحيح الأسئلة العادية
+      // تصحيح الأسئلة
       let totalScore = 0;
-      const totalFillQuestions = Object.keys(fillAnswers).length;
-      const totalCircleQuestions = Object.keys(circleAnswers).length;
-      const totalQuestions = totalFillQuestions + totalCircleQuestions;
+      const totalQuestions = 6; // إجمالي الأسئلة
 
-      // تصحيح الأسئلة العادية
-      Object.keys(fillAnswers).forEach((blankId, index) => {
+      // تصحيح السؤال 1
+      let question1Score = 0;
+      Object.keys(fillAnswers1).forEach(blankId => {
         const input = document.getElementById(blankId);
-        const feedback = document.getElementById("fb-" + blankId);
+        const feedback = document.getElementById("fb-blank1");
 
         if (input) {
           const userAnswer = input.value.trim();
-          const correctAnswer = fillAnswers[blankId];
+          const correctAnswer = fillAnswers1[blankId];
 
           if (userAnswer === correctAnswer) {
-            totalScore++;
+            question1Score++;
             input.classList.add('correct');
-            feedback.innerHTML = `<div style="color:#10b981; margin:5px 0; font-size:14px;">✅ Correct! Excellent work! 🎯</div>`;
-            feedback.classList.add('correct');
           } else {
             input.classList.add('wrong');
-            feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ The correct answer is "${correctAnswer}". Keep practicing! 📝</div>`;
-            feedback.classList.add('wrong');
           }
         }
       });
 
-      // تصحيح أسئلة "اختر العبارات الصحيحة"
-      Object.keys(circleAnswers).forEach((questionId, questionIndex) => {
-        const feedback = document.getElementById("fb-circle" + (questionIndex + 1));
-        const correctOptions = circleAnswers[questionId];
-        const userSelections = [];
-        const optionElements = document.querySelectorAll(`input[name="${questionId}"]`);
+      // حساب درجة السؤال 1 (نصف نقطة لكل إجابة صحيحة)
+      if (question1Score === 6) {
+        totalScore += 1; // سؤال كامل
+      } else if (question1Score >= 3) {
+        totalScore += 0.5; // نصف نقطة
+      }
 
-        // جمع الخيارات المحددة من قبل المستخدم
-        optionElements.forEach(option => {
-          if (option.checked) {
-            userSelections.push(option.value);
-          }
-        });
-
-        // حساب الدرجة لهذا السؤال
-        let questionScore = 0;
-        let allCorrect = true;
-        let anySelected = false;
-
-        optionElements.forEach(option => {
-          const optionDiv = option.closest('.circle-option');
-          const isCorrect = correctOptions.includes(option.value);
-          const isSelected = option.checked;
-
-          if (isSelected) anySelected = true;
-
-          if (isSelected && isCorrect) {
-            questionScore++;
-            optionDiv.classList.add('correct-checkbox');
-          } else if (isSelected && !isCorrect) {
-            allCorrect = false;
-            optionDiv.classList.add('wrong-checkbox');
-          } else if (!isSelected && isCorrect) {
-            allCorrect = false;
-            optionDiv.classList.add('wrong-checkbox');
-          }
-        });
-
-        // إضافة الدرجة إذا كان كل شيء صحيحاً
-        if (allCorrect && anySelected) {
-          totalScore++;
-          feedback.innerHTML = `<div style="color:#10b981; margin:5px 0; font-size:14px;">✅ Perfect! All correct answers selected! 🌟</div>`;
-          feedback.classList.add('correct');
-        } else if (anySelected) {
-          feedback.innerHTML = `<div style="color:#fbbf24; margin:5px 0; font-size:14px;">⚠️ Some answers are incorrect. The correct ones are: ${correctOptions.map(opt => opt.toUpperCase()).join(', ')}</div>`;
-          feedback.classList.add('wrong');
+      // تحديث التغذية الراجعة للسؤال 1
+      const fb1 = document.getElementById("fb-blank1");
+      if (fb1) {
+        if (question1Score === 6) {
+          fb1.innerHTML = `<div style="color:#10b981;">✅ Perfect! All answers are correct!</div>`;
+        } else if (question1Score >= 3) {
+          fb1.innerHTML = `<div style="color:#fbbf24;">⚠️ Some answers are correct (${question1Score}/6). Keep practicing!</div>`;
         } else {
-          feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ Please select answers. The correct ones are: ${correctOptions.map(opt => opt.toUpperCase()).join(', ')}</div>`;
-          feedback.classList.add('wrong');
+          fb1.innerHTML = `<div style="color:#ef4444;">❌ Try again! The pattern should be: (2×3)×4 = 2×(3×4)</div>`;
+        }
+      }
+
+      // تصحيح السؤال 4
+      const input4 = document.getElementById("blank4");
+      const fb4 = document.getElementById("fb-blank4");
+      if (input4) {
+        const userAnswer = input4.value.trim();
+        if (userAnswer === fillAnswers.blank4) {
+          totalScore++;
+          input4.classList.add('correct');
+          if (fb4) fb4.innerHTML = `<div style="color:#10b981;">✅ Correct! (2×1)×3 = 2×(1×3)</div>`;
+        } else {
+          input4.classList.add('wrong');
+          if (fb4) fb4.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "3"</div>`;
+        }
+      }
+
+      // تصحيح السؤال 2
+      const q2Answer = document.querySelector('input[name="q2"]:checked');
+      const fb2 = document.getElementById("fb-circle2");
+      if (q2Answer) {
+        if (q2Answer.value === mcqAnswers.q2) {
+          totalScore++;
+          document.querySelector(`label[for="q2_${mcqAnswers.q2}"]`).style.color = "#10b981";
+          if (fb2) fb2.innerHTML = `<div style="color:#10b981;">✅ Correct! Hydrogen (H) is an element!</div>`;
+        } else {
+          q2Answer.parentElement.classList.add('wrong-checkbox');
+          document.querySelector(`label[for="q2_${mcqAnswers.q2}"]`).style.color = "#10b981";
+          if (fb2) fb2.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "Hydrogen (H)" - it's an element!</div>`;
+        }
+      } else if (fb2) {
+        fb2.innerHTML = `<div style="color:#ef4444;">❌ Please select an answer</div>`;
+      }
+
+      // تصحيح السؤال 3
+      const q3Answers = document.querySelectorAll('input[name="q3"]:checked');
+      const fb3 = document.getElementById("fb-circle3");
+      let q3Score = 0;
+      const correctQ3 = circleAnswers.q3;
+      let allCorrect = true;
+      let anySelected = false;
+
+      // التحقق من الإجابات المحددة
+      q3Answers.forEach(checkbox => {
+        anySelected = true;
+        const optionDiv = checkbox.closest('.circle-option');
+        if (correctQ3.includes(checkbox.value)) {
+          q3Score++;
+          optionDiv.classList.add('correct-checkbox');
+        } else {
+          allCorrect = false;
+          optionDiv.classList.add('wrong-checkbox');
         }
       });
+
+      // إضافة الألوان للإجابات الصحيحة غير المحددة
+      correctQ3.forEach(correct => {
+        const option = document.querySelector(`#q3_${correct}`);
+        if (option && !option.checked) {
+          option.closest('.circle-option').classList.add('wrong-checkbox');
+          allCorrect = false;
+        }
+      });
+
+      // حساب درجة السؤال 3
+      if (allCorrect && anySelected) {
+        totalScore++;
+        if (fb3) fb3.innerHTML = `<div style="color:#10b981;">✅ Perfect! All correct answers selected!</div>`;
+      } else if (anySelected) {
+        if (fb3) fb3.innerHTML = `<div style="color:#fbbf24;">⚠️ Some answers are incorrect. Correct answers: (3×2)×4, (3×4)×2, 3×(2×4)</div>`;
+        if (q3Score >= 2) totalScore += 0.5;
+      } else if (fb3) {
+        fb3.innerHTML = `<div style="color:#ef4444;">❌ Please select answers. Correct ones: (3×2)×4, (3×4)×2, 3×(2×4)</div>`;
+      }
+
+      // تصحيح السؤال 5
+      const q5Answer = document.querySelector('input[name="q5"]:checked');
+      const fb5 = document.getElementById("fb5");
+      if (q5Answer) {
+        if (q5Answer.value === mcqAnswers.q5) {
+          totalScore++;
+          q5Answer.parentElement.style.color = "#10b981";
+          if (fb5) fb5.innerHTML = `<div style="color:#10b981;">✅ Correct! Helium is an inert gas!</div>`;
+        } else {
+          q5Answer.parentElement.style.color = "#ef4444";
+          document.querySelector(`input[name="q5"][value="${mcqAnswers.q5}"]`).parentElement.style.color = "#10b981";
+          if (fb5) fb5.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "True" - Helium is inert!</div>`;
+        }
+      } else if (fb5) {
+        fb5.innerHTML = `<div style="color:#ef4444;">❌ Please select an answer</div>`;
+      }
+
+      // تصحيح السؤال 6 (الصورة)
+      const q6Input = document.getElementById("q6_answer");
+      const fb6 = document.getElementById("fb6");
+      if (q6Input) {
+        const userAnswer = q6Input.value.trim().toLowerCase();
+        // قبول عدة صيغ
+        const normalizedAnswer = userAnswer
+          .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+          .replace('\\', '/')
+          .replace('ثلث', '1/3')
+          .replace('نصف', '1/2')
+          .replace('ربع', '1/4')
+          .replace('خمس', '1/5')
+          .replace('ثلاثة أخماس', '3/5')
+          .replace('ثلاث اخماس', '3/5');
+
+        if (normalizedAnswer === "3/5" || userAnswer === "3/5") {
+          totalScore++;
+          q6Input.classList.add('correct');
+          if (fb6) fb6.innerHTML = `<div style="color:#10b981;">✅ Correct! The fraction is 3/5!</div>`;
+        } else if (userAnswer === "") {
+          q6Input.classList.add('wrong');
+          if (fb6) fb6.innerHTML = `<div style="color:#ef4444;">❌ Please enter an answer</div>`;
+        } else {
+          q6Input.classList.add('wrong');
+          if (fb6) fb6.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "3/5"</div>`;
+        }
+      }
 
       // تحديث المعلومات
       document.getElementById("imgName").textContent = name;
-      document.getElementById("imgScore").textContent = totalScore + " / " + totalQuestions;
+      document.getElementById("imgScore").textContent = totalScore.toFixed(1) + " / " + totalQuestions;
 
       const now = new Date();
       const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
@@ -1458,7 +1572,7 @@ function checkImageQuestion(questionNum, correctAnswer) {
       const backBtn = document.getElementById('backBtn');
       if (backBtn) backBtn.style.display = 'none';
 
-      // تحريك الصفحة للأعلى لرؤية النتائج
+      // تحريك الصفحة للأعلى
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
       setTimeout(() => {
@@ -1484,13 +1598,8 @@ function checkImageQuestion(questionNum, correctAnswer) {
             if (saveBtn) saveBtn.style.display = 'block';
             if (backBtn) backBtn.style.display = 'inline-block';
 
-            // إزالة التغذية الراجعة والألوان
-            document.querySelectorAll('.blank-feedback, .circle-feedback').forEach(fb => {
-              fb.innerHTML = "";
-              fb.classList.remove('correct', 'wrong');
-            });
-
-            document.querySelectorAll('.small-input').forEach(input => {
+            // إعادة تعيين الألوان
+            document.querySelectorAll('.small-input, #q6_answer').forEach(input => {
               input.classList.remove('correct', 'wrong');
             });
 
@@ -1498,21 +1607,25 @@ function checkImageQuestion(questionNum, correctAnswer) {
               option.classList.remove('correct-checkbox', 'wrong-checkbox');
             });
 
+            document.querySelectorAll('label').forEach(label => {
+              label.style.color = '';
+            });
+
             localStorage.setItem(STORAGE_KEY, Date.now());
             lockHomework();
 
             // رسالة نجاح
             const percentage = Math.round((totalScore / totalQuestions) * 100);
-            let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore}/${totalQuestions} (${percentage}%)\n\n`;
+            let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore.toFixed(1)}/${totalQuestions} (${percentage}%)\n\n`;
 
             if (percentage === 100) {
               message += "Perfect score! You're a math genius! 🧠";
             } else if (percentage >= 80) {
-              message += "Great job! You understand the associative property well! 👍";
+              message += "Great job! You understand the concepts well! 👍";
             } else if (percentage >= 60) {
-              message += "Good effort! Keep practicing to master the associative property! 📚";
+              message += "Good effort! Keep practicing to master the material! 📚";
             } else {
-              message += "Keep practicing! The associative property takes time to master. Don't give up! 💪";
+              message += "Keep practicing! You'll get better with more practice. Don't give up! 💪";
             }
 
             alert(message);
@@ -1530,9 +1643,9 @@ function checkImageQuestion(questionNum, correctAnswer) {
       }, 1000);
     }
 
-    // إضافة مؤثرات إضافية
+    // تأثيرات إضافية
     document.addEventListener('click', function (e) {
-      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox') {
+      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio') {
         e.target.classList.add('celebrate');
         setTimeout(() => {
           e.target.classList.remove('celebrate');

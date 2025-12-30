@@ -596,8 +596,7 @@
       transform: scale(1.05) !important;
     }
 
-    .blank-feedback,
-    .circle-feedback {
+    .blank-feedback, .circle-feedback {
       display: none;
       padding: 15px;
       border-radius: 12px;
@@ -955,8 +954,7 @@
     <img src="https://cdn.pixabay.com/photo/2020/01/21/18/39/math-4784988_1280.png" alt="Math Fun"
       onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iIzIyYzU1ZSIvPjxwYXRoIGQ9Ik03MCAxMjBMMTMwIDEyME0xMDAgNzBMMTAwIDEzME0xMjAgOTBMMTIwIDExME04MCA5MEw4MCAxMTBNMTMwIDkwTDE1MCA3ME0xMzAgMTEwTDE1MCAxMzBNNzAgOTBMNTAgNzBNNzAgMTEwTDUwIDEzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iMTAwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWF0aCBBZHZlbnR1cmUhPC90ZXh0Pjwvc3ZnPg=='">
     <h2>Welcome to the Math Adventure! 🚀</h2>
-    <p>Hey there, young mathematician! 👨‍🏫👩‍🏫<br>Get ready to explore the amazing world of the associative
-      property!<br>Complete all the challenges and earn your Math Expert Certificate! 🏆</p>
+    <p>Hey there, young mathematician! 👨‍🏫👩‍🏫<br>Get ready to explore the amazing world of the associative property!<br>Complete all the challenges and earn your Math Expert Certificate! 🏆</p>
   </section>
 
   <div class="container" id="printArea">
@@ -984,8 +982,7 @@
     <!-- شرح الخاصية التجميعية -->
     <div class="property-explanation">
       <h3>📚 The Associative Property</h3>
-      <p>The associative property says that when we add or multiply three or more numbers, the way we group them doesn't
-        change the result.</p>
+      <p>The associative property says that when we add or multiply three or more numbers, the way we group them doesn't change the result.</p>
       <p><strong>For addition:</strong> (a + b) + c = a + (b + c)</p>
       <p><strong>For multiplication:</strong> (a × b) × c = a × (b × c)</p>
     </div>
@@ -993,13 +990,13 @@
     <!-- مجموعة أسئلة "اختر العبارات الصحيحة" -->
     <div class="question-group">
       <h3>⭕ Circle all the correct statements that have the same value</h3>
-
+      
       <div class="instructions">
         <h4>How to answer:</h4>
         <p>Check the boxes for ALL expressions that have the SAME VALUE as the given expression.</p>
       </div>
 
-      <!-- اختار جميع العبارات الصحيحة التي لها نفس القيمة.-->
+      <!-- سؤال 1 -->
       <div class="circle-question">
         <div class="circle-header">
           <span class="circle-number">1</span>
@@ -1038,12 +1035,128 @@
         <div class="circle-feedback" id="fb-circle1"></div>
       </div>
 
+      <!-- سؤال 2 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">2</span>
+          <div class="circle-main-expression">3 × 1 × 2</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q2_a" name="q2" value="a">
+            <label for="q2_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">3 × (1 × 2)</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q2_b" name="q2" value="b">
+            <label for="q2_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">(3 × 1) × 2</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q2_c" name="q2" value="c">
+            <label for="q2_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">(3 × 2) × 1</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q2_d" name="q2" value="d">
+            <label for="q2_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">(3 + 1) × 2</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle2"></div>
+      </div>
+
+      <!-- سؤال 3 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">3</span>
+          <div class="circle-main-expression">4 × 2 × 1</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q3_a" name="q3" value="a">
+            <label for="q3_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">(4 + 2) + 1</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q3_b" name="q3" value="b">
+            <label for="q3_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">(4 × 2) × 1</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q3_c" name="q3" value="c">
+            <label for="q3_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">(4 × 1) × 2</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q3_d" name="q3" value="d">
+            <label for="q3_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">4 × (2 × 1)</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle3"></div>
+      </div>
+
+      <!-- سؤال 4 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">4</span>
+          <div class="circle-main-expression">2 × 5 × 3</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q4_a" name="q4" value="a">
+            <label for="q4_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">2 + 5 + 3</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q4_b" name="q4" value="b">
+            <label for="q4_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">(2 × 5) + 3</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q4_c" name="q4" value="c">
+            <label for="q4_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">2 × (5 × 3)</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q4_d" name="q4" value="d">
+            <label for="q4_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">(2 × 3) × 5</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle4"></div>
+      </div>
     </div>
 
-    <!-- اكمل اجابة واحدة-->
+    <!-- مجموعة أسئلة الضرب -->
     <div class="question-group">
       <h3>Multiplication Questions (×)</h3>
-
+      
       <div class="math-question">
         <div class="question-line">
           <span class="question-number">1</span>
@@ -1054,33 +1167,24 @@
         <div class="blank-feedback" id="fb-blank1"></div>
       </div>
 
-
+      <div class="math-question">
+        <div class="question-line">
+          <span class="question-number">2</span>
+          <span class="question-text">(3 × 2) × 6 =</span>
+          <input type="text" class="small-input" id="blank2" placeholder="?">
+          <span class="question-text">× (2 × 6)</span>
+        </div>
+        <div class="blank-feedback" id="fb-blank2"></div>
+      </div>
     </div>
 
-      <!-- سؤال 3: صح/خطأ -->
-  <div class="question-card">
-    <h3>a. 4 x 2 x 5 = (4 x 2) + 5</h3>
-    <label><input type="radio" name="q5" value="true"> ✅ True - It's very stable!</label>
-    <label><input type="radio" name="q5" value="false"> ❌ False - It reacts easily</label>
-    <div class="feedback" id="f5"></div>
-  </div>
-  <!--  سؤال 3: صح/خطأ مع التعليل-->
-  <div class="question-card">
-    <h3>a. 4 x 2 x 5 = (4 x 2) + 5</h3>
-    <label><input type="radio" name="q5" value="true"> ✅ True - It's very stable!</label>
-    <label><input type="radio" name="q5" value="false"> ❌ False - It reacts easily</label>
-    <div class="feedback" id="f5"></div>
-  </div>
+    <button id="saveBtn" onclick="generateImage()">
+      📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
+    </button>
 
-  </div>
-
-  <button id="saveBtn" onclick="generateImage()">
-    📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
-  </button>
-
-  <a href="index.html" id="backBtn">
-    ⬅ BACK TO HOME PAGE 🏠
-  </a>
+    <a href="index.html" id="backBtn">
+      ⬅ BACK TO HOME PAGE 🏠
+    </a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -1230,7 +1334,7 @@
       Object.keys(fillAnswers).forEach((blankId, index) => {
         const input = document.getElementById(blankId);
         const feedback = document.getElementById("fb-" + blankId);
-
+        
         if (input) {
           const userAnswer = input.value.trim();
           const correctAnswer = fillAnswers[blankId];
@@ -1254,7 +1358,7 @@
         const correctOptions = circleAnswers[questionId];
         const userSelections = [];
         const optionElements = document.querySelectorAll(`input[name="${questionId}"]`);
-
+        
         // جمع الخيارات المحددة من قبل المستخدم
         optionElements.forEach(option => {
           if (option.checked) {
@@ -1266,14 +1370,14 @@
         let questionScore = 0;
         let allCorrect = true;
         let anySelected = false;
-
+        
         optionElements.forEach(option => {
           const optionDiv = option.closest('.circle-option');
           const isCorrect = correctOptions.includes(option.value);
           const isSelected = option.checked;
-
+          
           if (isSelected) anySelected = true;
-
+          
           if (isSelected && isCorrect) {
             questionScore++;
             optionDiv.classList.add('correct-checkbox');
@@ -1364,7 +1468,7 @@
             // رسالة نجاح
             const percentage = Math.round((totalScore / totalQuestions) * 100);
             let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore}/${totalQuestions} (${percentage}%)\n\n`;
-
+            
             if (percentage === 100) {
               message += "Perfect score! You're a math genius! 🧠";
             } else if (percentage >= 80) {
@@ -1374,7 +1478,7 @@
             } else {
               message += "Keep practicing! The associative property takes time to master. Don't give up! 💪";
             }
-
+            
             alert(message);
           }, 500);
 

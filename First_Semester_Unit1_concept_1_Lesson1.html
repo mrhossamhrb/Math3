@@ -1204,7 +1204,8 @@
     .show-correction .matching-feedback-interactive {
       display: block;
     }
-        /* تصميم سؤال الوصل الثلاثي */
+
+    /* تصميم سؤال الوصل الثلاثي */
     .matching-question-triple {
       background: linear-gradient(135deg, #5b21b6, #7c3aed);
       border-radius: 20px;
@@ -1214,7 +1215,7 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       position: relative;
     }
-    
+
     .matching-header-triple {
       display: flex;
       align-items: center;
@@ -1223,7 +1224,7 @@
       padding-bottom: 15px;
       border-bottom: 2px solid rgba(245, 158, 11, 0.3);
     }
-    
+
     .matching-instructions-triple {
       background: rgba(139, 92, 246, 0.15);
       padding: 15px;
@@ -1233,12 +1234,12 @@
       color: var(--text-light);
       border-left: 4px solid #f59e0b;
     }
-    
+
     .matching-instructions-triple p {
       margin: 8px 0;
       text-align: left;
     }
-    
+
     .matching-container-triple {
       display: flex;
       justify-content: space-between;
@@ -1250,7 +1251,7 @@
       border: 3px solid #8b5cf6;
       min-height: 350px;
     }
-    
+
     .matching-column-triple {
       flex: 1;
       display: flex;
@@ -1258,7 +1259,7 @@
       gap: 15px;
       text-align: center;
     }
-    
+
     .matching-column-triple h4 {
       color: #f59e0b;
       font-size: 18px;
@@ -1266,7 +1267,7 @@
       padding-bottom: 8px;
       border-bottom: 2px solid rgba(245, 158, 11, 0.3);
     }
-    
+
     .matching-item-triple {
       padding: 18px;
       background: linear-gradient(135deg, #3b4252, #4c566a);
@@ -1282,21 +1283,21 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .matching-item-triple:hover {
       border-color: #f59e0b;
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
       background: linear-gradient(135deg, #4c566a, #5b21b6);
     }
-    
+
     .matching-item-triple.selected {
       background: linear-gradient(135deg, #7c3aed, #f59e0b);
       border-color: #f59e0b;
       box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
       color: white;
     }
-    
+
     .triple-connections-display {
       display: none;
       margin-top: 25px;
@@ -1305,11 +1306,11 @@
       border-radius: 10px;
       border: 2px dashed #f59e0b;
     }
-    
+
     .triple-connections-display.show {
       display: block;
     }
-    
+
     .triple-connection-item {
       padding: 15px;
       margin: 10px 0;
@@ -1322,7 +1323,7 @@
       border: 1px solid #4b5563;
       position: relative;
     }
-    
+
     .triple-connection-item::before {
       content: "→";
       position: absolute;
@@ -1332,7 +1333,7 @@
       font-size: 24px;
       font-weight: bold;
     }
-    
+
     .triple-connection-expression {
       flex: 1;
       text-align: center;
@@ -1340,7 +1341,7 @@
       font-weight: bold;
       color: #f59e0b;
     }
-    
+
     .triple-connection-item button {
       background: linear-gradient(90deg, #ef4444, #f87171);
       color: white;
@@ -1351,14 +1352,14 @@
       font-size: 14px;
       transition: all 0.3s;
       font-weight: bold;
-        width: 200px;
+      width: 200px;
     }
-    
+
     .triple-connection-item button:hover {
       background: linear-gradient(90deg, #dc2626, #ef4444);
       transform: scale(1.05);
     }
-    
+
     .btn-clear-triple-connections {
       background: linear-gradient(90deg, #ef4444, #f87171);
       color: white;
@@ -1373,12 +1374,12 @@
       display: block;
       width: 100%;
     }
-    
+
     .btn-clear-triple-connections:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
     }
-    
+
     .matching-feedback-triple {
       display: none;
       padding: 15px;
@@ -1388,11 +1389,11 @@
       background: rgba(0, 0, 0, 0.2);
       font-size: 16px;
     }
-    
+
     .show-correction .matching-feedback-triple {
       display: block;
     }
-    
+
     /* تصميم الخطوط المتصلة */
     .triple-line {
       position: absolute;
@@ -1403,13 +1404,12 @@
       stroke-dasharray: 5, 5;
       animation: dash 10s linear infinite;
     }
-    
+
     @keyframes dash {
       to {
         stroke-dashoffset: 1000;
       }
     }
-
   </style>
 </head>
 
@@ -1454,7 +1454,7 @@
     </div>
 
     <!-- سؤال 1: مسألة الضرب -->
-    <div class="question-group">
+    <!-- <div class="question-group">
       <h3>Multiplication Questions (×)</h3>
       <div class="math-question">
         <div class="question-line">
@@ -1475,35 +1475,42 @@
         </div>
         <div class="blank-feedback" id="fb-blank1"></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- سؤال 2: اختيار من متعدد -->
     <div class="circle-question">
       <h3>Choose ONE correct answer</h3>
       <div class="circle-header">
         <span class="circle-number">2</span>
-        <div class="circle-main-expression">Which of the following is considered an element?</div>
+        <div class="circle-main-expression">1. A week and 4 days = days</div>
       </div>
       <div class="circle-options">
         <div class="circle-option">
-          <input type="radio" id="q2_a" name="q2" value="a">
+          <input type="radio" id="q2_a" name="q2" value="A">
           <label for="q2_a">
-            <span class="option-letter">a</span>
-            <span class="option-expression">Water (H₂O)</span>
+            <span class="option-letter">A</span>
+            <span class="option-expression">A. 11</span>
           </label>
         </div>
         <div class="circle-option">
-          <input type="radio" id="q2_b" name="q2" value="b">
+          <input type="radio" id="q2_b" name="q2" value="B">
           <label for="q2_b">
             <span class="option-letter">b</span>
-            <span class="option-expression">Hydrogen (H)</span>
+            <span class="option-expression">B. 14</span>
           </label>
         </div>
         <div class="circle-option">
-          <input type="radio" id="q2_c" name="q2" value="c">
+          <input type="radio" id="q2_c" name="q2" value="C">
           <label for="q2_c">
-            <span class="option-letter">c</span>
-            <span class="option-expression">Carbon dioxide (CO₂)</span>
+            <span class="option-letter">C</span>
+            <span class="option-expression">C. 28</span>
+          </label>
+        </div>
+                <div class="circle-option">
+          <input type="radio" id="q2_c" name="q2" value="D">
+          <label for="q2_c">
+            <span class="option-letter">D</span>
+            <span class="option-expression">D. 64</span>
           </label>
         </div>
       </div>
@@ -1511,7 +1518,7 @@
     </div>
 
     <!-- سؤال 3: اختر العبارات الصحيحة -->
-    <div class="circle-question">
+    <!-- <div class="circle-question">
       <h3>Circle all the correct statements that have the same value</h3>
       <div class="circle-header">
         <span class="circle-number">3</span>
@@ -1548,7 +1555,7 @@
         </div>
       </div>
       <div class="circle-feedback" id="fb-circle3"></div>
-    </div>
+    </div> -->
 
     <!-- سؤال 4: مسألة ضرب بسيطة -->
     <div class="question-group">
@@ -1565,15 +1572,15 @@
     </div>
 
     <!-- سؤال 5: صح/خطأ -->
-    <div class="true-false-question">
+    <!-- <div class="true-false-question">
       <h3>3️⃣ Helium is an inert gas and does not react easily:</h3>
       <label><input type="radio" name="q5" value="true"> ✅ True - It's very stable!</label>
       <label><input type="radio" name="q5" value="false"> ❌ False - It reacts easily</label>
       <div class="blank-feedback" id="fb5"></div>
-    </div>
+    </div> -->
 
     <!-- سؤال 6: سؤال الصورة -->
-    <div class="image-question">
+    <!-- <div class="image-question">
       <div class="circle-header">
         <span class="circle-number">6</span>
         <h3>Look at the picture and answer</h3>
@@ -1602,10 +1609,10 @@
       </div>
 
       <div class="blank-feedback" id="fb6"></div>
-    </div>
+    </div> -->
 
     <!--  2سؤال 7: سؤال الوصل التفاعلي -->
-    <div class="matching-question-interactive">
+    <!-- <div class="matching-question-interactive">
       <div class="matching-header-interactive">
         <span class="circle-number">7</span>
         <h3>Match the mathematical expressions! 🔗</h3>
@@ -1663,22 +1670,22 @@
       <button class="btn-clear-connections" onclick="clearConnectionsInteractive()">
         🗑️ Clear All Connections
       </button>
-    </div>
+    </div> -->
 
     <!-- سؤال 8: سؤال الوصل بثلاثة أعمدة -->
-    <div class="matching-question-triple">
+    <!-- <div class="matching-question-triple">
       <div class="matching-header-triple">
         <span class="circle-number">8</span>
         <h3>Complete the mathematical expressions! 🔗🔗</h3>
       </div>
-      
+
       <div class="matching-instructions-triple">
         <p>📌 Click an item from EACH column to complete the mathematical expression!</p>
         <p>Example: "3 × 4" → "=" → "12"</p>
       </div>
-      
+
       <div class="matching-container-triple">
-        <!-- العمود الأول: التعبيرات الرياضية -->
+        العمود الأول: التعبيرات الرياضية
         <div class="matching-column-triple" id="first-column-triple">
           <h4>Expression</h4>
           <div class="matching-item-triple" data-id="1" data-type="first" onclick="selectTripleItem(this, 'first')">
@@ -1697,8 +1704,8 @@
             6 × 3
           </div>
         </div>
-        
-        <!-- العمود الثاني: العلامات الرياضية -->
+
+       العمود الثاني: العلامات الرياضية 
         <div class="matching-column-triple" id="middle-column-triple">
           <h4>Sign</h4>
           <div class="matching-item-triple" data-id="a" data-type="middle" onclick="selectTripleItem(this, 'middle')">
@@ -1711,196 +1718,196 @@
             >
           </div>
           <div class="matching-item-triple" data-id="d" data-type="middle" onclick="selectTripleItem(this, 'middle')">
-            <
+            < </div>
+              <div class="matching-item-triple" data-id="e" data-type="middle"
+                onclick="selectTripleItem(this, 'middle')">
+                =
+              </div>
           </div>
-          <div class="matching-item-triple" data-id="e" data-type="middle" onclick="selectTripleItem(this, 'middle')">
-            =
+
+          العمود الثالث: النتائج
+          <div class="matching-column-triple" id="last-column-triple">
+            <h4>Result</h4>
+            <div class="matching-item-triple" data-id="x" data-type="last" onclick="selectTripleItem(this, 'last')">
+              12
+            </div>
+            <div class="matching-item-triple" data-id="y" data-type="last" onclick="selectTripleItem(this, 'last')">
+              11
+            </div>
+            <div class="matching-item-triple" data-id="z" data-type="last" onclick="selectTripleItem(this, 'last')">
+              5
+            </div>
+            <div class="matching-item-triple" data-id="w" data-type="last" onclick="selectTripleItem(this, 'last')">
+              18
+            </div>
+            <div class="matching-item-triple" data-id="v" data-type="last" onclick="selectTripleItem(this, 'last')">
+              20
+            </div>
           </div>
         </div>
-        
-        <!-- العمود الثالث: النتائج -->
-        <div class="matching-column-triple" id="last-column-triple">
-          <h4>Result</h4>
-          <div class="matching-item-triple" data-id="x" data-type="last" onclick="selectTripleItem(this, 'last')">
-            12
-          </div>
-          <div class="matching-item-triple" data-id="y" data-type="last" onclick="selectTripleItem(this, 'last')">
-            11
-          </div>
-          <div class="matching-item-triple" data-id="z" data-type="last" onclick="selectTripleItem(this, 'last')">
-            5
-          </div>
-          <div class="matching-item-triple" data-id="w" data-type="last" onclick="selectTripleItem(this, 'last')">
-            18
-          </div>
-          <div class="matching-item-triple" data-id="v" data-type="last" onclick="selectTripleItem(this, 'last')">
-            20
-          </div>
+
+        <div class="triple-connections-display" id="tripleConnectionsDisplay">
+          <h4>Your Completed Expressions:</h4>
+          <div id="tripleConnectionsList"></div>
         </div>
+
+        <div class="matching-feedback-triple" id="fb-matching8"></div>
+
+        <button class="btn-clear-triple-connections" onclick="clearTripleConnections()">
+          🗑️ Clear All Triple Connections
+        </button>
       </div>
-      
-      <div class="triple-connections-display" id="tripleConnectionsDisplay">
-        <h4>Your Completed Expressions:</h4>
-        <div id="tripleConnectionsList"></div>
-      </div>
-      
-      <div class="matching-feedback-triple" id="fb-matching8"></div>
-      
-      <button class="btn-clear-triple-connections" onclick="clearTripleConnections()">
-        🗑️ Clear All Triple Connections
+
+      <button id="saveBtn" onclick="generateImage()">
+        📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
       </button>
-    </div>
 
-    <button id="saveBtn" onclick="generateImage()">
-      📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
-    </button>
+      <a href="index.html" id="backBtn">
+        ⬅ BACK TO HOME PAGE 🏠
+      </a>
+    </div> -->
 
-    <a href="index.html" id="backBtn">
-      ⬅ BACK TO HOME PAGE 🏠
-    </a>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+      // متغيرات للتوصيل التفاعلي
+      let connectionsInteractive = [];
+      let selectedLeftInteractive = null;
+      let selectedRightInteractive = null;
 
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script>
-    // متغيرات للتوصيل التفاعلي
-    let connectionsInteractive = [];
-    let selectedLeftInteractive = null;
-    let selectedRightInteractive = null;
+      // إنشاء نجوم زينة
+      function createStars() {
+        const starsContainer = document.getElementById('starsContainer');
+        if (!starsContainer) return;
 
-    // إنشاء نجوم زينة
-    function createStars() {
-      const starsContainer = document.getElementById('starsContainer');
-      if (!starsContainer) return;
-
-      for (let i = 0; i < 20; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        const size = Math.random() * 20 + 6;
-        star.style.width = size + 'px';
-        star.style.height = size + 'px';
-        star.style.left = Math.random() * 100 + 'vw';
-        star.style.top = Math.random() * 100 + 'vh';
-        star.style.animationDelay = Math.random() * 4 + 's';
-        star.style.animationDuration = Math.random() * 2 + 3 + 's';
-        starsContainer.appendChild(star);
+        for (let i = 0; i < 20; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          const size = Math.random() * 20 + 6;
+          star.style.width = size + 'px';
+          star.style.height = size + 'px';
+          star.style.left = Math.random() * 100 + 'vw';
+          star.style.top = Math.random() * 100 + 'vh';
+          star.style.animationDelay = Math.random() * 4 + 's';
+          star.style.animationDuration = Math.random() * 2 + 3 + 's';
+          starsContainer.appendChild(star);
+        }
       }
-    }
 
-    // إنشاء فقاعات زينة
-    function createBubbles() {
-      const bubblesContainer = document.getElementById('bubblesContainer');
-      if (!bubblesContainer) return;
+      // إنشاء فقاعات زينة
+      function createBubbles() {
+        const bubblesContainer = document.getElementById('bubblesContainer');
+        if (!bubblesContainer) return;
 
-      for (let i = 0; i < 10; i++) {
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        const size = Math.random() * 60 + 30;
-        bubble.style.width = size + 'px';
-        bubble.style.height = size + 'px';
-        bubble.style.left = Math.random() * 100 + 'vw';
-        bubble.style.animationDuration = Math.random() * 15 + 20 + 's';
-        bubble.style.animationDelay = Math.random() * 8 + 's';
-        bubblesContainer.appendChild(bubble);
+        for (let i = 0; i < 10; i++) {
+          const bubble = document.createElement('div');
+          bubble.className = 'bubble';
+          const size = Math.random() * 60 + 30;
+          bubble.style.width = size + 'px';
+          bubble.style.height = size + 'px';
+          bubble.style.left = Math.random() * 100 + 'vw';
+          bubble.style.animationDuration = Math.random() * 15 + 20 + 's';
+          bubble.style.animationDelay = Math.random() * 8 + 's';
+          bubblesContainer.appendChild(bubble);
+        }
       }
-    }
 
-    // دالة لاختيار عنصر في سؤال الوصل
-    function selectMatchingItemInteractive(element, side) {
-      if (side === 'left') {
-        // إذا كان نفس العنصر محدداً بالفعل، قم بإلغاء تحديده
-        if (selectedLeftInteractive === element) {
+      // دالة لاختيار عنصر في سؤال الوصل
+      function selectMatchingItemInteractive(element, side) {
+        if (side === 'left') {
+          // إذا كان نفس العنصر محدداً بالفعل، قم بإلغاء تحديده
+          if (selectedLeftInteractive === element) {
+            selectedLeftInteractive.classList.remove('selected');
+            selectedLeftInteractive = null;
+            return;
+          }
+
+          // إلغاء تحديد العنصر المحدد سابقاً
+          if (selectedLeftInteractive) {
+            selectedLeftInteractive.classList.remove('selected');
+          }
+
+          // تحديد العنصر الجديد
+          selectedLeftInteractive = element;
+          selectedLeftInteractive.classList.add('selected');
+        } else {
+          // إذا كان نفس العنصر محدداً بالفعل، قم بإلغاء تحديده
+          if (selectedRightInteractive === element) {
+            selectedRightInteractive.classList.remove('selected');
+            selectedRightInteractive = null;
+            return;
+          }
+
+          // إلغاء تحديد العنصر المحدد سابقاً
+          if (selectedRightInteractive) {
+            selectedRightInteractive.classList.remove('selected');
+          }
+
+          // تحديد العنصر الجديد
+          selectedRightInteractive = element;
+          selectedRightInteractive.classList.add('selected');
+        }
+
+        // إذا كان هناك عنصر محدد من كلا الجانبين، قم بإنشاء توصيل
+        if (selectedLeftInteractive && selectedRightInteractive) {
+          createConnectionInteractive(
+            selectedLeftInteractive.dataset.id,
+            selectedLeftInteractive.textContent,
+            selectedRightInteractive.dataset.id,
+            selectedRightInteractive.textContent
+          );
+
+          // إعادة تعيين التحديد
           selectedLeftInteractive.classList.remove('selected');
+          selectedRightInteractive.classList.remove('selected');
           selectedLeftInteractive = null;
-          return;
-        }
-
-        // إلغاء تحديد العنصر المحدد سابقاً
-        if (selectedLeftInteractive) {
-          selectedLeftInteractive.classList.remove('selected');
-        }
-
-        // تحديد العنصر الجديد
-        selectedLeftInteractive = element;
-        selectedLeftInteractive.classList.add('selected');
-      } else {
-        // إذا كان نفس العنصر محدداً بالفعل، قم بإلغاء تحديده
-        if (selectedRightInteractive === element) {
-          selectedRightInteractive.classList.remove('selected');
           selectedRightInteractive = null;
-          return;
         }
-
-        // إلغاء تحديد العنصر المحدد سابقاً
-        if (selectedRightInteractive) {
-          selectedRightInteractive.classList.remove('selected');
-        }
-
-        // تحديد العنصر الجديد
-        selectedRightInteractive = element;
-        selectedRightInteractive.classList.add('selected');
       }
 
-      // إذا كان هناك عنصر محدد من كلا الجانبين، قم بإنشاء توصيل
-      if (selectedLeftInteractive && selectedRightInteractive) {
-        createConnectionInteractive(
-          selectedLeftInteractive.dataset.id,
-          selectedLeftInteractive.textContent,
-          selectedRightInteractive.dataset.id,
-          selectedRightInteractive.textContent
+      // دالة لإنشاء توصيل جديد
+      function createConnectionInteractive(leftId, leftValue, rightId, rightValue) {
+        // التحقق من عدم وجود توصيل سابق لنفس العنصر
+        const existingConnection = connectionsInteractive.find(conn =>
+          conn.leftId === leftId || conn.rightId === rightId
         );
 
-        // إعادة تعيين التحديد
-        selectedLeftInteractive.classList.remove('selected');
-        selectedRightInteractive.classList.remove('selected');
-        selectedLeftInteractive = null;
-        selectedRightInteractive = null;
-      }
-    }
+        if (existingConnection) {
+          alert('⚠️ This item is already connected! Please remove the existing connection first.');
+          return;
+        }
 
-    // دالة لإنشاء توصيل جديد
-    function createConnectionInteractive(leftId, leftValue, rightId, rightValue) {
-      // التحقق من عدم وجود توصيل سابق لنفس العنصر
-      const existingConnection = connectionsInteractive.find(conn =>
-        conn.leftId === leftId || conn.rightId === rightId
-      );
+        // إضافة التوصيل الجديد
+        connectionsInteractive.push({
+          leftId,
+          leftValue,
+          rightId,
+          rightValue
+        });
 
-      if (existingConnection) {
-        alert('⚠️ This item is already connected! Please remove the existing connection first.');
-        return;
+        updateConnectionsDisplayInteractive();
+        updateProgress();
       }
 
-      // إضافة التوصيل الجديد
-      connectionsInteractive.push({
-        leftId,
-        leftValue,
-        rightId,
-        rightValue
-      });
+      // دالة لتحديث عرض التوصيلات
+      function updateConnectionsDisplayInteractive() {
+        const connectionsList = document.getElementById('connectionsListInteractive');
+        const connectionsDisplay = document.getElementById('connectionsDisplayInteractive');
 
-      updateConnectionsDisplayInteractive();
-      updateProgress();
-    }
+        if (!connectionsList) return;
 
-    // دالة لتحديث عرض التوصيلات
-    function updateConnectionsDisplayInteractive() {
-      const connectionsList = document.getElementById('connectionsListInteractive');
-      const connectionsDisplay = document.getElementById('connectionsDisplayInteractive');
+        connectionsList.innerHTML = '';
 
-      if (!connectionsList) return;
+        if (connectionsInteractive.length === 0) {
+          connectionsDisplay.classList.remove('show');
+          return;
+        }
 
-      connectionsList.innerHTML = '';
+        connectionsDisplay.classList.add('show');
 
-      if (connectionsInteractive.length === 0) {
-        connectionsDisplay.classList.remove('show');
-        return;
-      }
-
-      connectionsDisplay.classList.add('show');
-
-      connectionsInteractive.forEach((conn, index) => {
-        const connectionDiv = document.createElement('div');
-        connectionDiv.className = 'connection-item-interactive';
-        connectionDiv.innerHTML = `
+        connectionsInteractive.forEach((conn, index) => {
+          const connectionDiv = document.createElement('div');
+          connectionDiv.className = 'connection-item-interactive';
+          connectionDiv.innerHTML = `
           <span>${conn.leftValue}</span>
           <span>→</span>
           <span>${conn.rightValue}</span>
@@ -1908,704 +1915,720 @@
             ✗ Remove
           </button>
         `;
-        connectionsList.appendChild(connectionDiv);
-      });
-    }
+          connectionsList.appendChild(connectionDiv);
+        });
+      }
 
-    // دالة لإزالة توصيل محدد
-    function removeConnectionInteractive(leftId, rightId) {
-      connectionsInteractive = connectionsInteractive.filter(conn =>
-        !(conn.leftId === leftId && conn.rightId === rightId)
-      );
-      updateConnectionsDisplayInteractive();
-      updateProgress();
-    }
-
-    // دالة لمسح جميع التوصيلات
-    function clearConnectionsInteractive() {
-      connectionsInteractive = [];
-      updateConnectionsDisplayInteractive();
-
-      // إلغاء تحديد جميع العناصر
-      document.querySelectorAll('.matching-item-interactive').forEach(item => {
-        item.classList.remove('selected');
-      });
-
-      selectedLeftInteractive = null;
-      selectedRightInteractive = null;
-      updateProgress();
-    }
-
-    // دالة لتصحيح سؤال الوصل التفاعلي
-    function checkMatchingInteractive() {
-      // الإجابات الصحيحة للتوصيل
-      const correctConnections = [
-        { left: '1', right: 'a' },  // (2 × 3) × 4 = 24
-        { left: '2', right: 'b' },  // 5 × (3 × 2) = 30
-        { left: '3', right: 'c' },  // (4 × 2) × 5 = 40
-        { left: '4', right: 'd' },  // 3 × (5 × 2) = 30
-        { left: '5', right: 'e' }   // (2 × 4) × 3 = 24
-      ];
-
-      let correctCount = 0;
-
-      // لكل توصيل، تحقق مما إذا كان مطابقاً للإجابة الصحيحة
-      connectionsInteractive.forEach(conn => {
-        const isCorrect = correctConnections.some(correct =>
-          correct.left === conn.leftId && correct.right === conn.rightId
+      // دالة لإزالة توصيل محدد
+      function removeConnectionInteractive(leftId, rightId) {
+        connectionsInteractive = connectionsInteractive.filter(conn =>
+          !(conn.leftId === leftId && conn.rightId === rightId)
         );
+        updateConnectionsDisplayInteractive();
+        updateProgress();
+      }
 
-        if (isCorrect) {
-          correctCount++;
+      // دالة لمسح جميع التوصيلات
+      function clearConnectionsInteractive() {
+        connectionsInteractive = [];
+        updateConnectionsDisplayInteractive();
+
+        // إلغاء تحديد جميع العناصر
+        document.querySelectorAll('.matching-item-interactive').forEach(item => {
+          item.classList.remove('selected');
+        });
+
+        selectedLeftInteractive = null;
+        selectedRightInteractive = null;
+        updateProgress();
+      }
+
+      // دالة لتصحيح سؤال الوصل التفاعلي
+      function checkMatchingInteractive() {
+        // الإجابات الصحيحة للتوصيل
+        const correctConnections = [
+          { left: '1', right: 'a' },  // (2 × 3) × 4 = 24
+          { left: '2', right: 'b' },  // 5 × (3 × 2) = 30
+          { left: '3', right: 'c' },  // (4 × 2) × 5 = 40
+          { left: '4', right: 'd' },  // 3 × (5 × 2) = 30
+          { left: '5', right: 'e' }   // (2 × 4) × 3 = 24
+        ];
+
+        let correctCount = 0;
+
+        // لكل توصيل، تحقق مما إذا كان مطابقاً للإجابة الصحيحة
+        connectionsInteractive.forEach(conn => {
+          const isCorrect = correctConnections.some(correct =>
+            correct.left === conn.leftId && correct.right === conn.rightId
+          );
+
+          if (isCorrect) {
+            correctCount++;
+          }
+        });
+
+        return correctCount;
+      }
+
+      // تحديث شريط التقدم
+      function updateProgress() {
+        const textInputs = document.querySelectorAll('.small-input, #q6_answer');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const radios = document.querySelectorAll('input[type="radio"]');
+
+        const totalInputs = textInputs.length + checkboxes.length + 2 + 5; // 5 أسئلة توصيل
+
+        let filledCount = 0;
+        // حساب سؤال الوصل الثلاثي
+        filledCount += tripleConnections.length;
+        // حساب الحقول النصية
+        textInputs.forEach(input => {
+          if (input.value.trim() !== '') {
+            filledCount++;
+          }
+        });
+
+        // حساب الأسئلة متعددة الخيارات
+        const hasQ2 = document.querySelector('input[name="q2"]:checked') !== null;
+        const hasQ5 = document.querySelector('input[name="q5"]:checked') !== null;
+
+        if (hasQ2) filledCount++;
+        if (hasQ5) filledCount++;
+
+        // حساب المربعات المختارة
+        let hasQ3 = false;
+        document.querySelectorAll('input[name="q3"]:checked').forEach(() => {
+          hasQ3 = true;
+        });
+        if (hasQ3) filledCount++;
+
+        // حساب أسئلة الوصل
+        filledCount += connectionsInteractive.length;
+
+        const progress = Math.min(100, (filledCount / totalInputs) * 100);
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) {
+          progressBar.style.width = progress + '%';
         }
-      });
-
-      return correctCount;
-    }
-
-    // تحديث شريط التقدم
-    function updateProgress() {
-      const textInputs = document.querySelectorAll('.small-input, #q6_answer');
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      const radios = document.querySelectorAll('input[type="radio"]');
-
-      const totalInputs = textInputs.length + checkboxes.length + 2 + 5; // 5 أسئلة توصيل
-
-      let filledCount = 0;
-      // حساب سؤال الوصل الثلاثي
-      filledCount += tripleConnections.length;
-      // حساب الحقول النصية
-      textInputs.forEach(input => {
-        if (input.value.trim() !== '') {
-          filledCount++;
-        }
-      });
-
-      // حساب الأسئلة متعددة الخيارات
-      const hasQ2 = document.querySelector('input[name="q2"]:checked') !== null;
-      const hasQ5 = document.querySelector('input[name="q5"]:checked') !== null;
-
-      if (hasQ2) filledCount++;
-      if (hasQ5) filledCount++;
-
-      // حساب المربعات المختارة
-      let hasQ3 = false;
-      document.querySelectorAll('input[name="q3"]:checked').forEach(() => {
-        hasQ3 = true;
-      });
-      if (hasQ3) filledCount++;
-
-      // حساب أسئلة الوصل
-      filledCount += connectionsInteractive.length;
-
-      const progress = Math.min(100, (filledCount / totalInputs) * 100);
-      const progressBar = document.getElementById("progressBar");
-      if (progressBar) {
-        progressBar.style.width = progress + '%';
-      }
-    }
-
-    // تهيئة الصفحة
-    document.addEventListener('DOMContentLoaded', function () {
-      createStars();
-      createBubbles();
-      updateConnectionsDisplayInteractive();
-          // تهيئة سؤال الوصل الثلاثي عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', function() {
-      updateTripleConnectionsDisplay();
-    });
-
-      // تحديث شريط التقدم عند أي تغيير
-      document.querySelectorAll('.small-input, #q6_answer, input[type="checkbox"], input[type="radio"]').forEach(element => {
-        element.addEventListener('input', updateProgress);
-        element.addEventListener('change', updateProgress);
-      });
-
-      // تحديث أولي
-      updateProgress();
-    });
-
-    // متغيرات التخزين
-    const LOCK_DAYS = 0;
-    const STORAGE_KEY = "math_homework_locked";
-
-    window.onload = function () {
-      const lockData = localStorage.getItem(STORAGE_KEY);
-      if (lockData) {
-        const savedTime = parseInt(lockData, 10);
-        const now = Date.now();
-        const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
-        if (diffDays < LOCK_DAYS) {
-          lockHomework();
-        } else {
-          localStorage.removeItem(STORAGE_KEY);
-        }
-      }
-    };
-
-    function lockHomework() {
-      const saveBtn = document.getElementById("saveBtn");
-      if (saveBtn) {
-        saveBtn.disabled = true;
-        saveBtn.innerHTML = "✅ HOMEWORK SUBMITTED! 🎉";
-        saveBtn.classList.add('celebrate');
-      }
-      document.querySelectorAll("input").forEach(el => el.disabled = true);
-
-      // تعطيل عناصر التوصيل التفاعلي
-      document.querySelectorAll('.matching-item-interactive').forEach(el => {
-        el.style.pointerEvents = 'none';
-        el.style.opacity = '0.7';
-      });
-
-      document.querySelectorAll('.btn-clear-connections').forEach(el => {
-        el.disabled = true;
-        el.style.opacity = '0.5';
-      });
-    }
-
-    function generateImage() {
-      const saveBtn = document.getElementById("saveBtn");
-      if (saveBtn && saveBtn.disabled) return;
-
-      const name = document.getElementById("studentName").value.trim();
-      if (!name) {
-        alert("🌟 Please enter your name first, Mathematician!");
-        document.getElementById("studentName").focus();
-        return;
       }
 
-      // الإجابات الصحيحة للأسئلة النصية (السؤال 1)
-      const fillAnswers1 = {
-        blank1_1: "2",
-        blank1_2: "3",
-        blank1_3: "4",
-        blank1_4: "2",
-        blank1_5: "3",
-        blank1_6: "4"
-      };
+      // تهيئة الصفحة
+      document.addEventListener('DOMContentLoaded', function () {
+        createStars();
+        createBubbles();
+        updateConnectionsDisplayInteractive();
+        // تهيئة سؤال الوصل الثلاثي عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function () {
+          updateTripleConnectionsDisplay();
+        });
 
-      // الإجابات الصحيحة للأسئلة الأخرى
-      const fillAnswers = {
-        blank4: "3"
-      };
+        // تحديث شريط التقدم عند أي تغيير
+        document.querySelectorAll('.small-input, #q6_answer, input[type="checkbox"], input[type="radio"]').forEach(element => {
+          element.addEventListener('input', updateProgress);
+          element.addEventListener('change', updateProgress);
+        });
 
-      // إجابات أسئلة الاختيار المتعدد
-      const mcqAnswers = {
-        q2: "b",      // Hydrogen (H) هو العنصر
-        q5: "true"    // Helium is inert
-      };
+        // تحديث أولي
+        updateProgress();
+      });
 
-      // إجابات أسئلة "اختر العبارات الصحيحة" (السؤال 3)
-      const circleAnswers = {
-        q3: ["a", "c", "d"]  // (3×2)×4, (3×4)×2, 3×(2×4)
-      };
+      // متغيرات التخزين
+      const LOCK_DAYS = 0;
+      const STORAGE_KEY = "math_homework_locked";
 
-      // تصحيح الأسئلة
-      let totalScore = 0;
-      const totalQuestions = 8; // إجمالي الأسئلة
-
-      // تصحيح السؤال 1
-      let question1Score = 0;
-      Object.keys(fillAnswers1).forEach(blankId => {
-        const input = document.getElementById(blankId);
-        const feedback = document.getElementById("fb-blank1");
-
-        if (input) {
-          const userAnswer = input.value.trim();
-          const correctAnswer = fillAnswers1[blankId];
-
-          if (userAnswer === correctAnswer) {
-            question1Score++;
-            input.classList.add('correct');
+      window.onload = function () {
+        const lockData = localStorage.getItem(STORAGE_KEY);
+        if (lockData) {
+          const savedTime = parseInt(lockData, 10);
+          const now = Date.now();
+          const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
+          if (diffDays < LOCK_DAYS) {
+            lockHomework();
           } else {
-            input.classList.add('wrong');
+            localStorage.removeItem(STORAGE_KEY);
           }
         }
-      });
+      };
 
-      // حساب درجة السؤال 1 (نصف نقطة لكل إجابة صحيحة)
-      if (question1Score === 6) {
-        totalScore += 1; // سؤال كامل
-      } else if (question1Score >= 3) {
-        totalScore += 0.5; // نصف نقطة
+      function lockHomework() {
+        const saveBtn = document.getElementById("saveBtn");
+        if (saveBtn) {
+          saveBtn.disabled = true;
+          saveBtn.innerHTML = "✅ HOMEWORK SUBMITTED! 🎉";
+          saveBtn.classList.add('celebrate');
+        }
+        document.querySelectorAll("input").forEach(el => el.disabled = true);
+
+        // تعطيل عناصر التوصيل التفاعلي
+        document.querySelectorAll('.matching-item-interactive').forEach(el => {
+          el.style.pointerEvents = 'none';
+          el.style.opacity = '0.7';
+        });
+
+        document.querySelectorAll('.btn-clear-connections').forEach(el => {
+          el.disabled = true;
+          el.style.opacity = '0.5';
+        });
       }
 
-      // تحديث التغذية الراجعة للسؤال 1
-      const fb1 = document.getElementById("fb-blank1");
-      if (fb1) {
+      function generateImage() {
+        const saveBtn = document.getElementById("saveBtn");
+        if (saveBtn && saveBtn.disabled) return;
+
+        const name = document.getElementById("studentName").value.trim();
+        if (!name) {
+          alert("🌟 Please enter your name first, Mathematician!");
+          document.getElementById("studentName").focus();
+          return;
+        }
+
+        // الإجابات الصحيحة للأسئلة النصية (السؤال 1)
+        const fillAnswers1 = {
+          blank1_1: "2",
+          blank1_2: "3",
+          blank1_3: "4",
+          blank1_4: "2",
+          blank1_5: "3",
+          blank1_6: "4"
+        };
+
+        // الإجابات الصحيحة للأسئلة الأخرى
+        const fillAnswers = {
+          blank4: "3"
+        };
+
+        // إجابات أسئلة الاختيار المتعدد
+        const mcqAnswers = {
+          choq1: "D",
+          choq2: "D",
+          choq3: "C",
+          choq4: "C",
+          choq5: "C",
+          choq6: "B",
+          choq7: "C",
+          choq8: "D",
+          choq9: "A",
+          choq10: "500 minutes",
+          choq11: "170",
+          choq12: "252 km",
+          choq13: ["37123", "23125", "3.137"],
+          choq14: "20cm",
+          choq15: "24cm2",
+          choq16: "10",
+          choq17: "27 balloons",
+          q5: "true"    // Helium is inert
+        };
+
+        // إجابات أسئلة "اختر العبارات الصحيحة" (السؤال 3)
+        const circleAnswers = {
+          q3: ["a", "c", "d"]  // (3×2)×4, (3×4)×2, 3×(2×4)
+        };
+
+        // تصحيح الأسئلة
+        let totalScore = 0;
+        const totalQuestions = 8; // إجمالي الأسئلة
+
+        // تصحيح السؤال 1
+        let question1Score = 0;
+        Object.keys(fillAnswers1).forEach(blankId => {
+          const input = document.getElementById(blankId);
+          const feedback = document.getElementById("fb-blank1");
+
+          if (input) {
+            const userAnswer = input.value.trim();
+            const correctAnswer = fillAnswers1[blankId];
+
+            if (userAnswer === correctAnswer) {
+              question1Score++;
+              input.classList.add('correct');
+            } else {
+              input.classList.add('wrong');
+            }
+          }
+        });
+
+        // حساب درجة السؤال 1 (نصف نقطة لكل إجابة صحيحة)
         if (question1Score === 6) {
-          fb1.innerHTML = `<div style="color:#10b981;">✅ Perfect! All answers are correct!</div>`;
+          totalScore += 1; // سؤال كامل
         } else if (question1Score >= 3) {
-          fb1.innerHTML = `<div style="color:#fbbf24;">⚠️ Some answers are correct (${question1Score}/6). Keep practicing!</div>`;
-        } else {
-          fb1.innerHTML = `<div style="color:#ef4444;">❌ Try again! The pattern should be: (2×3)×4 = 2×(3×4)</div>`;
+          totalScore += 0.5; // نصف نقطة
         }
-      }
 
-      // تصحيح السؤال 4
-      const input4 = document.getElementById("blank4");
-      const fb4 = document.getElementById("fb-blank4");
-      if (input4) {
-        const userAnswer = input4.value.trim();
-        if (userAnswer === fillAnswers.blank4) {
-          totalScore++;
-          input4.classList.add('correct');
-          if (fb4) fb4.innerHTML = `<div style="color:#10b981;">✅ Correct! (2×1)×3 = 2×(1×3)</div>`;
-        } else {
-          input4.classList.add('wrong');
-          if (fb4) fb4.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "3"</div>`;
-        }
-      }
-
-      // تصحيح السؤال 2
-      const q2Answer = document.querySelector('input[name="q2"]:checked');
-      const fb2 = document.getElementById("fb-circle2");
-      if (q2Answer) {
-        if (q2Answer.value === mcqAnswers.q2) {
-          totalScore++;
-          document.querySelector(`label[for="q2_${mcqAnswers.q2}"]`).style.color = "#10b981";
-          if (fb2) fb2.innerHTML = `<div style="color:#10b981;">✅ Correct! Hydrogen (H) is an element!</div>`;
-        } else {
-          q2Answer.parentElement.classList.add('wrong-checkbox');
-          document.querySelector(`label[for="q2_${mcqAnswers.q2}"]`).style.color = "#10b981";
-          if (fb2) fb2.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "Hydrogen (H)" - it's an element!</div>`;
-        }
-      } else if (fb2) {
-        fb2.innerHTML = `<div style="color:#ef4444;">❌ Please select an answer</div>`;
-      }
-
-      // تصحيح السؤال 3
-      const q3Answers = document.querySelectorAll('input[name="q3"]:checked');
-      const fb3 = document.getElementById("fb-circle3");
-      let q3Score = 0;
-      const correctQ3 = circleAnswers.q3;
-      let allCorrect = true;
-      let anySelected = false;
-
-      // التحقق من الإجابات المحددة
-      q3Answers.forEach(checkbox => {
-        anySelected = true;
-        const optionDiv = checkbox.closest('.circle-option');
-        if (correctQ3.includes(checkbox.value)) {
-          q3Score++;
-          optionDiv.classList.add('correct-checkbox');
-        } else {
-          allCorrect = false;
-          optionDiv.classList.add('wrong-checkbox');
-        }
-      });
-
-      // إضافة الألوان للإجابات الصحيحة غير المحددة
-      correctQ3.forEach(correct => {
-        const option = document.querySelector(`#q3_${correct}`);
-        if (option && !option.checked) {
-          option.closest('.circle-option').classList.add('wrong-checkbox');
-          allCorrect = false;
-        }
-      });
-
-      // حساب درجة السؤال 3
-      if (allCorrect && anySelected) {
-        totalScore++;
-        if (fb3) fb3.innerHTML = `<div style="color:#10b981;">✅ Perfect! All correct answers selected!</div>`;
-      } else if (anySelected) {
-        if (fb3) fb3.innerHTML = `<div style="color:#fbbf24;">⚠️ Some answers are incorrect. Correct answers: (3×2)×4, (3×4)×2, 3×(2×4)</div>`;
-        if (q3Score >= 2) totalScore += 0.5;
-      } else if (fb3) {
-        fb3.innerHTML = `<div style="color:#ef4444;">❌ Please select answers. Correct ones: (3×2)×4, (3×4)×2, 3×(2×4)</div>`;
-      }
-
-      // تصحيح السؤال 5
-      const q5Answer = document.querySelector('input[name="q5"]:checked');
-      const fb5 = document.getElementById("fb5");
-      if (q5Answer) {
-        if (q5Answer.value === mcqAnswers.q5) {
-          totalScore++;
-          q5Answer.parentElement.style.color = "#10b981";
-          if (fb5) fb5.innerHTML = `<div style="color:#10b981;">✅ Correct! Helium is an inert gas!</div>`;
-        } else {
-          q5Answer.parentElement.style.color = "#ef4444";
-          document.querySelector(`input[name="q5"][value="${mcqAnswers.q5}"]`).parentElement.style.color = "#10b981";
-          if (fb5) fb5.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "True" - Helium is inert!</div>`;
-        }
-      } else if (fb5) {
-        fb5.innerHTML = `<div style="color:#ef4444;">❌ Please select an answer</div>`;
-      }
-
-      // تصحيح السؤال 6 (الصورة)
-      const q6Input = document.getElementById("q6_answer");
-      const fb6 = document.getElementById("fb6");
-      if (q6Input) {
-        const userAnswer = q6Input.value.trim().toLowerCase();
-        // قبول عدة صيغ
-        const normalizedAnswer = userAnswer
-          .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
-          .replace('\\', '/')
-          .replace('ثلث', '1/3')
-          .replace('نصف', '1/2')
-          .replace('ربع', '1/4')
-          .replace('خمس', '1/5')
-          .replace('ثلاثة أخماس', '3/5')
-          .replace('ثلاث اخماس', '3/5');
-
-        if (normalizedAnswer === "3/5" || userAnswer === "3/5") {
-          totalScore++;
-          q6Input.classList.add('correct');
-          if (fb6) fb6.innerHTML = `<div style="color:#10b981;">✅ Correct! The fraction is 3/5!</div>`;
-        } else if (userAnswer === "") {
-          q6Input.classList.add('wrong');
-          if (fb6) fb6.innerHTML = `<div style="color:#ef4444;">❌ Please enter an answer</div>`;
-        } else {
-          q6Input.classList.add('wrong');
-          if (fb6) fb6.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "3/5"</div>`;
-        }
-      }
-
-      // تصحيح سؤال الوصل التفاعلي (السؤال 7)
-      const matchingInteractiveResult = checkMatchingInteractive();
-      const fbMatchingInteractive = document.getElementById("fb-matching7");
-// ###################################################
-      // تصحيح سؤال الوصل الثلاثي (السؤال 8)
-      const tripleMatchingResult = checkTripleMatching();
-      const fbTripleMatching = document.getElementById("fb-matching8");
-      
-      // حساب درجة سؤال الوصل الثلاثي (نقطة لكل تعبير صحيح)
-      totalScore += tripleMatchingResult.correctCount; // 5 نقاط كحد أقصى
-      
-      // تحديث التغذية الراجعة
-      if (fbTripleMatching) {
-        if (tripleConnections.length === 0) {
-          fbTripleMatching.innerHTML = `<div style="color:#ef4444;">❌ Please create all 5 expressions!</div>`;
-        } else if (tripleMatchingResult.correctCount === 5) {
-          fbTripleMatching.innerHTML = `<div style="color:#10b981;">✅ Perfect! All expressions are correct! (5/5)</div>`;
-        } else if (tripleMatchingResult.correctCount > 0) {
-          let feedback = `<div style="color:#fbbf24;">⚠️ You got ${tripleMatchingResult.correctCount}/5 correct.`;
-          
-          if (tripleMatchingResult.incorrectExpressions.length > 0) {
-            feedback += `<br>Incorrect expressions: ${tripleMatchingResult.incorrectExpressions.join(', ')}</div>`;
+        // تحديث التغذية الراجعة للسؤال 1
+        const fb1 = document.getElementById("fb-blank1");
+        if (fb1) {
+          if (question1Score === 6) {
+            fb1.innerHTML = `<div style="color:#10b981;">✅ Perfect! All answers are correct!</div>`;
+          } else if (question1Score >= 3) {
+            fb1.innerHTML = `<div style="color:#fbbf24;">⚠️ Some answers are correct (${question1Score}/6). Keep practicing!</div>`;
           } else {
-            feedback += `</div>`;
+            fb1.innerHTML = `<div style="color:#ef4444;">❌ Try again! The pattern should be: (2×3)×4 = 2×(3×4)</div>`;
           }
-          
-          fbTripleMatching.innerHTML = feedback;
-        } else {
-          fbTripleMatching.innerHTML = `<div style="color:#ef4444;">❌ None of your expressions are correct. Try again!</div>`;
         }
-      }
-// ###################################################
-      // حساب درجة سؤال الوصل (نقطة لكل تطابق صحيح)
-      totalScore += matchingInteractiveResult; // 5 نقاط كحد أقصى
 
-      // تحديث التغذية الراجعة
-      if (fbMatchingInteractive) {
-        if (connectionsInteractive.length === 0) {
-          fbMatchingInteractive.innerHTML = `<div style="color:#ef4444;">❌ Please create all 5 connections!</div>`;
-        } else if (matchingInteractiveResult === 5) {
-          fbMatchingInteractive.innerHTML = `<div style="color:#10b981;">✅ Perfect! All matches are correct! (5/5)</div>`;
-        } else {
-          fbMatchingInteractive.innerHTML = `<div style="color:#fbbf24;">⚠️ You got ${matchingInteractiveResult}/5 correct. Keep trying!</div>`;
+        // تصحيح السؤال 4
+        const input4 = document.getElementById("blank4");
+        const fb4 = document.getElementById("fb-blank4");
+        if (input4) {
+          const userAnswer = input4.value.trim();
+          if (userAnswer === fillAnswers.blank4) {
+            totalScore++;
+            input4.classList.add('correct');
+            if (fb4) fb4.innerHTML = `<div style="color:#10b981;">✅ Correct! (2×1)×3 = 2×(1×3)</div>`;
+          } else {
+            input4.classList.add('wrong');
+            if (fb4) fb4.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "3"</div>`;
+          }
         }
-      }
 
-      // تحديث المعلومات
-      document.getElementById("imgName").textContent = name;
-      document.getElementById("imgScore").textContent = totalScore.toFixed(1) + " / " + totalQuestions;
+        // تصحيح السؤال 2
+        const q2Answer = document.querySelector('input[name="q2"]:checked');
+        const fb2 = document.getElementById("fb-circle2");
+        if (q2Answer) {
+          if (q2Answer.value === mcqAnswers.q2) {
+            totalScore++;
+            document.querySelector(`label[for="q2_${mcqAnswers.q2}"]`).style.color = "#10b981";
+            if (fb2) fb2.innerHTML = `<div style="color:#10b981;">✅ Correct! Hydrogen (H) is an element!</div>`;
+          } else {
+            q2Answer.parentElement.classList.add('wrong-checkbox');
+            document.querySelector(`label[for="q2_${mcqAnswers.q2}"]`).style.color = "#10b981";
+            if (fb2) fb2.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "Hydrogen (H)" - it's an element!</div>`;
+          }
+        } else if (fb2) {
+          fb2.innerHTML = `<div style="color:#ef4444;">❌ Please select an answer</div>`;
+        }
 
-      const now = new Date();
-      const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      document.getElementById("imgDate").textContent = dateStr + " at " + timeStr;
+        // تصحيح السؤال 3
+        const q3Answers = document.querySelectorAll('input[name="q3"]:checked');
+        const fb3 = document.getElementById("fb-circle3");
+        let q3Score = 0;
+        const correctQ3 = circleAnswers.q3;
+        let allCorrect = true;
+        let anySelected = false;
 
-      // إظهار التصحيح
-      const area = document.getElementById("printArea");
-      area.classList.add("show-correction");
+        // التحقق من الإجابات المحددة
+        q3Answers.forEach(checkbox => {
+          anySelected = true;
+          const optionDiv = checkbox.closest('.circle-option');
+          if (correctQ3.includes(checkbox.value)) {
+            q3Score++;
+            optionDiv.classList.add('correct-checkbox');
+          } else {
+            allCorrect = false;
+            optionDiv.classList.add('wrong-checkbox');
+          }
+        });
 
-      document.getElementById('loading').style.display = 'block';
-      if (saveBtn) saveBtn.style.display = 'none';
-      const backBtn = document.getElementById('backBtn');
-      if (backBtn) backBtn.style.display = 'none';
+        // إضافة الألوان للإجابات الصحيحة غير المحددة
+        correctQ3.forEach(correct => {
+          const option = document.querySelector(`#q3_${correct}`);
+          if (option && !option.checked) {
+            option.closest('.circle-option').classList.add('wrong-checkbox');
+            allCorrect = false;
+          }
+        });
 
-      // تحريك الصفحة للأعلى
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+        // حساب درجة السؤال 3
+        if (allCorrect && anySelected) {
+          totalScore++;
+          if (fb3) fb3.innerHTML = `<div style="color:#10b981;">✅ Perfect! All correct answers selected!</div>`;
+        } else if (anySelected) {
+          if (fb3) fb3.innerHTML = `<div style="color:#fbbf24;">⚠️ Some answers are incorrect. Correct answers: (3×2)×4, (3×4)×2, 3×(2×4)</div>`;
+          if (q3Score >= 2) totalScore += 0.5;
+        } else if (fb3) {
+          fb3.innerHTML = `<div style="color:#ef4444;">❌ Please select answers. Correct ones: (3×2)×4, (3×4)×2, 3×(2×4)</div>`;
+        }
 
-      setTimeout(() => {
-        html2canvas(area, {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: '#1e293b',
-          letterRendering: true,
-          allowTaint: true,
-          logging: false,
-          windowWidth: area.scrollWidth,
-          windowHeight: area.scrollHeight
-        }).then(canvas => {
-          const link = document.createElement("a");
-          link.download = `Math_Homework_${name.replace(/\s+/g, '_')}.png`;
-          link.href = canvas.toDataURL('image/png', 1.0);
-          link.click();
+        // تصحيح السؤال 5
+        const q5Answer = document.querySelector('input[name="q5"]:checked');
+        const fb5 = document.getElementById("fb5");
+        if (q5Answer) {
+          if (q5Answer.value === mcqAnswers.q5) {
+            totalScore++;
+            q5Answer.parentElement.style.color = "#10b981";
+            if (fb5) fb5.innerHTML = `<div style="color:#10b981;">✅ Correct! Helium is an inert gas!</div>`;
+          } else {
+            q5Answer.parentElement.style.color = "#ef4444";
+            document.querySelector(`input[name="q5"][value="${mcqAnswers.q5}"]`).parentElement.style.color = "#10b981";
+            if (fb5) fb5.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "True" - Helium is inert!</div>`;
+          }
+        } else if (fb5) {
+          fb5.innerHTML = `<div style="color:#ef4444;">❌ Please select an answer</div>`;
+        }
 
-          // إخفاء التصحيح
-          setTimeout(() => {
+        // تصحيح السؤال 6 (الصورة)
+        const q6Input = document.getElementById("q6_answer");
+        const fb6 = document.getElementById("fb6");
+        if (q6Input) {
+          const userAnswer = q6Input.value.trim().toLowerCase();
+          // قبول عدة صيغ
+          const normalizedAnswer = userAnswer
+            .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+            .replace('\\', '/')
+            .replace('ثلث', '1/3')
+            .replace('نصف', '1/2')
+            .replace('ربع', '1/4')
+            .replace('خمس', '1/5')
+            .replace('ثلاثة أخماس', '3/5')
+            .replace('ثلاث اخماس', '3/5');
+
+          if (normalizedAnswer === "3/5" || userAnswer === "3/5") {
+            totalScore++;
+            q6Input.classList.add('correct');
+            if (fb6) fb6.innerHTML = `<div style="color:#10b981;">✅ Correct! The fraction is 3/5!</div>`;
+          } else if (userAnswer === "") {
+            q6Input.classList.add('wrong');
+            if (fb6) fb6.innerHTML = `<div style="color:#ef4444;">❌ Please enter an answer</div>`;
+          } else {
+            q6Input.classList.add('wrong');
+            if (fb6) fb6.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "3/5"</div>`;
+          }
+        }
+
+        // تصحيح سؤال الوصل التفاعلي (السؤال 7)
+        const matchingInteractiveResult = checkMatchingInteractive();
+        const fbMatchingInteractive = document.getElementById("fb-matching7");
+        // ###################################################
+        // تصحيح سؤال الوصل الثلاثي (السؤال 8)
+        const tripleMatchingResult = checkTripleMatching();
+        const fbTripleMatching = document.getElementById("fb-matching8");
+
+        // حساب درجة سؤال الوصل الثلاثي (نقطة لكل تعبير صحيح)
+        totalScore += tripleMatchingResult.correctCount; // 5 نقاط كحد أقصى
+
+        // تحديث التغذية الراجعة
+        if (fbTripleMatching) {
+          if (tripleConnections.length === 0) {
+            fbTripleMatching.innerHTML = `<div style="color:#ef4444;">❌ Please create all 5 expressions!</div>`;
+          } else if (tripleMatchingResult.correctCount === 5) {
+            fbTripleMatching.innerHTML = `<div style="color:#10b981;">✅ Perfect! All expressions are correct! (5/5)</div>`;
+          } else if (tripleMatchingResult.correctCount > 0) {
+            let feedback = `<div style="color:#fbbf24;">⚠️ You got ${tripleMatchingResult.correctCount}/5 correct.`;
+
+            if (tripleMatchingResult.incorrectExpressions.length > 0) {
+              feedback += `<br>Incorrect expressions: ${tripleMatchingResult.incorrectExpressions.join(', ')}</div>`;
+            } else {
+              feedback += `</div>`;
+            }
+
+            fbTripleMatching.innerHTML = feedback;
+          } else {
+            fbTripleMatching.innerHTML = `<div style="color:#ef4444;">❌ None of your expressions are correct. Try again!</div>`;
+          }
+        }
+        // ###################################################
+        // حساب درجة سؤال الوصل (نقطة لكل تطابق صحيح)
+        totalScore += matchingInteractiveResult; // 5 نقاط كحد أقصى
+
+        // تحديث التغذية الراجعة
+        if (fbMatchingInteractive) {
+          if (connectionsInteractive.length === 0) {
+            fbMatchingInteractive.innerHTML = `<div style="color:#ef4444;">❌ Please create all 5 connections!</div>`;
+          } else if (matchingInteractiveResult === 5) {
+            fbMatchingInteractive.innerHTML = `<div style="color:#10b981;">✅ Perfect! All matches are correct! (5/5)</div>`;
+          } else {
+            fbMatchingInteractive.innerHTML = `<div style="color:#fbbf24;">⚠️ You got ${matchingInteractiveResult}/5 correct. Keep trying!</div>`;
+          }
+        }
+
+        // تحديث المعلومات
+        document.getElementById("imgName").textContent = name;
+        document.getElementById("imgScore").textContent = totalScore.toFixed(1) + " / " + totalQuestions;
+
+        const now = new Date();
+        const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
+        const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        document.getElementById("imgDate").textContent = dateStr + " at " + timeStr;
+
+        // إظهار التصحيح
+        const area = document.getElementById("printArea");
+        area.classList.add("show-correction");
+
+        document.getElementById('loading').style.display = 'block';
+        if (saveBtn) saveBtn.style.display = 'none';
+        const backBtn = document.getElementById('backBtn');
+        if (backBtn) backBtn.style.display = 'none';
+
+        // تحريك الصفحة للأعلى
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(() => {
+          html2canvas(area, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#1e293b',
+            letterRendering: true,
+            allowTaint: true,
+            logging: false,
+            windowWidth: area.scrollWidth,
+            windowHeight: area.scrollHeight
+          }).then(canvas => {
+            const link = document.createElement("a");
+            link.download = `Math_Homework_${name.replace(/\s+/g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png', 1.0);
+            link.click();
+
+            // إخفاء التصحيح
+            setTimeout(() => {
+              area.classList.remove("show-correction");
+              document.getElementById('loading').style.display = 'none';
+              if (saveBtn) saveBtn.style.display = 'block';
+              if (backBtn) backBtn.style.display = 'inline-block';
+
+              // إعادة تعيين الألوان
+              document.querySelectorAll('.small-input, #q6_answer').forEach(input => {
+                input.classList.remove('correct', 'wrong');
+              });
+
+              document.querySelectorAll('.circle-option').forEach(option => {
+                option.classList.remove('correct-checkbox', 'wrong-checkbox');
+              });
+
+              document.querySelectorAll('.matching-item-interactive').forEach(item => {
+                item.classList.remove('selected');
+              });
+
+              document.querySelectorAll('label').forEach(label => {
+                label.style.color = '';
+              });
+
+              localStorage.setItem(STORAGE_KEY, Date.now());
+              lockHomework();
+              // تعطيل عناصر التوصيل الثلاثي
+              document.querySelectorAll('.matching-item-triple').forEach(el => {
+                el.style.pointerEvents = 'none';
+                el.style.opacity = '0.7';
+              });
+
+              document.querySelectorAll('.btn-clear-triple-connections').forEach(el => {
+                el.disabled = true;
+                el.style.opacity = '0.5';
+              });
+              // رسالة نجاح
+              const percentage = Math.round((totalScore / totalQuestions) * 100);
+              let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore.toFixed(1)}/${totalQuestions} (${percentage}%)\n\n`;
+
+              if (percentage === 100) {
+                message += "Perfect score! You're a math genius! 🧠";
+              } else if (percentage >= 80) {
+                message += "Great job! You understand the concepts well! 👍";
+              } else if (percentage >= 60) {
+                message += "Good effort! Keep practicing to master the material! 📚";
+              } else {
+                message += "Keep practicing! You'll get better with more practice. Don't give up! 💪";
+              }
+
+              alert(message);
+            }, 500);
+
+          }).catch(error => {
+            console.error("Error creating image:", error);
             area.classList.remove("show-correction");
             document.getElementById('loading').style.display = 'none';
             if (saveBtn) saveBtn.style.display = 'block';
             if (backBtn) backBtn.style.display = 'inline-block';
 
-            // إعادة تعيين الألوان
-            document.querySelectorAll('.small-input, #q6_answer').forEach(input => {
-              input.classList.remove('correct', 'wrong');
-            });
+            alert("⚠️ Oops! There was an error saving your certificate. Please try again!");
+          });
+        }, 1000);
+      }
 
-            document.querySelectorAll('.circle-option').forEach(option => {
-              option.classList.remove('correct-checkbox', 'wrong-checkbox');
-            });
-
-            document.querySelectorAll('.matching-item-interactive').forEach(item => {
-              item.classList.remove('selected');
-            });
-
-            document.querySelectorAll('label').forEach(label => {
-              label.style.color = '';
-            });
-
-            localStorage.setItem(STORAGE_KEY, Date.now());
-            lockHomework();
-      // تعطيل عناصر التوصيل الثلاثي
-      document.querySelectorAll('.matching-item-triple').forEach(el => {
-        el.style.pointerEvents = 'none';
-        el.style.opacity = '0.7';
+      // تأثيرات إضافية
+      document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio') {
+          e.target.classList.add('celebrate');
+          setTimeout(() => {
+            e.target.classList.remove('celebrate');
+          }, 300);
+        }
       });
-      
-      document.querySelectorAll('.btn-clear-triple-connections').forEach(el => {
-        el.disabled = true;
-        el.style.opacity = '0.5';
-      });
-            // رسالة نجاح
-            const percentage = Math.round((totalScore / totalQuestions) * 100);
-            let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore.toFixed(1)}/${totalQuestions} (${percentage}%)\n\n`;
 
-            if (percentage === 100) {
-              message += "Perfect score! You're a math genius! 🧠";
-            } else if (percentage >= 80) {
-              message += "Great job! You understand the concepts well! 👍";
-            } else if (percentage >= 60) {
-              message += "Good effort! Keep practicing to master the material! 📚";
-            } else {
-              message += "Keep practicing! You'll get better with more practice. Don't give up! 💪";
-            }
-
-            alert(message);
-          }, 500);
-
-        }).catch(error => {
-          console.error("Error creating image:", error);
-          area.classList.remove("show-correction");
-          document.getElementById('loading').style.display = 'none';
-          if (saveBtn) saveBtn.style.display = 'block';
-          if (backBtn) backBtn.style.display = 'inline-block';
-
-          alert("⚠️ Oops! There was an error saving your certificate. Please try again!");
-        });
-      }, 1000);
-    }
-
-    // تأثيرات إضافية
-    document.addEventListener('click', function (e) {
-      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio') {
-        e.target.classList.add('celebrate');
+      // تأثير عند تحميل الصفحة
+      window.addEventListener('load', function () {
+        document.body.classList.add('celebrate');
         setTimeout(() => {
-          e.target.classList.remove('celebrate');
-        }, 300);
-      }
-    });
-
-    // تأثير عند تحميل الصفحة
-    window.addEventListener('load', function () {
-      document.body.classList.add('celebrate');
-      setTimeout(() => {
-        document.body.classList.remove('celebrate');
-      }, 800);
-    });
-
-
-        // متغيرات للتوصيل الثلاثي
-    let tripleConnections = [];
-    let selectedFirst = null;
-    let selectedMiddle = null;
-    let selectedLast = null;
-    
-    // دالة لاختيار عنصر في التوصيل الثلاثي
-    function selectTripleItem(element, type) {
-      switch (type) {
-        case 'first':
-          if (selectedFirst === element) {
-            selectedFirst.classList.remove('selected');
-            selectedFirst = null;
-          } else {
-            if (selectedFirst) selectedFirst.classList.remove('selected');
-            selectedFirst = element;
-            selectedFirst.classList.add('selected');
-          }
-          break;
-          
-        case 'middle':
-          if (selectedMiddle === element) {
-            selectedMiddle.classList.remove('selected');
-            selectedMiddle = null;
-          } else {
-            if (selectedMiddle) selectedMiddle.classList.remove('selected');
-            selectedMiddle = element;
-            selectedMiddle.classList.add('selected');
-          }
-          break;
-          
-        case 'last':
-          if (selectedLast === element) {
-            selectedLast.classList.remove('selected');
-            selectedLast = null;
-          } else {
-            if (selectedLast) selectedLast.classList.remove('selected');
-            selectedLast = element;
-            selectedLast.classList.add('selected');
-          }
-          break;
-      }
-      
-      // إذا كان هناك عنصر محدد من جميع الأعمدة، قم بإنشاء توصيل
-      if (selectedFirst && selectedMiddle && selectedLast) {
-        createTripleConnection(
-          selectedFirst.dataset.id,
-          selectedFirst.textContent,
-          selectedMiddle.dataset.id,
-          selectedMiddle.textContent,
-          selectedLast.dataset.id,
-          selectedLast.textContent
-        );
-        
-        // إعادة تعيين التحديد
-        selectedFirst.classList.remove('selected');
-        selectedMiddle.classList.remove('selected');
-        selectedLast.classList.remove('selected');
-        selectedFirst = null;
-        selectedMiddle = null;
-        selectedLast = null;
-        
-        // تحديث التقدم
-        updateProgress();
-      }
-    }
-    
-    // دالة لإنشاء توصيل ثلاثي جديد
-    function createTripleConnection(firstId, firstValue, middleId, middleValue, lastId, lastValue) {
-      // التحقق من عدم وجود توصيل سابق لنفس العنصر
-      const existingConnection = tripleConnections.find(conn => 
-        conn.firstId === firstId || conn.middleId === middleId || conn.lastId === lastId
-      );
-      
-      if (existingConnection) {
-        alert('⚠️ One of these items is already connected! Please remove the existing connection first.');
-        return;
-      }
-      
-      // إضافة التوصيل الجديد
-      tripleConnections.push({
-        firstId,
-        firstValue,
-        middleId,
-        middleValue,
-        lastId,
-        lastValue,
-        connectionId: `conn_${Date.now()}`
+          document.body.classList.remove('celebrate');
+        }, 800);
       });
-      
-      updateTripleConnectionsDisplay();
-    }
-    
-    // دالة لتحديث عرض التوصيلات الثلاثية
-    function updateTripleConnectionsDisplay() {
-      const connectionsList = document.getElementById('tripleConnectionsList');
-      const connectionsDisplay = document.getElementById('tripleConnectionsDisplay');
-      
-      if (!connectionsList) return;
-      
-      connectionsList.innerHTML = '';
-      
-      if (tripleConnections.length === 0) {
-        connectionsDisplay.classList.remove('show');
-        return;
+
+
+      // متغيرات للتوصيل الثلاثي
+      let tripleConnections = [];
+      let selectedFirst = null;
+      let selectedMiddle = null;
+      let selectedLast = null;
+
+      // دالة لاختيار عنصر في التوصيل الثلاثي
+      function selectTripleItem(element, type) {
+        switch (type) {
+          case 'first':
+            if (selectedFirst === element) {
+              selectedFirst.classList.remove('selected');
+              selectedFirst = null;
+            } else {
+              if (selectedFirst) selectedFirst.classList.remove('selected');
+              selectedFirst = element;
+              selectedFirst.classList.add('selected');
+            }
+            break;
+
+          case 'middle':
+            if (selectedMiddle === element) {
+              selectedMiddle.classList.remove('selected');
+              selectedMiddle = null;
+            } else {
+              if (selectedMiddle) selectedMiddle.classList.remove('selected');
+              selectedMiddle = element;
+              selectedMiddle.classList.add('selected');
+            }
+            break;
+
+          case 'last':
+            if (selectedLast === element) {
+              selectedLast.classList.remove('selected');
+              selectedLast = null;
+            } else {
+              if (selectedLast) selectedLast.classList.remove('selected');
+              selectedLast = element;
+              selectedLast.classList.add('selected');
+            }
+            break;
+        }
+
+        // إذا كان هناك عنصر محدد من جميع الأعمدة، قم بإنشاء توصيل
+        if (selectedFirst && selectedMiddle && selectedLast) {
+          createTripleConnection(
+            selectedFirst.dataset.id,
+            selectedFirst.textContent,
+            selectedMiddle.dataset.id,
+            selectedMiddle.textContent,
+            selectedLast.dataset.id,
+            selectedLast.textContent
+          );
+
+          // إعادة تعيين التحديد
+          selectedFirst.classList.remove('selected');
+          selectedMiddle.classList.remove('selected');
+          selectedLast.classList.remove('selected');
+          selectedFirst = null;
+          selectedMiddle = null;
+          selectedLast = null;
+
+          // تحديث التقدم
+          updateProgress();
+        }
       }
-      
-      connectionsDisplay.classList.add('show');
-      
-      tripleConnections.forEach((conn, index) => {
-        const connectionDiv = document.createElement('div');
-        connectionDiv.className = 'triple-connection-item';
-        connectionDiv.innerHTML = `
+
+      // دالة لإنشاء توصيل ثلاثي جديد
+      function createTripleConnection(firstId, firstValue, middleId, middleValue, lastId, lastValue) {
+        // التحقق من عدم وجود توصيل سابق لنفس العنصر
+        const existingConnection = tripleConnections.find(conn =>
+          conn.firstId === firstId || conn.middleId === middleId || conn.lastId === lastId
+        );
+
+        if (existingConnection) {
+          alert('⚠️ One of these items is already connected! Please remove the existing connection first.');
+          return;
+        }
+
+        // إضافة التوصيل الجديد
+        tripleConnections.push({
+          firstId,
+          firstValue,
+          middleId,
+          middleValue,
+          lastId,
+          lastValue,
+          connectionId: `conn_${Date.now()}`
+        });
+
+        updateTripleConnectionsDisplay();
+      }
+
+      // دالة لتحديث عرض التوصيلات الثلاثية
+      function updateTripleConnectionsDisplay() {
+        const connectionsList = document.getElementById('tripleConnectionsList');
+        const connectionsDisplay = document.getElementById('tripleConnectionsDisplay');
+
+        if (!connectionsList) return;
+
+        connectionsList.innerHTML = '';
+
+        if (tripleConnections.length === 0) {
+          connectionsDisplay.classList.remove('show');
+          return;
+        }
+
+        connectionsDisplay.classList.add('show');
+
+        tripleConnections.forEach((conn, index) => {
+          const connectionDiv = document.createElement('div');
+          connectionDiv.className = 'triple-connection-item';
+          connectionDiv.innerHTML = `
           <div class="triple-connection-expression">${conn.firstValue} ${conn.middleValue} ${conn.lastValue}</div>
           <button onclick="removeTripleConnection('${conn.connectionId}')">
             ✗ Remove
           </button>
         `;
-        connectionsList.appendChild(connectionDiv);
-      });
-    }
-    
-    // دالة لإزالة توصيل ثلاثي محدد
-    function removeTripleConnection(connectionId) {
-      tripleConnections = tripleConnections.filter(conn => conn.connectionId !== connectionId);
-      updateTripleConnectionsDisplay();
-      updateProgress();
-    }
-    
-    // دالة لمسح جميع التوصيلات الثلاثية
-    function clearTripleConnections() {
-      tripleConnections = [];
-      updateTripleConnectionsDisplay();
-      
-      // إلغاء تحديد جميع العناصر
-      document.querySelectorAll('.matching-item-triple').forEach(item => {
-        item.classList.remove('selected');
-      });
-      
-      selectedFirst = null;
-      selectedMiddle = null;
-      selectedLast = null;
-      updateProgress();
-    }
-    
-    // دالة لتصحيح سؤال الوصل الثلاثي
-    function checkTripleMatching() {
-      // الإجابات الصحيحة للتوصيل الثلاثي
-      const correctTripleConnections = [
-        { first: '1', middle: 'a', last: 'x' },  // 3 × 4 = 12
-        { first: '2', middle: 'a', last: 'y' },  // 5 + 7 = 12 (لكن y هو 11 - خاطئ عن قصد)
-        { first: '3', middle: 'a', last: 'z' },  // 10 ÷ 2 = 5
-        { first: '4', middle: 'a', last: 'y' },  // 8 - 3 = 5 (لكن y هو 11 - خاطئ)
-        { first: '5', middle: 'a', last: 'w' }   // 6 × 3 = 18
-      ];
-      
-      let correctCount = 0;
-      let incorrectExpressions = [];
-      
-      // لكل توصيل، تحقق مما إذا كان مطابقاً للإجابة الصحيحة
-      tripleConnections.forEach(conn => {
-        const isCorrect = correctTripleConnections.some(correct => 
-          correct.first === conn.firstId && 
-          correct.middle === conn.middleId && 
-          correct.last === conn.lastId
-        );
-        
-        if (isCorrect) {
-          correctCount++;
-        } else {
-          incorrectExpressions.push(`${conn.firstValue} ${conn.middleValue} ${conn.lastValue}`);
-        }
-      });
-      
-      return { correctCount, incorrectExpressions };
-    }
-  </script>
+          connectionsList.appendChild(connectionDiv);
+        });
+      }
+
+      // دالة لإزالة توصيل ثلاثي محدد
+      function removeTripleConnection(connectionId) {
+        tripleConnections = tripleConnections.filter(conn => conn.connectionId !== connectionId);
+        updateTripleConnectionsDisplay();
+        updateProgress();
+      }
+
+      // دالة لمسح جميع التوصيلات الثلاثية
+      function clearTripleConnections() {
+        tripleConnections = [];
+        updateTripleConnectionsDisplay();
+
+        // إلغاء تحديد جميع العناصر
+        document.querySelectorAll('.matching-item-triple').forEach(item => {
+          item.classList.remove('selected');
+        });
+
+        selectedFirst = null;
+        selectedMiddle = null;
+        selectedLast = null;
+        updateProgress();
+      }
+
+      // دالة لتصحيح سؤال الوصل الثلاثي
+      function checkTripleMatching() {
+        // الإجابات الصحيحة للتوصيل الثلاثي
+        const correctTripleConnections = [
+          { first: '1', middle: 'a', last: 'x' },  // 3 × 4 = 12
+          { first: '2', middle: 'a', last: 'y' },  // 5 + 7 = 12 (لكن y هو 11 - خاطئ عن قصد)
+          { first: '3', middle: 'a', last: 'z' },  // 10 ÷ 2 = 5
+          { first: '4', middle: 'a', last: 'y' },  // 8 - 3 = 5 (لكن y هو 11 - خاطئ)
+          { first: '5', middle: 'a', last: 'w' }   // 6 × 3 = 18
+        ];
+
+        let correctCount = 0;
+        let incorrectExpressions = [];
+
+        // لكل توصيل، تحقق مما إذا كان مطابقاً للإجابة الصحيحة
+        tripleConnections.forEach(conn => {
+          const isCorrect = correctTripleConnections.some(correct =>
+            correct.first === conn.firstId &&
+            correct.middle === conn.middleId &&
+            correct.last === conn.lastId
+          );
+
+          if (isCorrect) {
+            correctCount++;
+          } else {
+            incorrectExpressions.push(`${conn.firstValue} ${conn.middleValue} ${conn.lastValue}`);
+          }
+        });
+
+        return { correctCount, incorrectExpressions };
+      }
+    </script>
 </body>
 
 </html>

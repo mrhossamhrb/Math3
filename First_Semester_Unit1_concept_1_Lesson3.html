@@ -1,269 +1,1517 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Second Semester - الدرس الأول</title>
-<style>
-  body {
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    background: linear-gradient(to bottom, #1f2937, #3b82f6);
-    margin: 0;
-    padding: 0;
-    color: #f8fafc;
-    text-align: center;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Homework - Associative Property</title>
+  <style>
+    :root {
+      --primary-blue: #3b82f6;
+      --light-blue: #60a5fa;
+      --dark-blue: #1e293b;
+      --background-dark: #111827;
+      --text-light: #f8fafc;
+      --text-muted: #cbd5e1;
+      --correct-green: #10b981;
+      --wrong-red: #ef4444;
+      --yellow-accent: #fbbf24;
+      --purple-accent: #8b5cf6;
+      --math-green: #22c55e;
+      --checkbox-blue: #3b82f6;
+    }
 
-  header {
-    background: linear-gradient(90deg, #3b82f6, #60a5fa);
-    color: white;
-    padding: 25px;
-    font-size: 28px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
+    body {
+      font-family: "Comic Sans MS", "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #1f2937 0%, #3b82f6 100%);
+      margin: 0;
+      padding: 0;
+      color: var(--text-light);
+      text-align: left;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  section {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 25px;
-    background: #111827;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  }
+    /* النجوم الزينة */
+    .star {
+      position: fixed;
+      background: var(--yellow-accent);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      opacity: 0.3;
+      animation: twinkle 4s infinite;
+      z-index: -1;
+    }
 
-  section img {
-    width: 180px;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    margin-bottom: 15px;
-  }
+    @keyframes twinkle {
 
-  section h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
-    color: #60a5fa;
-  }
+      0%,
+      100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
 
-  section p {
-    font-size: 18px;
-    color: #cbd5e1;
-    margin-bottom: 20px;
-  }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+      }
+    }
 
-  .container {
-    max-width: 900px;
-    margin: 20px auto;
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.4);
-  }
+    /* الفقاعات الزينة */
+    .bubble {
+      position: fixed;
+      background: rgba(96, 165, 250, 0.1);
+      border-radius: 50%;
+      animation: floatBubble 20s infinite linear;
+      z-index: -1;
+    }
 
-  h1 {
-    text-align: center;
-    color: #60a5fa;
-  }
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+      }
 
-  .question {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: #3b4252;
-    border-radius: 15px;
-    text-align: left;
-  }
+      10% {
+        opacity: 0.3;
+      }
 
-  label { 
-    display: block; 
-    margin: 8px 0;
-    cursor: pointer;
-  }
+      90% {
+        opacity: 0.3;
+      }
 
-  input[type=text] {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    margin-top: 10px;
-  }
+      100% {
+        transform: translateY(-100px) translateX(100px) scale(1);
+        opacity: 0;
+      }
+    }
 
-  input[type=radio] {
-    margin-left: 10px;
-    cursor: pointer;
-  }
+    header {
+      background: linear-gradient(90deg, var(--math-green), var(--primary-blue));
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
 
-  button {
-    width: 100%;
-    padding: 15px;
-    font-size: 20px;
-    background: linear-gradient(90deg, #3b82f6, #60a5fa);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 15px;
-  }
+    .fun-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-  button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  }
+    .fun-title::before,
+    .fun-title::after {
+      content: "🧮";
+      font-size: 28px;
+      animation: pulse 1.5s infinite;
+    }
 
-  button:disabled {
-    background: #555;
-    cursor: not-allowed;
-  }
+    @keyframes pulse {
 
-  .feedback {
-    display: none;
-    font-weight: bold;
-    margin-top: 10px;
-  }
+      0%,
+      100% {
+        transform: scale(1);
+      }
 
-  .show-correction .feedback { 
-    display: block; 
-  }
+      50% {
+        transform: scale(1.3);
+      }
+    }
 
-  #infoBox {
-    display: none;
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    background: #60a5fa;
-    color: #111827;
-    font-size: 18px;
-  }
+    section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(30, 41, 59, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      border: 4px solid var(--yellow-accent);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
 
-  .show-correction #infoBox { display: block; }
-</style>
+    section img {
+      width: 150px;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      margin-bottom: 15px;
+      border: 4px solid var(--math-green);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: var(--yellow-accent);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(90deg, var(--yellow-accent), var(--math-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    section p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 15px auto;
+      background: rgba(30, 41, 59, 0.95);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      border: 4px solid var(--math-green);
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--yellow-accent);
+      margin-bottom: 20px;
+      font-size: 32px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(90deg, var(--math-green), var(--yellow-accent), var(--purple-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 8px;
+    }
+
+    .student-info {
+      background: linear-gradient(135deg, var(--math-green), var(--primary-blue));
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      border: 4px solid var(--yellow-accent);
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .student-info::before {
+      content: "🧑‍🎓";
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 40px;
+      opacity: 0.2;
+    }
+
+    .student-info label {
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 3px solid var(--yellow-accent);
+      outline: none;
+      font-size: 20px;
+      height: 55px;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      transition: all 0.3s;
+      font-family: "Comic Sans MS", sans-serif;
+      box-sizing: border-box;
+    }
+
+    input[type=text]::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    input[type=text]:focus {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: var(--light-blue);
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+      transform: scale(1.02);
+    }
+
+    button {
+      width: 100%;
+      padding: 20px;
+      font-size: 22px;
+      background: linear-gradient(90deg, var(--math-green), var(--yellow-accent));
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 20px;
+      font-weight: bold;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::after {
+      content: "🎯";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 26px;
+    }
+
+    button:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(90deg, var(--yellow-accent), var(--math-green));
+    }
+
+    button:active {
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    button:disabled {
+      background: #666;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+
+    button:disabled::after {
+      content: "✅";
+    }
+
+    /* تصميم الأسئلة العادية */
+    .math-question {
+      margin-bottom: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #2d3748, #3b4252);
+      border-radius: 15px;
+      text-align: left;
+      border-left: 8px solid var(--math-green);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .math-question:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .math-question h3 {
+      color: var(--light-blue);
+      margin-bottom: 15px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .math-question h3::before {
+      font-size: 24px;
+      content: "🧮";
+    }
+
+    /* تصميم أسئلة اختيار العبارات */
+    .circle-question {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: linear-gradient(135deg, #3b4252, #4c566a);
+      border-radius: 15px;
+      text-align: left;
+      border-left: 8px solid var(--purple-accent);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .circle-question:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .circle-question h3 {
+      color: var(--light-blue);
+      margin-bottom: 15px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .circle-question h3::before {
+      content: "⭕";
+      font-size: 24px;
+    }
+
+    .circle-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .circle-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--purple-accent);
+      color: white;
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .circle-main-expression {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--yellow-accent);
+      background: rgba(139, 92, 246, 0.1);
+      padding: 8px 15px;
+      border-radius: 10px;
+      border: 2px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .circle-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .circle-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .circle-option {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 12px;
+      border: 2px solid rgba(96, 165, 250, 0.2);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .circle-option:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--light-blue);
+      transform: translateX(5px);
+    }
+
+    .circle-option input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-right: 15px;
+      cursor: pointer;
+      accent-color: var(--checkbox-blue);
+      transform: scale(1.2);
+    }
+
+    .circle-option label {
+      font-size: 18px;
+      color: var(--text-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      background: rgba(96, 165, 250, 0.2);
+      color: var(--light-blue);
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .option-expression {
+      font-size: 18px;
+      font-family: monospace;
+    }
+
+    #infoBox {
+      display: none;
+      margin: 15px auto 25px;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.95), rgba(59, 130, 246, 0.9));
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+      font-size: 18px;
+      border: 4px solid var(--yellow-accent);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      animation: slideDown 0.5s ease-out;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .info-item {
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      min-width: 180px;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      flex: 1;
+    }
+
+    #infoBox strong {
+      font-size: 20px;
+      color: var(--yellow-accent);
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .show-correction #infoBox {
+      display: block;
+    }
+
+    #loading {
+      display: none;
+      margin: 20px 0;
+      color: var(--yellow-accent);
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      animation: pulse 1.5s infinite;
+    }
+
+    #imgName {
+      max-width: 180px;
+      word-break: keep-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* تصميم الأسئلة العادية في نفس السطر */
+    .question-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--text-light);
+    }
+
+    .question-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--math-green);
+      color: var(--dark-blue);
+      min-width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .question-text {
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    .small-input {
+      width: 60px !important;
+      height: 45px !important;
+      padding: 8px 12px !important;
+      font-size: 18px !important;
+      border-radius: 8px !important;
+      border: 2px solid var(--math-green) !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+      color: white !important;
+      text-align: center !important;
+      outline: none !important;
+      transition: all 0.3s !important;
+      font-family: "Comic Sans MS", sans-serif !important;
+      margin: 0 5px !important;
+      display: inline-block !important;
+    }
+
+    .small-input:focus {
+      border-color: var(--light-blue) !important;
+      box-shadow: 0 0 15px rgba(96, 165, 250, 0.6) !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      transform: scale(1.05) !important;
+    }
+
+    .blank-feedback, .circle-feedback {
+      display: none;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+    }
+
+    .show-correction .blank-feedback,
+    .show-correction .circle-feedback {
+      display: block;
+    }
+
+    /* زر العودة */
+    #backBtn {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: var(--dark-blue);
+      background: linear-gradient(90deg, var(--yellow-accent), var(--light-blue));
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: none;
+      width: 100%;
+    }
+
+    #backBtn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(90deg, var(--light-blue), var(--yellow-accent));
+    }
+
+    /* شريط التقدم */
+    .progress-container {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      margin: 15px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--math-green), var(--light-blue), var(--purple-accent));
+      width: 0%;
+      border-radius: 5px;
+      transition: width 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: linear-gradient(45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent);
+      background-size: 15px 15px;
+      animation: progressStripes 1s linear infinite;
+    }
+
+    @keyframes progressStripes {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 15px 0;
+      }
+    }
+
+    /* تصميم متجاوب */
+    @media (max-width: 768px) {
+
+      .container,
+      section {
+        margin: 10px;
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      header {
+        font-size: 20px;
+        padding: 15px;
+      }
+
+      .fun-title {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .small-input {
+        width: 50px !important;
+        height: 40px !important;
+        font-size: 16px !important;
+        padding: 6px 10px !important;
+      }
+
+      .question-line {
+        font-size: 18px;
+        gap: 6px;
+      }
+
+      .question-number {
+        min-width: 28px;
+        height: 28px;
+        font-size: 16px;
+      }
+
+      .circle-options {
+        gap: 10px;
+      }
+
+      .circle-option {
+        padding: 12px;
+      }
+
+      .circle-option label {
+        font-size: 16px;
+      }
+
+      .option-expression {
+        font-size: 16px;
+      }
+
+      .circle-main-expression {
+        font-size: 20px;
+      }
+
+      .info-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .info-item {
+        min-width: auto;
+        width: 100%;
+      }
+
+      input[type=text] {
+        font-size: 18px;
+        height: 50px;
+        padding: 12px;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 15px;
+      }
+
+      button::after {
+        font-size: 22px;
+        right: 15px;
+      }
+
+      .math-question h3,
+      .circle-question h3 {
+        font-size: 20px;
+      }
+
+      section h2 {
+        font-size: 22px;
+      }
+
+      section p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      header {
+        font-size: 18px;
+      }
+
+      section h2 {
+        font-size: 20px;
+      }
+
+      .small-input {
+        width: 45px !important;
+        height: 35px !important;
+        font-size: 16px !important;
+        padding: 5px 8px !important;
+      }
+
+      .question-line {
+        font-size: 16px;
+      }
+
+      .question-number {
+        min-width: 24px;
+        height: 24px;
+        font-size: 14px;
+      }
+
+      .circle-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* تأثيرات خاصة للإجابات الصحيحة والخاطئة */
+    .correct {
+      color: var(--correct-green) !important;
+      border-color: var(--correct-green) !important;
+    }
+
+    .wrong {
+      color: var(--wrong-red) !important;
+      border-color: var(--wrong-red) !important;
+    }
+
+    .correct-checkbox {
+      background: rgba(16, 185, 129, 0.1) !important;
+      border-color: var(--correct-green) !important;
+    }
+
+    .wrong-checkbox {
+      background: rgba(239, 68, 68, 0.1) !important;
+      border-color: var(--wrong-red) !important;
+    }
+
+    /* تأكيد عند الإرسال */
+    @keyframes celebrate {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .celebrate {
+      animation: celebrate 0.5s ease-in-out 3;
+    }
+
+    /* إخفاء العناصر المطبوعة */
+    @media print {
+
+      button,
+      #backBtn {
+        display: none !important;
+      }
+    }
+
+    .property-explanation {
+      background: rgba(34, 197, 94, 0.1);
+      border-left: 5px solid var(--math-green);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .property-explanation h3 {
+      margin-top: 0;
+      color: var(--math-green);
+      font-size: 18px;
+    }
+
+    .property-explanation p {
+      margin: 8px 0;
+      text-align: left;
+    }
+
+    .question-group {
+      margin-bottom: 25px;
+    }
+
+    .question-group h3 {
+      color: var(--yellow-accent);
+      font-size: 22px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* تعليمات السؤال */
+    .instructions {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid var(--light-blue);
+      padding: 12px 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--text-light);
+    }
+
+    .instructions h4 {
+      margin: 0 0 8px 0;
+      color: var(--light-blue);
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .instructions h4::before {
+      content: "💡";
+    }
+  </style>
 </head>
+
 <body>
+  <div id="starsContainer"></div>
+  <div id="bubblesContainer"></div>
 
-<header>Second Semester - الدرس الأول</header>
+  <header>
+    <div class="fun-title">
+      🧮 Math Adventure - Associative Property 🔢
+    </div>
+  </header>
 
-<section>
-    <img src="First_Semester.jpg" alt="صورة الدرس">
-    <h2>Second_Semester_Unit4_concept_1_Lesson1</h2>
-    <p>حل الواجب التالي بعناية ثم احفظ نتيجتك كصورة!</p>
-</section>
+  <section>
+    <img src="https://cdn.pixabay.com/photo/2020/01/21/18/39/math-4784988_1280.png" alt="Math Fun"
+      onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iIzIyYzU1ZSIvPjxwYXRoIGQ9Ik03MCAxMjBMMTMwIDEyME0xMDAgNzBMMTAwIDEzME0xMjAgOTBMMTIwIDExME04MCA5MEw4MCAxMTBNMTMwIDkwTDE1MCA3ME0xMzAgMTEwTDE1MCAxMzBNNzAgOTBMNTAgNzBNNzAgMTEwTDUwIDEzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iMTAwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWF0aCBBZHZlbnR1cmUhPC90ZXh0Pjwvc3ZnPg=='">
+    <h2>Welcome to the Math Adventure! 🚀</h2>
+    <p>Hey there, young mathematician! 👨‍🏫👩‍🏫<br>Get ready to explore the amazing world of the associative property!<br>Complete all the challenges and earn your Math Expert Certificate! 🏆</p>
+  </section>
 
-<div class="container" id="printArea">
+  <div class="container" id="printArea">
+    <h1>🌟 MATH SUPER CHALLENGE 🌟</h1>
 
-<h1>H.W</h1>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
 
-<div id="infoBox">
-  <div>اسم الطالب: <strong id="imgName"></strong></div>
-  <div>الدرجة: <strong id="imgScore"></strong></div>
-  <div>التاريخ والوقت: <strong id="imgDate"></strong></div>
-</div>
+    <div id="loading">🎨 Creating your awesome certificate... ✨</div>
 
-<div class="question">
-<label>اسم الطالب:</label>
-<input type="text" id="studentName">
-</div>
+    <div id="infoBox">
+      <div class="info-row">
+        <div class="info-item">👤 MATHEMATICIAN: <strong id="imgName"></strong></div>
+        <div class="info-item">🏆 SCORE: <strong id="imgScore"></strong></div>
+        <div class="info-item">📅 DATE: <strong id="imgDate"></strong></div>
+      </div>
+    </div>
 
-<div class="question">
-<h3>1) Helium is lighter than air</h3>
-<label><input type="radio" name="q1" value="a"> a physical property</label>
-<label><input type="radio" name="q1" value="b"> a chemical property</label>
-<div class="feedback" id="f1"></div>
-</div>
+    <div class="student-info">
+      <label>✏️ What's your name, Mathematician?</label>
+      <input type="text" id="studentName" placeholder="Type your name here...">
+    </div>
 
-<div class="question">
-<h3>2) Blimps are filled with</h3>
-<label><input type="radio" name="q2" value="a"> oxygen</label>
-<label><input type="radio" name="q2" value="b"> helium</label>
-<div class="feedback" id="f2"></div>
-</div>
+    <!-- شرح الخاصية التجميعية -->
+    <div class="property-explanation">
+      <h3>📚 The Associative Property</h3>
+      <p>The associative property says that when we add or multiply three or more numbers, the way we group them doesn't change the result.</p>
+      <p><strong>For addition:</strong> (a + b) + c = a + (b + c)</p>
+      <p><strong>For multiplication:</strong> (a × b) × c = a × (b × c)</p>
+    </div>
 
-<div class="question">
-<h3>3) Steel is used in hammers because it is</h3>
-<label><input type="radio" name="q3" value="a"> flexible</label>
-<label><input type="radio" name="q3" value="b"> hard</label>
-<div class="feedback" id="f3"></div>
-</div>
+    <!-- مجموعة أسئلة "اختر العبارات الصحيحة" -->
+    <div class="question-group">
+      <h3>⭕ Circle all the correct statements that have the same value</h3>
+      
+      <div class="instructions">
+        <h4>How to answer:</h4>
+        <p>Check the boxes for ALL expressions that have the SAME VALUE as the given expression.</p>
+      </div>
 
-<button id="saveBtn" onclick="generateImage()">📸 حفظ الواجب كصورة</button>
+      <!-- سؤال 1 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">1</span>
+          <div class="circle-main-expression">3 × 2 × 4</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q1_a" name="q1" value="a">
+            <label for="q1_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">(3 × 2) × 4</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q1_b" name="q1" value="b">
+            <label for="q1_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">3 × (2 + 4)</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q1_c" name="q1" value="c">
+            <label for="q1_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">(3 × 4) × 2</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q1_d" name="q1" value="d">
+            <label for="q1_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">3 × (2 × 4)</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle1"></div>
+      </div>
 
-<a href="index.html" style="display:inline-block; margin-top:20px; text-decoration:none; color:#111827; background:#60a5fa; padding:12px 25px; border-radius:12px;">⬅ العودة إلى الرئيسية</a>
+      <!-- سؤال 2 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">2</span>
+          <div class="circle-main-expression">3 × 1 × 2</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q2_a" name="q2" value="a">
+            <label for="q2_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">3 × (1 × 2)</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q2_b" name="q2" value="b">
+            <label for="q2_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">(3 × 1) × 2</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q2_c" name="q2" value="c">
+            <label for="q2_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">(3 × 2) × 1</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q2_d" name="q2" value="d">
+            <label for="q2_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">(3 + 1) × 2</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle2"></div>
+      </div>
 
-</div>
+      <!-- سؤال 3 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">3</span>
+          <div class="circle-main-expression">4 × 2 × 1</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q3_a" name="q3" value="a">
+            <label for="q3_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">(4 + 2) + 1</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q3_b" name="q3" value="b">
+            <label for="q3_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">(4 × 2) × 1</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q3_c" name="q3" value="c">
+            <label for="q3_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">(4 × 1) × 2</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q3_d" name="q3" value="d">
+            <label for="q3_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">4 × (2 × 1)</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle3"></div>
+      </div>
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script>
-const LOCK_DAYS = 30;
-const STORAGE_KEY = "homework_locked";
+      <!-- سؤال 4 -->
+      <div class="circle-question">
+        <div class="circle-header">
+          <span class="circle-number">4</span>
+          <div class="circle-main-expression">2 × 5 × 3</div>
+        </div>
+        <div class="circle-options">
+          <div class="circle-option">
+            <input type="checkbox" id="q4_a" name="q4" value="a">
+            <label for="q4_a">
+              <span class="option-letter">α</span>
+              <span class="option-expression">2 + 5 + 3</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q4_b" name="q4" value="b">
+            <label for="q4_b">
+              <span class="option-letter">b</span>
+              <span class="option-expression">(2 × 5) + 3</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q4_c" name="q4" value="c">
+            <label for="q4_c">
+              <span class="option-letter">c</span>
+              <span class="option-expression">2 × (5 × 3)</span>
+            </label>
+          </div>
+          <div class="circle-option">
+            <input type="checkbox" id="q4_d" name="q4" value="d">
+            <label for="q4_d">
+              <span class="option-letter">d</span>
+              <span class="option-expression">(2 × 3) × 5</span>
+            </label>
+          </div>
+        </div>
+        <div class="circle-feedback" id="fb-circle4"></div>
+      </div>
+    </div>
 
-window.onload = function () {
-  const lockData = localStorage.getItem(STORAGE_KEY);
-  if (lockData) {
-    const savedTime = parseInt(lockData, 10);
-    const now = Date.now();
-    const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
-    if (diffDays < LOCK_DAYS) {
-      lockHomework();
-    } else {
-      localStorage.removeItem(STORAGE_KEY);
+    <!-- مجموعة أسئلة الضرب -->
+    <div class="question-group">
+      <h3>Multiplication Questions (×)</h3>
+      
+      <div class="math-question">
+        <div class="question-line">
+          <span class="question-number">1</span>
+          <span class="question-text">(2 × 1) × 3 = 2 × (1 ×</span>
+          <input type="text" class="small-input" id="blank1" placeholder="?">
+          <span class="question-text">)</span>
+        </div>
+        <div class="blank-feedback" id="fb-blank1"></div>
+      </div>
+
+      <div class="math-question">
+        <div class="question-line">
+          <span class="question-number">2</span>
+          <span class="question-text">(3 × 2) × 6 =</span>
+          <input type="text" class="small-input" id="blank2" placeholder="?">
+          <span class="question-text">× (2 × 6)</span>
+        </div>
+        <div class="blank-feedback" id="fb-blank2"></div>
+      </div>
+    </div>
+
+    <button id="saveBtn" onclick="generateImage()">
+      📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
+    </button>
+
+    <a href="index.html" id="backBtn">
+      ⬅ BACK TO HOME PAGE 🏠
+    </a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    // إنشاء نجوم زينة
+    function createStars() {
+      const starsContainer = document.getElementById('starsContainer');
+      if (!starsContainer) return;
+
+      for (let i = 0; i < 20; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 20 + 6;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.animationDelay = Math.random() * 4 + 's';
+        star.style.animationDuration = Math.random() * 2 + 3 + 's';
+        starsContainer.appendChild(star);
+      }
     }
-  }
-};
 
-function lockHomework() {
-  document.getElementById("saveBtn").disabled = true;
-  document.getElementById("saveBtn").innerText = "✔️ تم تسليم الواجب";
-  document.querySelectorAll("input").forEach(el => el.disabled = true);
-}
+    // إنشاء فقاعات زينة
+    function createBubbles() {
+      const bubblesContainer = document.getElementById('bubblesContainer');
+      if (!bubblesContainer) return;
 
-function generateImage(){
-  if (document.getElementById("saveBtn").disabled) return;
-
-  const name = document.getElementById("studentName").value.trim();
-  if(!name){
-    alert("اكتب اسم الطالب");
-    return;
-  }
-
-  let score = 0;
-  const answers = { q1:"a", q2:"b", q3:"b" };
-
-  Object.keys(answers).forEach((q,i)=>{
-    const selected = document.querySelector(`input[name="${q}"]:checked`);
-    const fb = document.getElementById("f"+(i+1));
-    if(selected && selected.value === answers[q]){
-      score++;
-      fb.innerHTML="✔️ إجابة صحيحة";
-    }else{
-      fb.innerHTML="❌ إجابة خاطئة";
+      for (let i = 0; i < 10; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = Math.random() * 60 + 30;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = Math.random() * 100 + 'vw';
+        bubble.style.animationDuration = Math.random() * 15 + 20 + 's';
+        bubble.style.animationDelay = Math.random() * 8 + 's';
+        bubblesContainer.appendChild(bubble);
+      }
     }
-  });
 
-  document.getElementById("imgName").textContent = name;
-  document.getElementById("imgScore").textContent = score + " / 3";
+    // تحديث شريط التقدم
+    function updateProgress() {
+      const textInputs = document.querySelectorAll('.small-input');
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const totalInputs = textInputs.length + checkboxes.length;
+      let filledCount = 0;
 
-  const now = new Date();
-  document.getElementById("imgDate").textContent =
-    now.toLocaleDateString("ar-EG") + " - " + now.toLocaleTimeString("ar-EG");
+      textInputs.forEach(input => {
+        if (input.value.trim() !== '') {
+          filledCount++;
+        }
+      });
 
-  const area = document.getElementById("printArea");
-  area.classList.add("show-correction");
+      // نعتبر أن سؤال الاختيار المتعدد قد تمت الإجابة عليه إذا تم تحديد خيار واحد على الأقل
+      const questionGroups = ['q1', 'q2', 'q3', 'q4'];
+      questionGroups.forEach(group => {
+        const checked = document.querySelectorAll(`input[name="${group}"]:checked`).length;
+        if (checked > 0) {
+          filledCount++;
+        }
+      });
 
-  html2canvas(area).then(canvas=>{
-    const link = document.createElement("a");
-    link.download = "homework.png";
-    link.href = canvas.toDataURL();
-    link.click();
+      const progress = (filledCount / totalInputs) * 100;
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = progress + '%';
+      }
+    }
 
-    area.classList.remove("show-correction");
+    // تهيئة الصفحة
+    document.addEventListener('DOMContentLoaded', function () {
+      createStars();
+      createBubbles();
 
-    localStorage.setItem(STORAGE_KEY, Date.now());
-    lockHomework();
-  });
-}
-</script>
+      // تحديث شريط التقدم عند أي تغيير
+      document.querySelectorAll('.small-input, input[type="checkbox"]').forEach(element => {
+        element.addEventListener('input', updateProgress);
+        element.addEventListener('change', updateProgress);
+      });
 
+      // تحديث أولي
+      updateProgress();
+    });
+
+    // متغيرات التخزين
+    const LOCK_DAYS = 0;
+    const STORAGE_KEY = "math_homework_locked";
+
+    window.onload = function () {
+      const lockData = localStorage.getItem(STORAGE_KEY);
+      if (lockData) {
+        const savedTime = parseInt(lockData, 10);
+        const now = Date.now();
+        const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
+        if (diffDays < LOCK_DAYS) {
+          lockHomework();
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    };
+
+    function lockHomework() {
+      const saveBtn = document.getElementById("saveBtn");
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = "✅ HOMEWORK SUBMITTED! 🎉";
+        saveBtn.classList.add('celebrate');
+      }
+      document.querySelectorAll("input").forEach(el => el.disabled = true);
+    }
+
+    function generateImage() {
+      const saveBtn = document.getElementById("saveBtn");
+      if (saveBtn && saveBtn.disabled) return;
+
+      const name = document.getElementById("studentName").value.trim();
+      if (!name) {
+        alert("🌟 Please enter your name first, Mathematician!");
+        document.getElementById("studentName").focus();
+        return;
+      }
+
+      // الإجابات الصحيحة للأسئلة العادية
+      const fillAnswers = {
+        blank1: "3",
+        blank2: "3"
+      };
+
+      // الإجابات الصحيحة لأسئلة "اختر العبارات الصحيحة"
+      // كل مفتاح هو رقم السؤال، والقيمة هي مصفوفة بالخيارات الصحيحة
+      const circleAnswers = {
+        q1: ["a", "c", "d"],  // (3×2)×4, (3×4)×2, 3×(2×4)
+        q2: ["a", "b", "c"],  // 3×(1×2), (3×1)×2, (3×2)×1
+        q3: ["b", "c", "d"],  // (4×2)×1, (4×1)×2, 4×(2×1)
+        q4: ["c", "d"]        // 2×(5×3), (2×3)×5
+      };
+
+      // تصحيح الأسئلة العادية
+      let totalScore = 0;
+      const totalFillQuestions = Object.keys(fillAnswers).length;
+      const totalCircleQuestions = Object.keys(circleAnswers).length;
+      const totalQuestions = totalFillQuestions + totalCircleQuestions;
+
+      // تصحيح الأسئلة العادية
+      Object.keys(fillAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        const feedback = document.getElementById("fb-" + blankId);
+        
+        if (input) {
+          const userAnswer = input.value.trim();
+          const correctAnswer = fillAnswers[blankId];
+
+          if (userAnswer === correctAnswer) {
+            totalScore++;
+            input.classList.add('correct');
+            feedback.innerHTML = `<div style="color:#10b981; margin:5px 0; font-size:14px;">✅ Correct! Excellent work! 🎯</div>`;
+            feedback.classList.add('correct');
+          } else {
+            input.classList.add('wrong');
+            feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ The correct answer is "${correctAnswer}". Keep practicing! 📝</div>`;
+            feedback.classList.add('wrong');
+          }
+        }
+      });
+
+      // تصحيح أسئلة "اختر العبارات الصحيحة"
+      Object.keys(circleAnswers).forEach((questionId, questionIndex) => {
+        const feedback = document.getElementById("fb-circle" + (questionIndex + 1));
+        const correctOptions = circleAnswers[questionId];
+        const userSelections = [];
+        const optionElements = document.querySelectorAll(`input[name="${questionId}"]`);
+        
+        // جمع الخيارات المحددة من قبل المستخدم
+        optionElements.forEach(option => {
+          if (option.checked) {
+            userSelections.push(option.value);
+          }
+        });
+
+        // حساب الدرجة لهذا السؤال
+        let questionScore = 0;
+        let allCorrect = true;
+        let anySelected = false;
+        
+        optionElements.forEach(option => {
+          const optionDiv = option.closest('.circle-option');
+          const isCorrect = correctOptions.includes(option.value);
+          const isSelected = option.checked;
+          
+          if (isSelected) anySelected = true;
+          
+          if (isSelected && isCorrect) {
+            questionScore++;
+            optionDiv.classList.add('correct-checkbox');
+          } else if (isSelected && !isCorrect) {
+            allCorrect = false;
+            optionDiv.classList.add('wrong-checkbox');
+          } else if (!isSelected && isCorrect) {
+            allCorrect = false;
+            optionDiv.classList.add('wrong-checkbox');
+          }
+        });
+
+        // إضافة الدرجة إذا كان كل شيء صحيحاً
+        if (allCorrect && anySelected) {
+          totalScore++;
+          feedback.innerHTML = `<div style="color:#10b981; margin:5px 0; font-size:14px;">✅ Perfect! All correct answers selected! 🌟</div>`;
+          feedback.classList.add('correct');
+        } else if (anySelected) {
+          feedback.innerHTML = `<div style="color:#fbbf24; margin:5px 0; font-size:14px;">⚠️ Some answers are incorrect. The correct ones are: ${correctOptions.map(opt => opt.toUpperCase()).join(', ')}</div>`;
+          feedback.classList.add('wrong');
+        } else {
+          feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ Please select answers. The correct ones are: ${correctOptions.map(opt => opt.toUpperCase()).join(', ')}</div>`;
+          feedback.classList.add('wrong');
+        }
+      });
+
+      // تحديث المعلومات
+      document.getElementById("imgName").textContent = name;
+      document.getElementById("imgScore").textContent = totalScore + " / " + totalQuestions;
+
+      const now = new Date();
+      const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      document.getElementById("imgDate").textContent = dateStr + " at " + timeStr;
+
+      // إظهار التصحيح
+      const area = document.getElementById("printArea");
+      area.classList.add("show-correction");
+
+      document.getElementById('loading').style.display = 'block';
+      if (saveBtn) saveBtn.style.display = 'none';
+      const backBtn = document.getElementById('backBtn');
+      if (backBtn) backBtn.style.display = 'none';
+
+      // تحريك الصفحة للأعلى لرؤية النتائج
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        html2canvas(area, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#1e293b',
+          letterRendering: true,
+          allowTaint: true,
+          logging: false,
+          windowWidth: area.scrollWidth,
+          windowHeight: area.scrollHeight
+        }).then(canvas => {
+          const link = document.createElement("a");
+          link.download = `Math_Homework_${name.replace(/\s+/g, '_')}.png`;
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.click();
+
+          // إخفاء التصحيح
+          setTimeout(() => {
+            area.classList.remove("show-correction");
+            document.getElementById('loading').style.display = 'none';
+            if (saveBtn) saveBtn.style.display = 'block';
+            if (backBtn) backBtn.style.display = 'inline-block';
+
+            // إزالة التغذية الراجعة والألوان
+            document.querySelectorAll('.blank-feedback, .circle-feedback').forEach(fb => {
+              fb.innerHTML = "";
+              fb.classList.remove('correct', 'wrong');
+            });
+
+            document.querySelectorAll('.small-input').forEach(input => {
+              input.classList.remove('correct', 'wrong');
+            });
+
+            document.querySelectorAll('.circle-option').forEach(option => {
+              option.classList.remove('correct-checkbox', 'wrong-checkbox');
+            });
+
+            localStorage.setItem(STORAGE_KEY, Date.now());
+            lockHomework();
+
+            // رسالة نجاح
+            const percentage = Math.round((totalScore / totalQuestions) * 100);
+            let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore}/${totalQuestions} (${percentage}%)\n\n`;
+            
+            if (percentage === 100) {
+              message += "Perfect score! You're a math genius! 🧠";
+            } else if (percentage >= 80) {
+              message += "Great job! You understand the associative property well! 👍";
+            } else if (percentage >= 60) {
+              message += "Good effort! Keep practicing to master the associative property! 📚";
+            } else {
+              message += "Keep practicing! The associative property takes time to master. Don't give up! 💪";
+            }
+            
+            alert(message);
+          }, 500);
+
+        }).catch(error => {
+          console.error("Error creating image:", error);
+          area.classList.remove("show-correction");
+          document.getElementById('loading').style.display = 'none';
+          if (saveBtn) saveBtn.style.display = 'block';
+          if (backBtn) backBtn.style.display = 'inline-block';
+
+          alert("⚠️ Oops! There was an error saving your certificate. Please try again!");
+        });
+      }, 1000);
+    }
+
+    // إضافة مؤثرات إضافية
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox') {
+        e.target.classList.add('celebrate');
+        setTimeout(() => {
+          e.target.classList.remove('celebrate');
+        }, 300);
+      }
+    });
+
+    // تأثير عند تحميل الصفحة
+    window.addEventListener('load', function () {
+      document.body.classList.add('celebrate');
+      setTimeout(() => {
+        document.body.classList.remove('celebrate');
+      }, 800);
+    });
+  </script>
 </body>
+
 </html>

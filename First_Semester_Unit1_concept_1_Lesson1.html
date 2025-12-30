@@ -475,6 +475,95 @@
       font-family: monospace;
     }
 
+    /* تصميم أسئلة صح/خطأ */
+    .true-false-question {
+      margin-bottom: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #3b4252, #4c566a);
+      border-radius: 15px;
+      text-align: left;
+      border-left: 8px solid var(--yellow-accent);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .true-false-question:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .true-false-question h3 {
+      color: var(--light-blue);
+      margin-bottom: 20px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .true-false-question h3::before {
+      content: "❓";
+      font-size: 24px;
+    }
+
+    .true-false-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .true-false-option {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 12px;
+      border: 2px solid rgba(96, 165, 250, 0.2);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .true-false-option:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--light-blue);
+      transform: translateX(5px);
+    }
+
+    .true-false-option input[type="radio"] {
+      width: 22px;
+      height: 22px;
+      margin-right: 15px;
+      cursor: pointer;
+      accent-color: var(--yellow-accent);
+      transform: scale(1.2);
+    }
+
+    .true-false-option label {
+      font-size: 18px;
+      color: var(--text-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .true-false-feedback {
+      display: none;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 15px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+    }
+
+    .show-correction .true-false-feedback {
+      display: block;
+    }
+
     #infoBox {
       display: none;
       margin: 15px auto 25px;
@@ -596,7 +685,8 @@
       transform: scale(1.05) !important;
     }
 
-    .blank-feedback, .circle-feedback {
+    .blank-feedback,
+    .circle-feedback {
       display: none;
       padding: 15px;
       border-radius: 12px;
@@ -607,7 +697,8 @@
     }
 
     .show-correction .blank-feedback,
-    .show-correction .circle-feedback {
+    .show-correction .circle-feedback,
+    .show-correction .true-false-feedback {
       display: block;
     }
 
@@ -746,6 +837,14 @@
         font-size: 20px;
       }
 
+      .true-false-option {
+        padding: 12px;
+      }
+
+      .true-false-option label {
+        font-size: 16px;
+      }
+
       .info-row {
         flex-direction: column;
         gap: 10px;
@@ -773,7 +872,8 @@
       }
 
       .math-question h3,
-      .circle-question h3 {
+      .circle-question h3,
+      .true-false-question h3 {
         font-size: 20px;
       }
 
@@ -819,6 +919,10 @@
       .circle-options {
         grid-template-columns: 1fr;
       }
+
+      .true-false-options {
+        gap: 8px;
+      }
     }
 
     /* تأثيرات خاصة للإجابات الصحيحة والخاطئة */
@@ -832,12 +936,14 @@
       border-color: var(--wrong-red) !important;
     }
 
-    .correct-checkbox {
+    .correct-checkbox,
+    .correct-radio {
       background: rgba(16, 185, 129, 0.1) !important;
       border-color: var(--correct-green) !important;
     }
 
-    .wrong-checkbox {
+    .wrong-checkbox,
+    .wrong-radio {
       background: rgba(239, 68, 68, 0.1) !important;
       border-color: var(--wrong-red) !important;
     }
@@ -954,7 +1060,8 @@
     <img src="https://cdn.pixabay.com/photo/2020/01/21/18/39/math-4784988_1280.png" alt="Math Fun"
       onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iIzIyYzU1ZSIvPjxwYXRoIGQ9Ik03MCAxMjBMMTMwIDEyME0xMDAgNzBMMTAwIDEzME0xMjAgOTBMMTIwIDExME04MCA5MEw4MCAxMTBNMTMwIDkwTDE1MCA3ME0xMzAgMTEwTDE1MCAxMzBNNzAgOTBMNTAgNzBNNzAgMTEwTDUwIDEzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iMTAwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWF0aCBBZHZlbnR1cmUhPC90ZXh0Pjwvc3ZnPg=='">
     <h2>Welcome to the Math Adventure! 🚀</h2>
-    <p>Hey there, young mathematician! 👨‍🏫👩‍🏫<br>Get ready to explore the amazing world of the associative property!<br>Complete all the challenges and earn your Math Expert Certificate! 🏆</p>
+    <p>Hey there, young mathematician! 👨‍🏫👩‍🏫<br>Get ready to explore the amazing world of the associative
+      property!<br>Complete all the challenges and earn your Math Expert Certificate! 🏆</p>
   </section>
 
   <div class="container" id="printArea">
@@ -982,7 +1089,8 @@
     <!-- شرح الخاصية التجميعية -->
     <div class="property-explanation">
       <h3>📚 The Associative Property</h3>
-      <p>The associative property says that when we add or multiply three or more numbers, the way we group them doesn't change the result.</p>
+      <p>The associative property says that when we add or multiply three or more numbers, the way we group them doesn't
+        change the result.</p>
       <p><strong>For addition:</strong> (a + b) + c = a + (b + c)</p>
       <p><strong>For multiplication:</strong> (a × b) × c = a × (b × c)</p>
     </div>
@@ -990,13 +1098,13 @@
     <!-- مجموعة أسئلة "اختر العبارات الصحيحة" -->
     <div class="question-group">
       <h3>⭕ Circle all the correct statements that have the same value</h3>
-      
+
       <div class="instructions">
         <h4>How to answer:</h4>
         <p>Check the boxes for ALL expressions that have the SAME VALUE as the given expression.</p>
       </div>
 
-      <!-- سؤال 1 -->
+      <!-- سؤال اختيار متعدد -->
       <div class="circle-question">
         <div class="circle-header">
           <span class="circle-number">1</span>
@@ -1035,131 +1143,15 @@
         <div class="circle-feedback" id="fb-circle1"></div>
       </div>
 
-      <!-- سؤال 2 -->
-      <div class="circle-question">
-        <div class="circle-header">
-          <span class="circle-number">2</span>
-          <div class="circle-main-expression">3 × 1 × 2</div>
-        </div>
-        <div class="circle-options">
-          <div class="circle-option">
-            <input type="checkbox" id="q2_a" name="q2" value="a">
-            <label for="q2_a">
-              <span class="option-letter">α</span>
-              <span class="option-expression">3 × (1 × 2)</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q2_b" name="q2" value="b">
-            <label for="q2_b">
-              <span class="option-letter">b</span>
-              <span class="option-expression">(3 × 1) × 2</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q2_c" name="q2" value="c">
-            <label for="q2_c">
-              <span class="option-letter">c</span>
-              <span class="option-expression">(3 × 2) × 1</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q2_d" name="q2" value="d">
-            <label for="q2_d">
-              <span class="option-letter">d</span>
-              <span class="option-expression">(3 + 1) × 2</span>
-            </label>
-          </div>
-        </div>
-        <div class="circle-feedback" id="fb-circle2"></div>
-      </div>
-
-      <!-- سؤال 3 -->
-      <div class="circle-question">
-        <div class="circle-header">
-          <span class="circle-number">3</span>
-          <div class="circle-main-expression">4 × 2 × 1</div>
-        </div>
-        <div class="circle-options">
-          <div class="circle-option">
-            <input type="checkbox" id="q3_a" name="q3" value="a">
-            <label for="q3_a">
-              <span class="option-letter">α</span>
-              <span class="option-expression">(4 + 2) + 1</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q3_b" name="q3" value="b">
-            <label for="q3_b">
-              <span class="option-letter">b</span>
-              <span class="option-expression">(4 × 2) × 1</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q3_c" name="q3" value="c">
-            <label for="q3_c">
-              <span class="option-letter">c</span>
-              <span class="option-expression">(4 × 1) × 2</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q3_d" name="q3" value="d">
-            <label for="q3_d">
-              <span class="option-letter">d</span>
-              <span class="option-expression">4 × (2 × 1)</span>
-            </label>
-          </div>
-        </div>
-        <div class="circle-feedback" id="fb-circle3"></div>
-      </div>
-
-      <!-- سؤال 4 -->
-      <div class="circle-question">
-        <div class="circle-header">
-          <span class="circle-number">4</span>
-          <div class="circle-main-expression">2 × 5 × 3</div>
-        </div>
-        <div class="circle-options">
-          <div class="circle-option">
-            <input type="checkbox" id="q4_a" name="q4" value="a">
-            <label for="q4_a">
-              <span class="option-letter">α</span>
-              <span class="option-expression">2 + 5 + 3</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q4_b" name="q4" value="b">
-            <label for="q4_b">
-              <span class="option-letter">b</span>
-              <span class="option-expression">(2 × 5) + 3</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q4_c" name="q4" value="c">
-            <label for="q4_c">
-              <span class="option-letter">c</span>
-              <span class="option-expression">2 × (5 × 3)</span>
-            </label>
-          </div>
-          <div class="circle-option">
-            <input type="checkbox" id="q4_d" name="q4" value="d">
-            <label for="q4_d">
-              <span class="option-letter">d</span>
-              <span class="option-expression">(2 × 3) × 5</span>
-            </label>
-          </div>
-        </div>
-        <div class="circle-feedback" id="fb-circle4"></div>
-      </div>
     </div>
 
-    <!-- مجموعة أسئلة الضرب -->
+    <!-- مجموعة أسئلة الأكمل -->
     <div class="question-group">
-      <h3>Multiplication Questions (×)</h3>
-      
+      <h3>✏️ Complete the equations</h3>
+
       <div class="math-question">
         <div class="question-line">
-          <span class="question-number">1</span>
+          <span class="question-number">2</span>
           <span class="question-text">(2 × 1) × 3 = 2 × (1 ×</span>
           <input type="text" class="small-input" id="blank1" placeholder="?">
           <span class="question-text">)</span>
@@ -1167,15 +1159,56 @@
         <div class="blank-feedback" id="fb-blank1"></div>
       </div>
 
-      <div class="math-question">
-        <div class="question-line">
-          <span class="question-number">2</span>
-          <span class="question-text">(3 × 2) × 6 =</span>
-          <input type="text" class="small-input" id="blank2" placeholder="?">
-          <span class="question-text">× (2 × 6)</span>
+    </div>
+
+    <!-- مجموعة أسئلة صح/خطأ -->
+    <div class="question-group">
+      <h3>✅ True or False Questions</h3>
+
+      <div class="true-false-question">
+        <h3>3. Is the following statement true or false?</h3>
+        <div class="circle-main-expression" style="margin-bottom: 20px;">4 × 2 × 5 = (4 × 2) + 5</div>
+        <div class="true-false-options">
+          <div class="true-false-option">
+            <input type="radio" id="q3_true" name="q3" value="true">
+            <label for="q3_true">
+              <span style="color: var(--correct-green); font-weight: bold;">✅ True</span>
+              <span style="color: var(--text-muted); font-size: 16px;">- The statement is correct</span>
+            </label>
+          </div>
+          <div class="true-false-option">
+            <input type="radio" id="q3_false" name="q3" value="false">
+            <label for="q3_false">
+              <span style="color: var(--wrong-red); font-weight: bold;">❌ False</span>
+              <span style="color: var(--text-muted); font-size: 16px;">- The statement is incorrect</span>
+            </label>
+          </div>
         </div>
-        <div class="blank-feedback" id="fb-blank2"></div>
+        <div class="true-false-feedback" id="fb-q3"></div>
       </div>
+
+      <div class="true-false-question">
+        <h3>4. Is the following statement true or false?</h3>
+        <div class="circle-main-expression" style="margin-bottom: 20px;">(3 × 4) × 2 = 3 × (4 × 2)</div>
+        <div class="true-false-options">
+          <div class="true-false-option">
+            <input type="radio" id="q4_true" name="q4" value="true">
+            <label for="q4_true">
+              <span style="color: var(--correct-green); font-weight: bold;">✅ True</span>
+              <span style="color: var(--text-muted); font-size: 16px;">- This shows the associative property</span>
+            </label>
+          </div>
+          <div class="true-false-option">
+            <input type="radio" id="q4_false" name="q4" value="false">
+            <label for="q4_false">
+              <span style="color: var(--wrong-red); font-weight: bold;">❌ False</span>
+              <span style="color: var(--text-muted); font-size: 16px;">- This does not show the associative property</span>
+            </label>
+          </div>
+        </div>
+        <div class="true-false-feedback" id="fb-q4"></div>
+      </div>
+
     </div>
 
     <button id="saveBtn" onclick="generateImage()">
@@ -1230,18 +1263,30 @@
     function updateProgress() {
       const textInputs = document.querySelectorAll('.small-input');
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      const totalInputs = textInputs.length + checkboxes.length;
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const totalInputs = textInputs.length + checkboxes.length + 2; // +2 لأسئلة صح/خطأ
+      
       let filledCount = 0;
 
+      // حساب المدخلات النصية
       textInputs.forEach(input => {
         if (input.value.trim() !== '') {
           filledCount++;
         }
       });
 
-      // نعتبر أن سؤال الاختيار المتعدد قد تمت الإجابة عليه إذا تم تحديد خيار واحد على الأقل
-      const questionGroups = ['q1', 'q2', 'q3', 'q4'];
+      // حساب أسئلة الاختيار المتعدد
+      const questionGroups = ['q1'];
       questionGroups.forEach(group => {
+        const checked = document.querySelectorAll(`input[name="${group}"]:checked`).length;
+        if (checked > 0) {
+          filledCount++;
+        }
+      });
+
+      // حساب أسئلة صح/خطأ
+      const trueFalseGroups = ['q3', 'q4'];
+      trueFalseGroups.forEach(group => {
         const checked = document.querySelectorAll(`input[name="${group}"]:checked`).length;
         if (checked > 0) {
           filledCount++;
@@ -1261,7 +1306,7 @@
       createBubbles();
 
       // تحديث شريط التقدم عند أي تغيير
-      document.querySelectorAll('.small-input, input[type="checkbox"]').forEach(element => {
+      document.querySelectorAll('.small-input, input[type="checkbox"], input[type="radio"]').forEach(element => {
         element.addEventListener('input', updateProgress);
         element.addEventListener('change', updateProgress);
       });
@@ -1309,29 +1354,26 @@
         return;
       }
 
-      // الإجابات الصحيحة للأسئلة العادية
+      // الإجابات الصحيحة
       const fillAnswers = {
-        blank1: "3",
-        blank2: "3"
+        blank1: "3"
       };
 
-      // الإجابات الصحيحة لأسئلة "اختر العبارات الصحيحة"
-      // كل مفتاح هو رقم السؤال، والقيمة هي مصفوفة بالخيارات الصحيحة
       const circleAnswers = {
-        q1: ["a", "c", "d"],  // (3×2)×4, (3×4)×2, 3×(2×4)
-        q2: ["a", "b", "c"],  // 3×(1×2), (3×1)×2, (3×2)×1
-        q3: ["b", "c", "d"],  // (4×2)×1, (4×1)×2, 4×(2×1)
-        q4: ["c", "d"]        // 2×(5×3), (2×3)×5
+        q1: ["a", "c", "d"]  // (3×2)×4, (3×4)×2, 3×(2×4)
       };
 
-      // تصحيح الأسئلة العادية
-      let totalScore = 0;
-      const totalFillQuestions = Object.keys(fillAnswers).length;
-      const totalCircleQuestions = Object.keys(circleAnswers).length;
-      const totalQuestions = totalFillQuestions + totalCircleQuestions;
+      const trueFalseAnswers = {
+        q3: "false",  // 4×2×5 = 40، لكن (4×2)+5 = 13
+        q4: "true"    // (3×4)×2 = 24 و 3×(4×2) = 24
+      };
 
-      // تصحيح الأسئلة العادية
-      Object.keys(fillAnswers).forEach((blankId, index) => {
+      // تصحيح الأسئلة
+      let totalScore = 0;
+      const totalQuestions = 4; // سؤال اختيار متعدد + سؤال أكمل + سؤالان صح/خطأ
+
+      // تصحيح سؤال الأكمل
+      Object.keys(fillAnswers).forEach((blankId) => {
         const input = document.getElementById(blankId);
         const feedback = document.getElementById("fb-" + blankId);
         
@@ -1352,22 +1394,19 @@
         }
       });
 
-      // تصحيح أسئلة "اختر العبارات الصحيحة"
-      Object.keys(circleAnswers).forEach((questionId, questionIndex) => {
-        const feedback = document.getElementById("fb-circle" + (questionIndex + 1));
+      // تصحيح سؤال الاختيار المتعدد
+      Object.keys(circleAnswers).forEach((questionId) => {
+        const feedback = document.getElementById("fb-circle1");
         const correctOptions = circleAnswers[questionId];
         const userSelections = [];
         const optionElements = document.querySelectorAll(`input[name="${questionId}"]`);
         
-        // جمع الخيارات المحددة من قبل المستخدم
         optionElements.forEach(option => {
           if (option.checked) {
             userSelections.push(option.value);
           }
         });
 
-        // حساب الدرجة لهذا السؤال
-        let questionScore = 0;
         let allCorrect = true;
         let anySelected = false;
         
@@ -1379,7 +1418,6 @@
           if (isSelected) anySelected = true;
           
           if (isSelected && isCorrect) {
-            questionScore++;
             optionDiv.classList.add('correct-checkbox');
           } else if (isSelected && !isCorrect) {
             allCorrect = false;
@@ -1390,7 +1428,6 @@
           }
         });
 
-        // إضافة الدرجة إذا كان كل شيء صحيحاً
         if (allCorrect && anySelected) {
           totalScore++;
           feedback.innerHTML = `<div style="color:#10b981; margin:5px 0; font-size:14px;">✅ Perfect! All correct answers selected! 🌟</div>`;
@@ -1400,6 +1437,30 @@
           feedback.classList.add('wrong');
         } else {
           feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ Please select answers. The correct ones are: ${correctOptions.map(opt => opt.toUpperCase()).join(', ')}</div>`;
+          feedback.classList.add('wrong');
+        }
+      });
+
+      // تصحيح أسئلة صح/خطأ
+      Object.keys(trueFalseAnswers).forEach((questionId) => {
+        const feedback = document.getElementById("fb-" + questionId);
+        const correctAnswer = trueFalseAnswers[questionId];
+        const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+        
+        if (selectedOption) {
+          const optionDiv = selectedOption.closest('.true-false-option');
+          if (selectedOption.value === correctAnswer) {
+            totalScore++;
+            optionDiv.classList.add('correct-radio');
+            feedback.innerHTML = `<div style="color:#10b981; margin:5px 0; font-size:14px;">✅ Correct! Great thinking! 🧠</div>`;
+            feedback.classList.add('correct');
+          } else {
+            optionDiv.classList.add('wrong-radio');
+            feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ Incorrect. The correct answer is ${correctAnswer === 'true' ? '✅ True' : '❌ False'}.</div>`;
+            feedback.classList.add('wrong');
+          }
+        } else {
+          feedback.innerHTML = `<div style="color:#ef4444; margin:5px 0; font-size:14px;">❌ Please select an answer. The correct answer is ${correctAnswer === 'true' ? '✅ True' : '❌ False'}.</div>`;
           feedback.classList.add('wrong');
         }
       });
@@ -1449,7 +1510,7 @@
             if (backBtn) backBtn.style.display = 'inline-block';
 
             // إزالة التغذية الراجعة والألوان
-            document.querySelectorAll('.blank-feedback, .circle-feedback').forEach(fb => {
+            document.querySelectorAll('.blank-feedback, .circle-feedback, .true-false-feedback').forEach(fb => {
               fb.innerHTML = "";
               fb.classList.remove('correct', 'wrong');
             });
@@ -1458,8 +1519,8 @@
               input.classList.remove('correct', 'wrong');
             });
 
-            document.querySelectorAll('.circle-option').forEach(option => {
-              option.classList.remove('correct-checkbox', 'wrong-checkbox');
+            document.querySelectorAll('.circle-option, .true-false-option').forEach(option => {
+              option.classList.remove('correct-checkbox', 'wrong-checkbox', 'correct-radio', 'wrong-radio');
             });
 
             localStorage.setItem(STORAGE_KEY, Date.now());
@@ -1496,7 +1557,7 @@
 
     // إضافة مؤثرات إضافية
     document.addEventListener('click', function (e) {
-      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox') {
+      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio') {
         e.target.classList.add('celebrate');
         setTimeout(() => {
           e.target.classList.remove('celebrate');

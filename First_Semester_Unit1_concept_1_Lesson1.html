@@ -1034,40 +1034,27 @@
       margin-right: 10px;
     }
 
-    /* تنسيقات سؤال الوصل */
-    .matching-question {
+    /* تصميم سؤال الوصل التفاعلي */
+    .matching-question-interactive {
       background: linear-gradient(135deg, #4c566a, #3b4252);
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 25px;
       margin-bottom: 25px;
       border-left: 8px solid var(--light-blue);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       position: relative;
     }
-
-    .matching-header {
+    
+    .matching-header-interactive {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       padding-bottom: 15px;
       border-bottom: 2px solid rgba(96, 165, 250, 0.3);
     }
-
-    .matching-title {
-      color: var(--light-blue);
-      font-size: 22px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .matching-title::before {
-      content: "🔗";
-      font-size: 24px;
-    }
-
-    .matching-instructions {
+    
+    .matching-instructions-interactive {
       background: rgba(59, 130, 246, 0.1);
       padding: 12px 15px;
       border-radius: 10px;
@@ -1076,129 +1063,135 @@
       color: var(--text-light);
       border-left: 4px solid var(--light-blue);
     }
-
-    .matching-instructions p {
+    
+    .matching-instructions-interactive p {
       margin: 0;
       text-align: left;
     }
-
-    .matching-container {
+    
+    .matching-container-interactive {
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .matching-container {
-        flex-direction: column;
-        gap: 15px;
-      }
-    }
-
-    .matching-left,
-    .matching-right {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .matching-left h4,
-    .matching-right h4 {
-      color: var(--yellow-accent);
-      margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid rgba(251, 191, 36, 0.3);
-      font-size: 18px;
-      text-align: center;
-    }
-
-    .matching-left h4::before {
-      content: "📝";
-      margin-right: 8px;
-    }
-
-    .matching-right h4::before {
-      content: "🎯";
-      margin-right: 8px;
-    }
-
-    .matching-item {
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      margin-bottom: 12px;
+      gap: 40px;
+      margin: 20px 0;
+      padding: 20px;
       background: rgba(30, 41, 59, 0.8);
-      border-radius: 10px;
-      border: 2px solid rgba(96, 165, 250, 0.2);
-      transition: all 0.3s;
+      border-radius: 15px;
+      border: 3px solid var(--light-blue);
+      min-height: 300px;
     }
-
-    .matching-item:hover {
-      border-color: var(--light-blue);
-      transform: translateX(5px);
-    }
-
-    .item-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 36px;
-      height: 36px;
-      background: var(--purple-accent);
-      color: white;
-      border-radius: 50%;
-      font-weight: bold;
-      font-size: 18px;
-      margin-right: 15px;
-      flex-shrink: 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .item-text {
-      font-size: 18px;
-      color: var(--text-light);
+    
+    .matching-column-interactive {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-
-    .item-value {
-      font-weight: bold;
-      color: var(--yellow-accent);
-    }
-
-    .matching-select {
-      width: 100%;
-      padding: 10px 15px;
-      border-radius: 8px;
-      border: 2px solid var(--math-green);
-      background: rgba(30, 41, 59, 0.9);
-      color: white;
-      font-size: 16px;
-      font-family: "Comic Sans MS", sans-serif;
-      outline: none;
-      transition: all 0.3s;
+    
+    .matching-item-interactive {
+      padding: 15px;
+      background: #2d3748;
+      border: 2px solid #4b5563;
+      border-radius: 10px;
       cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2360a5fa%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px top 50%;
-      background-size: 12px auto;
-      padding-right: 35px;
+      text-align: center;
+      transition: all 0.3s;
+      font-size: 18px;
+      color: #e5e7eb;
+      font-weight: bold;
     }
-
-    .matching-select:focus {
+    
+    .matching-item-interactive:hover {
       border-color: var(--light-blue);
-      box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
-      transform: scale(1.02);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+      background: #374151;
     }
-
-    .matching-select option {
-      background: var(--dark-blue);
+    
+    .matching-item-interactive.selected {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: var(--light-blue);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    }
+    
+    .connections-display-interactive {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #111827;
+      border-radius: 10px;
+      border: 2px dashed var(--light-blue);
+    }
+    
+    .connections-display-interactive.show {
+      display: block;
+    }
+    
+    .connection-item-interactive {
+      padding: 10px 15px;
+      margin: 8px 0;
+      background: #1e293b;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e5e7eb;
+      border: 1px solid #374151;
+    }
+    
+    .connection-item-interactive button {
+      background: #ef4444;
       color: white;
-      padding: 10px;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    
+    .connection-item-interactive button:hover {
+      background: #dc2626;
+    }
+    
+    .btn-clear-connections {
+      background: linear-gradient(90deg, #ef4444, #f87171);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s;
+      display: block;
+      width: 100%;
+    }
+    
+    .btn-clear-connections:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+    }
+    
+    /* خطوط التوصيل */
+    .connection-line {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      stroke-width: 3;
+    }
+    
+    .connection-line.correct {
+      stroke: var(--correct-green);
+    }
+    
+    .connection-line.wrong {
+      stroke: var(--wrong-red);
+      stroke-dasharray: 5, 5;
     }
 
-    .matching-feedback {
+    .matching-feedback-interactive {
       display: none;
       padding: 15px;
       border-radius: 12px;
@@ -1208,25 +1201,8 @@
       font-size: 16px;
     }
 
-    .show-correction .matching-feedback {
+    .show-correction .matching-feedback-interactive {
       display: block;
-    }
-
-    .matching-line {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .matching-line.correct {
-      stroke: var(--correct-green);
-      stroke-width: 3;
-    }
-
-    .matching-line.wrong {
-      stroke: var(--wrong-red);
-      stroke-width: 3;
-      stroke-dasharray: 5, 5;
     }
   </style>
 </head>
@@ -1422,34 +1398,65 @@
       <div class="blank-feedback" id="fb6"></div>
     </div>
 
-    <!-- سؤال 7: سؤال الوصل (Matching) -->
-    <div class="matching-question">
-      <div class="matching-header">
+    <!-- سؤال 7: سؤال الوصل التفاعلي -->
+    <div class="matching-question-interactive">
+      <div class="matching-header-interactive">
         <span class="circle-number">7</span>
-        <div class="matching-title">Connect the matching pairs!</div>
+        <h3>Match the mathematical expressions! 🔗</h3>
       </div>
-
-      <div class="matching-instructions">
-        <p>📌 Match each mathematical expression on the left with its equivalent value on the right.</p>
+      
+      <div class="matching-instructions-interactive">
+        <p>📌 Click an item on the LEFT, then click an item on the RIGHT to connect them!</p>
       </div>
-
-      <div class="matching-container">
-        <div class="matching-left">
-          <h4>Mathematical Expressions</h4>
-          <div class="matching-items-list" id="leftItems">
-            <!-- العناصر ستتم إضافتها بواسطة JavaScript -->
+      
+      <div class="matching-container-interactive">
+        <div class="matching-column-interactive" id="left-column-interactive">
+          <div class="matching-item-interactive" data-id="1" onclick="selectMatchingItemInteractive(this, 'left')">
+            (2 × 3) × 4
+          </div>
+          <div class="matching-item-interactive" data-id="2" onclick="selectMatchingItemInteractive(this, 'left')">
+            5 × (3 × 2)
+          </div>
+          <div class="matching-item-interactive" data-id="3" onclick="selectMatchingItemInteractive(this, 'left')">
+            (4 × 2) × 5
+          </div>
+          <div class="matching-item-interactive" data-id="4" onclick="selectMatchingItemInteractive(this, 'left')">
+            3 × (5 × 2)
+          </div>
+          <div class="matching-item-interactive" data-id="5" onclick="selectMatchingItemInteractive(this, 'left')">
+            (2 × 4) × 3
           </div>
         </div>
-
-        <div class="matching-right">
-          <h4>Equivalent Values</h4>
-          <div class="matching-items-list" id="rightItems">
-            <!-- العناصر ستتم إضافتها بواسطة JavaScript -->
+        
+        <div class="matching-column-interactive" id="right-column-interactive">
+          <div class="matching-item-interactive" data-id="a" onclick="selectMatchingItemInteractive(this, 'right')">
+            24
+          </div>
+          <div class="matching-item-interactive" data-id="b" onclick="selectMatchingItemInteractive(this, 'right')">
+            30
+          </div>
+          <div class="matching-item-interactive" data-id="c" onclick="selectMatchingItemInteractive(this, 'right')">
+            40
+          </div>
+          <div class="matching-item-interactive" data-id="d" onclick="selectMatchingItemInteractive(this, 'right')">
+            30
+          </div>
+          <div class="matching-item-interactive" data-id="e" onclick="selectMatchingItemInteractive(this, 'right')">
+            24
           </div>
         </div>
       </div>
-
-      <div class="matching-feedback" id="fb-matching7"></div>
+      
+      <div class="connections-display-interactive" id="connectionsDisplayInteractive">
+        <h4>Your Connections:</h4>
+        <div id="connectionsListInteractive"></div>
+      </div>
+      
+      <div class="matching-feedback-interactive" id="fb-matching7"></div>
+      
+      <button class="btn-clear-connections" onclick="clearConnectionsInteractive()">
+        🗑️ Clear All Connections
+      </button>
     </div>
 
     <button id="saveBtn" onclick="generateImage()">
@@ -1463,22 +1470,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script>
-    // بيانات سؤال الوصل
-    const matchingData = {
-      questions: [
-        { id: "q7_1", label: "A", text: "(2 × 3) × 4", correctMatch: "B" },
-        { id: "q7_2", label: "B", text: "5 × (3 × 2)", correctMatch: "C" },
-        { id: "q7_3", label: "C", text: "(4 × 2) × 5", correctMatch: "D" },
-        { id: "q7_4", label: "D", text: "3 × (5 × 2)", correctMatch: "A" }
-      ],
-      answers: [
-        { id: "ans_a", label: "A", text: "30", value: "A" },
-        { id: "ans_b", label: "B", text: "24", value: "B" },
-        { id: "ans_c", label: "C", text: "30", value: "C" },
-        { id: "ans_d", label: "D", text: "40", value: "D" }
-      ]
-    };
-
+    // متغيرات للتوصيل التفاعلي
+    let connectionsInteractive = [];
+    let selectedLeftInteractive = null;
+    let selectedRightInteractive = null;
+    
     // إنشاء نجوم زينة
     function createStars() {
       const starsContainer = document.getElementById('starsContainer');
@@ -1516,136 +1512,163 @@
       }
     }
 
-    // إنشاء سؤال الوصل
-    function createMatchingQuestion() {
-      const leftContainer = document.getElementById('leftItems');
-      const rightContainer = document.getElementById('rightItems');
-
-      if (!leftContainer || !rightContainer) return;
-
-      // إضافة الأسئلة إلى الجانب الأيسر
-      matchingData.questions.forEach(item => {
-        const questionDiv = document.createElement('div');
-        questionDiv.className = 'matching-item';
-        questionDiv.id = `item_${item.id}`;
-
-        questionDiv.innerHTML = `
-          <div class="item-label">${item.label}</div>
-          <div class="item-text">
-            <span class="item-value">${item.text}</span>
-          </div>
-          <select class="matching-select" id="select_${item.id}" data-question="${item.id}">
-            <option value="">-- Choose --</option>
-            ${matchingData.answers.map(ans => 
-              `<option value="${ans.value}">${ans.label}: ${ans.text}</option>`
-            ).join('')}
-          </select>
-        `;
-
-        leftContainer.appendChild(questionDiv);
-      });
-
-      // إضافة الإجابات إلى الجانب الأيمن
-      matchingData.answers.forEach(item => {
-        const answerDiv = document.createElement('div');
-        answerDiv.className = 'matching-item';
-        answerDiv.id = `answer_${item.id}`;
-
-        answerDiv.innerHTML = `
-          <div class="item-label">${item.label}</div>
-          <div class="item-text">
-            <span class="item-value">${item.text}</span>
-          </div>
-        `;
-
-        rightContainer.appendChild(answerDiv);
-      });
-
-      // إضافة حدث التغيير لمربعات الاختيار
-      document.querySelectorAll('.matching-select').forEach(select => {
-        select.addEventListener('change', function() {
-          updateProgress();
-          // إزالة أي خطوط مرسومة سابقًا
-          document.querySelectorAll('.matching-line').forEach(line => line.remove());
-          
-          if (this.value) {
-            drawMatchingLine(this);
-          }
-        });
-      });
-    }
-
-    // رسم خط الوصل
-    function drawMatchingLine(selectElement) {
-      const questionId = selectElement.dataset.question;
-      const answerValue = selectElement.value;
-      
-      const questionItem = document.getElementById(`item_${questionId}`);
-      const answerItem = document.getElementById(`answer_ans_${answerValue.toLowerCase()}`);
-      
-      if (!questionItem || !answerItem) return;
-      
-      const questionRect = questionItem.getBoundingClientRect();
-      const answerRect = answerItem.getBoundingClientRect();
-      const containerRect = document.querySelector('.matching-container').getBoundingClientRect();
-      
-      // إحداثيات البداية والنهاية
-      const startX = questionRect.right - containerRect.left;
-      const startY = questionRect.top + questionRect.height / 2 - containerRect.top;
-      const endX = answerRect.left - containerRect.left;
-      const endY = answerRect.top + answerRect.height / 2 - containerRect.top;
-      
-      // إنشاء عنصر SVG للخط
-      const svgNS = "http://www.w3.org/2000/svg";
-      const line = document.createElementNS(svgNS, "line");
-      line.setAttribute("x1", startX);
-      line.setAttribute("y1", startY);
-      line.setAttribute("x2", endX);
-      line.setAttribute("y2", endY);
-      line.classList.add("matching-line");
-      
-      // إضافة إلى الحاوية
-      const matchingContainer = document.querySelector('.matching-container');
-      let svg = matchingContainer.querySelector('svg');
-      if (!svg) {
-        svg = document.createElementNS(svgNS, "svg");
-        svg.style.position = "absolute";
-        svg.style.top = "0";
-        svg.style.left = "0";
-        svg.style.width = "100%";
-        svg.style.height = "100%";
-        svg.style.pointerEvents = "none";
-        matchingContainer.appendChild(svg);
+    // دالة لاختيار عنصر في سؤال الوصل
+    function selectMatchingItemInteractive(element, side) {
+      if (side === 'left') {
+        // إذا كان نفس العنصر محدداً بالفعل، قم بإلغاء تحديده
+        if (selectedLeftInteractive === element) {
+          selectedLeftInteractive.classList.remove('selected');
+          selectedLeftInteractive = null;
+          return;
+        }
+        
+        // إلغاء تحديد العنصر المحدد سابقاً
+        if (selectedLeftInteractive) {
+          selectedLeftInteractive.classList.remove('selected');
+        }
+        
+        // تحديد العنصر الجديد
+        selectedLeftInteractive = element;
+        selectedLeftInteractive.classList.add('selected');
+      } else {
+        // إذا كان نفس العنصر محدداً بالفعل، قم بإلغاء تحديده
+        if (selectedRightInteractive === element) {
+          selectedRightInteractive.classList.remove('selected');
+          selectedRightInteractive = null;
+          return;
+        }
+        
+        // إلغاء تحديد العنصر المحدد سابقاً
+        if (selectedRightInteractive) {
+          selectedRightInteractive.classList.remove('selected');
+        }
+        
+        // تحديد العنصر الجديد
+        selectedRightInteractive = element;
+        selectedRightInteractive.classList.add('selected');
       }
-      svg.appendChild(line);
-    }
-
-    // تصحيح سؤال الوصل
-    function checkMatchingQuestion() {
-      const selects = document.querySelectorAll('.matching-select');
-      let correctCount = 0;
-      let totalSelected = 0;
       
-      selects.forEach(select => {
-        if (select.value) {
-          totalSelected++;
-          const questionId = select.dataset.question;
-          const userAnswer = select.value;
-          
-          // البحث عن الإجابة الصحيحة
-          const question = matchingData.questions.find(q => q.id === questionId);
-          if (question && userAnswer === question.correctMatch) {
-            correctCount++;
-            select.style.borderColor = "#10b981";
-            select.style.backgroundColor = "rgba(16, 185, 129, 0.1)";
-          } else {
-            select.style.borderColor = "#ef4444";
-            select.style.backgroundColor = "rgba(239, 68, 68, 0.1)";
-          }
+      // إذا كان هناك عنصر محدد من كلا الجانبين، قم بإنشاء توصيل
+      if (selectedLeftInteractive && selectedRightInteractive) {
+        createConnectionInteractive(
+          selectedLeftInteractive.dataset.id,
+          selectedLeftInteractive.textContent,
+          selectedRightInteractive.dataset.id,
+          selectedRightInteractive.textContent
+        );
+        
+        // إعادة تعيين التحديد
+        selectedLeftInteractive.classList.remove('selected');
+        selectedRightInteractive.classList.remove('selected');
+        selectedLeftInteractive = null;
+        selectedRightInteractive = null;
+      }
+    }
+    
+    // دالة لإنشاء توصيل جديد
+    function createConnectionInteractive(leftId, leftValue, rightId, rightValue) {
+      // التحقق من عدم وجود توصيل سابق لنفس العنصر
+      const existingConnection = connectionsInteractive.find(conn => 
+        conn.leftId === leftId || conn.rightId === rightId
+      );
+      
+      if (existingConnection) {
+        alert('⚠️ This item is already connected! Please remove the existing connection first.');
+        return;
+      }
+      
+      // إضافة التوصيل الجديد
+      connectionsInteractive.push({
+        leftId,
+        leftValue,
+        rightId,
+        rightValue
+      });
+      
+      updateConnectionsDisplayInteractive();
+      updateProgress();
+    }
+    
+    // دالة لتحديث عرض التوصيلات
+    function updateConnectionsDisplayInteractive() {
+      const connectionsList = document.getElementById('connectionsListInteractive');
+      const connectionsDisplay = document.getElementById('connectionsDisplayInteractive');
+      
+      if (!connectionsList) return;
+      
+      connectionsList.innerHTML = '';
+      
+      if (connectionsInteractive.length === 0) {
+        connectionsDisplay.classList.remove('show');
+        return;
+      }
+      
+      connectionsDisplay.classList.add('show');
+      
+      connectionsInteractive.forEach((conn, index) => {
+        const connectionDiv = document.createElement('div');
+        connectionDiv.className = 'connection-item-interactive';
+        connectionDiv.innerHTML = `
+          <span>${conn.leftValue}</span>
+          <span>→</span>
+          <span>${conn.rightValue}</span>
+          <button onclick="removeConnectionInteractive('${conn.leftId}', '${conn.rightId}')">
+            ✗ Remove
+          </button>
+        `;
+        connectionsList.appendChild(connectionDiv);
+      });
+    }
+    
+    // دالة لإزالة توصيل محدد
+    function removeConnectionInteractive(leftId, rightId) {
+      connectionsInteractive = connectionsInteractive.filter(conn => 
+        !(conn.leftId === leftId && conn.rightId === rightId)
+      );
+      updateConnectionsDisplayInteractive();
+      updateProgress();
+    }
+    
+    // دالة لمسح جميع التوصيلات
+    function clearConnectionsInteractive() {
+      connectionsInteractive = [];
+      updateConnectionsDisplayInteractive();
+      
+      // إلغاء تحديد جميع العناصر
+      document.querySelectorAll('.matching-item-interactive').forEach(item => {
+        item.classList.remove('selected');
+      });
+      
+      selectedLeftInteractive = null;
+      selectedRightInteractive = null;
+      updateProgress();
+    }
+    
+    // دالة لتصحيح سؤال الوصل التفاعلي
+    function checkMatchingInteractive() {
+      // الإجابات الصحيحة للتوصيل
+      const correctConnections = [
+        { left: '1', right: 'a' },  // (2 × 3) × 4 = 24
+        { left: '2', right: 'b' },  // 5 × (3 × 2) = 30
+        { left: '3', right: 'c' },  // (4 × 2) × 5 = 40
+        { left: '4', right: 'd' },  // 3 × (5 × 2) = 30
+        { left: '5', right: 'e' }   // (2 × 4) × 3 = 24
+      ];
+      
+      let correctCount = 0;
+      
+      // لكل توصيل، تحقق مما إذا كان مطابقاً للإجابة الصحيحة
+      connectionsInteractive.forEach(conn => {
+        const isCorrect = correctConnections.some(correct => 
+          correct.left === conn.leftId && correct.right === conn.rightId
+        );
+        
+        if (isCorrect) {
+          correctCount++;
         }
       });
       
-      return { correctCount, totalSelected };
+      return correctCount;
     }
 
     // تحديث شريط التقدم
@@ -1653,9 +1676,8 @@
       const textInputs = document.querySelectorAll('.small-input, #q6_answer');
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
       const radios = document.querySelectorAll('input[type="radio"]');
-      const matchingSelects = document.querySelectorAll('.matching-select');
 
-      const totalInputs = textInputs.length + checkboxes.length + 2 + matchingSelects.length;
+      const totalInputs = textInputs.length + checkboxes.length + 2 + 5; // 5 أسئلة توصيل
 
       let filledCount = 0;
 
@@ -1681,11 +1703,7 @@
       if (hasQ3) filledCount++;
 
       // حساب أسئلة الوصل
-      matchingSelects.forEach(select => {
-        if (select.value !== '') {
-          filledCount++;
-        }
-      });
+      filledCount += connectionsInteractive.length;
 
       const progress = Math.min(100, (filledCount / totalInputs) * 100);
       const progressBar = document.getElementById("progressBar");
@@ -1698,10 +1716,10 @@
     document.addEventListener('DOMContentLoaded', function () {
       createStars();
       createBubbles();
-      createMatchingQuestion();
+      updateConnectionsDisplayInteractive();
 
       // تحديث شريط التقدم عند أي تغيير
-      document.querySelectorAll('.small-input, #q6_answer, input[type="checkbox"], input[type="radio"], .matching-select').forEach(element => {
+      document.querySelectorAll('.small-input, #q6_answer, input[type="checkbox"], input[type="radio"]').forEach(element => {
         element.addEventListener('input', updateProgress);
         element.addEventListener('change', updateProgress);
       });
@@ -1736,7 +1754,17 @@
         saveBtn.classList.add('celebrate');
       }
       document.querySelectorAll("input").forEach(el => el.disabled = true);
-      document.querySelectorAll("select").forEach(el => el.disabled = true);
+      
+      // تعطيل عناصر التوصيل التفاعلي
+      document.querySelectorAll('.matching-item-interactive').forEach(el => {
+        el.style.pointerEvents = 'none';
+        el.style.opacity = '0.7';
+      });
+      
+      document.querySelectorAll('.btn-clear-connections').forEach(el => {
+        el.disabled = true;
+        el.style.opacity = '0.5';
+      });
     }
 
     function generateImage() {
@@ -1778,7 +1806,7 @@
 
       // تصحيح الأسئلة
       let totalScore = 0;
-      const totalQuestions = 7; // إجمالي الأسئلة (تمت إضافة سؤال الوصل)
+      const totalQuestions = 7; // إجمالي الأسئلة
 
       // تصحيح السؤال 1
       let question1Score = 0;
@@ -1937,22 +1965,21 @@
         }
       }
 
-      // تصحيح سؤال الوصل (السؤال 7)
-      const matchingResult = checkMatchingQuestion();
-      const fbMatching = document.getElementById("fb-matching7");
+      // تصحيح سؤال الوصل التفاعلي (السؤال 7)
+      const matchingInteractiveResult = checkMatchingInteractive();
+      const fbMatchingInteractive = document.getElementById("fb-matching7");
       
       // حساب درجة سؤال الوصل (نقطة لكل تطابق صحيح)
-      const matchingScore = matchingResult.correctCount;
-      totalScore += matchingResult.correctCount; // 4 نقاط كحد أقصى
-
+      totalScore += matchingInteractiveResult; // 5 نقاط كحد أقصى
+      
       // تحديث التغذية الراجعة
-      if (fbMatching) {
-        if (matchingResult.totalSelected === 0) {
-          fbMatching.innerHTML = `<div style="color:#ef4444;">❌ Please match all items!</div>`;
-        } else if (matchingResult.correctCount === 4) {
-          fbMatching.innerHTML = `<div style="color:#10b981;">✅ Perfect! All matches are correct! (4/4)</div>`;
+      if (fbMatchingInteractive) {
+        if (connectionsInteractive.length === 0) {
+          fbMatchingInteractive.innerHTML = `<div style="color:#ef4444;">❌ Please create all 5 connections!</div>`;
+        } else if (matchingInteractiveResult === 5) {
+          fbMatchingInteractive.innerHTML = `<div style="color:#10b981;">✅ Perfect! All matches are correct! (5/5)</div>`;
         } else {
-          fbMatching.innerHTML = `<div style="color:#fbbf24;">⚠️ You got ${matchingResult.correctCount}/4 correct. Keep trying!</div>`;
+          fbMatchingInteractive.innerHTML = `<div style="color:#fbbf24;">⚠️ You got ${matchingInteractiveResult}/5 correct. Keep trying!</div>`;
         }
       }
 
@@ -2009,17 +2036,13 @@
               option.classList.remove('correct-checkbox', 'wrong-checkbox');
             });
 
-            document.querySelectorAll('.matching-select').forEach(select => {
-              select.style.borderColor = '';
-              select.style.backgroundColor = '';
+            document.querySelectorAll('.matching-item-interactive').forEach(item => {
+              item.classList.remove('selected');
             });
 
             document.querySelectorAll('label').forEach(label => {
               label.style.color = '';
             });
-
-            // إزالة خطوط الوصل
-            document.querySelectorAll('.matching-line').forEach(line => line.remove());
 
             localStorage.setItem(STORAGE_KEY, Date.now());
             lockHomework();
@@ -2055,7 +2078,7 @@
 
     // تأثيرات إضافية
     document.addEventListener('click', function (e) {
-      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio' || e.target.classList.contains('matching-select')) {
+      if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio') {
         e.target.classList.add('celebrate');
         setTimeout(() => {
           e.target.classList.remove('celebrate');

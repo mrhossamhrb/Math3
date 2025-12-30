@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First_Semester_Unit2_concept_2_Lesson4</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma;
+      background: linear-gradient(to bottom, #1f2937, #3b82f6);
+      margin: 0;
+      color: #f8fafc;
+      text-align: center;
+    }
+
+    header {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      padding: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      border-radius: 0 0 20px 20px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 25px auto;
+      background: #111827;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .question {
+      background: #3b4252;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 6px 0;
+      cursor: pointer
+    }
+
+    input[type=text] {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      border-radius: 10px;
+      border: none
+    }
+
+    button {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      font-size: 20px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      cursor: pointer;
+    }
+
+    .feedback {
+      display: none;
+      font-weight: bold;
+      margin-top: 8px
+    }
+
+    .show .feedback {
+      display: block
+    }
+
+    #infoBox {
+      display: none;
+      background: #60a5fa;
+      color: #111827;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .show #infoBox {
+      display: block
+    }
+
+    .inline {
+      width: 150px;
+      height: auto;
+      margin: 0 5px;
+      padding: 5px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .fake-text {
+      display: inline-block;
+      min-height: 24px;
+      padding: 6px 10px;
+      background: #fff;
+      color: #000;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .inline.fake-text {
+      width: 150px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>First_Semester_Unit2_concept_2_Lesson4</header>
+
+  <section>
+    <h2>First_Semester_Unit2_concept_2_Lesson4</h2>
+    <p>حل الواجب ثم احفظه كصورة 📸</p>
+  </section>
+
+  <div class="container" id="printArea">
+
+    <h2>Homework</h2>
+
+    <div id="infoBox">
+      الاسم: <b id="imgName"></b><br>
+      الدرجة: <b id="imgScore"></b><br>
+      التاريخ: <b id="imgDate"></b>
+    </div>
+
+    <div class="question">
+      اسم الطالب:
+      <input type="text" id="studentName">
+    </div>
+
+
+    <!-- أكمل -->
+    <div class="question">
+      <h3>
+        1) We can remove sea weeds from ocean's water by using
+        <input type="text" id="q1a" class="inline">
+        a process, just as we remove salt from ocean's water by
+        <input type="text" id="q1b" class="inline">
+      </h3>
+      <div class="feedback" id="f1"></div>
+    </div>
+
+    <div class='question'>
+      <h3>2 In marine food webs, algae is considered as______ a food source, while shark is considered a food source.
+        ______</h3>
+      <input type='text' id='q2'>
+      <div class='feedback' id='f2'></div>
+    </div>
+    <div class='question'>
+      <h3>3 A measuring cup is used to measure the______, while a thermometer is used to measure the. ______</h3>
+      <input type='text' id='q3'>
+      <div class='feedback' id='f3'></div>
+    </div>
+    <div class='question'>
+      <h3>4 Give a reason for:The change in population of one species affects the population of other species. ______
+      </h3>
+      <input type='text' id='q4'>
+      <div class='feedback' id='f4'></div>
+    </div>
+    <!-- صح وخطأ -->
+    <div class="question">
+      <h3>Floating and sinking in water depend on the mass of the substance.</h3>
+      <label><input type="radio" name="q5" value="true"> True</label>
+      <label><input type="radio" name="q5" value="false"> False</label>
+      <div class="feedback" id="f5"></div>
+    </div>
+    <!-- أكمل -->
+    <div class='question'>
+      <h3>6(B) What happens to...? 1. The speed of particles of a substance when the temperature increases. ______</h3>
+      <input type='text' id='q6'>
+      <div class='feedback' id='f6'></div>
+    </div>
+    <div class='question'>
+      <h3>7(B) What happens to...? 2. The producers and secondary consumers in an ecosystem when the number of rabbits
+        increases. ______</h3>
+      <input type='text' id='q7'>
+      <div class='feedback' id='f7'></div>
+    </div>
+    <!-- اختيار من متعدد -->
+    <div class="question">
+      <h3>8is repairing all parts of the habitat and preventing species from</h3>
+      <label><input type="radio" name="q8" value="a">a. Population - decrease</label>
+      <label><input type="radio" name="q8" value="b">b. Habitat restoration - extinction.</label>
+      <label><input type="radio" name="q8" value="c">c. Population - increase.</label>
+      <div class="feedback" id="f8"></div>
+    </div>
+
+    <!-- الجدول -->
+    <div class="question">
+      <h3>(B) Compare between:</h3>
+
+      <table style="width:100%; border-collapse:collapse; color:white;">
+        <tr>
+          <th style="border:1px solid #fff; padding:10px;">Points of comparison</th>
+          <th style="border:1px solid #fff; padding:10px;">Evaporation</th>
+          <th style="border:1px solid #fff; padding:10px;">Condensation</th>
+        </tr>
+
+        <tr>
+          <td style="border:1px solid #fff; padding:10px;">Motion of particles</td>
+          <td style="border:1px solid #fff; padding:10px;">
+            <input type="text" id="t1" style="width:95%; line-height:1.5; height:auto;">
+          </td>
+          <td style="border:1px solid #fff; padding:10px;">
+            <input type="text" id="t2" style="width:95%; line-height:1.5; height:auto;">
+          </td>
+        </tr>
+
+        <tr>
+          <td style="border:1px solid #fff; padding:10px;">Intermolecular spaces</td>
+          <td style="border:1px solid #fff; padding:10px;">
+            <input type="text" id="t3" style="width:95%; line-height:1.5; height:auto;">
+          </td>
+          <td style="border:1px solid #fff; padding:10px;">
+            <input type="text" id="t4" style="width:95%; line-height:1.5; height:auto;">
+          </td>
+        </tr>
+      </table>
+
+      <div class="feedback" id="fTable"></div>
+    </div>
+
+
+
+    <button id="saveBtn" onclick="generateImage()">📸 حفظ الواجب كصورة</button>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script>
+  const LOCK_DAYS = 0;
+  const STORAGE_KEY = "homework_locked";
+
+  window.onload = function () {
+    const lockData = localStorage.getItem(STORAGE_KEY);
+    if (lockData) {
+      const savedTime = parseInt(lockData, 10);
+      const now = Date.now();
+      const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
+      if (diffDays < LOCK_DAYS) {
+        lockHomework();
+      } else {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+  };
+
+  function lockHomework() {
+    document.getElementById("saveBtn").disabled = true;
+    document.getElementById("saveBtn").innerText = "✔️ تم تسليم الواجب";
+    document.querySelectorAll("input").forEach(el => el.disabled = true);
+  }
+
+  function generateImage() {
+
+    const name = document.getElementById("studentName").value.trim();
+    if (!name) {
+      alert("اكتب الاسم");
+      return;
+    }
+
+    let score = 0;
+
+    /* ===== سؤال له إجابتين ===== */
+    const a1 = document.getElementById("q1a").value.trim().toLowerCase();
+    const b1 = document.getElementById("q1b").value.trim().toLowerCase();
+    const f1 = document.getElementById("f1");
+
+    if (a1 === "filtration" && b1 === "evaporation") {
+      score++;
+      f1.innerHTML = "✔ صحيح";
+    } else {
+      f1.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== سؤال 2 (مقالي ذكي) ===== */
+    const q2 = document.getElementById("q2").value;
+    const f2 = document.getElementById("f2");
+
+    if (
+      checkEssay(q2, ["algae", "producer"]) &&
+      checkEssay(q2, ["shark", "consumer"])
+    ) {
+      score++;
+      f2.innerHTML = "✔ صحيح";
+    } else {
+      f2.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== سؤال 3 (مقالي ذكي) ===== */
+    const q3 = document.getElementById("q3").value;
+    const f3 = document.getElementById("f3");
+
+    if (
+      checkEssay(q3, ["measuring", "volume"]) &&
+      checkEssay(q3, ["thermometer", "temperature"])
+    ) {
+      score++;
+      f3.innerHTML = "✔ صحيح";
+    } else {
+      f3.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== سؤال 4 (سبب – مقالي) ===== */
+    const q4 = document.getElementById("q4").value;
+    const f4 = document.getElementById("f4");
+
+    if (
+      checkEssay(q4, ["depend", "each other"]) ||
+      checkEssay(q4, ["ecosystem", "affect"])
+    ) {
+      score++;
+      f4.innerHTML = "✔ صحيح";
+    } else {
+      f4.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== صح / خطأ ===== */
+    const q5 = document.querySelector('input[name="q5"]:checked');
+    const f5 = document.getElementById("f5");
+
+    if (q5 && q5.value === "false") {
+      score++;
+      f5.innerHTML = "✔ صحيح";
+    } else {
+      f5.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== سؤال 6 ===== */
+    const q6 = document.getElementById("q6").value;
+    const f6 = document.getElementById("f6");
+
+    if (checkEssay(q6, ["speed", "increase"])) {
+      score++;
+      f6.innerHTML = "✔ صحيح";
+    } else {
+      f6.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== سؤال 7 ===== */
+    const q7 = document.getElementById("q7").value;
+    const f7 = document.getElementById("f7");
+
+    if (
+      checkEssay(q7, ["producers", "decrease"]) &&
+      checkEssay(q7, ["secondary", "increase"])
+    ) {
+      score++;
+      f7.innerHTML = "✔ صحيح";
+    } else {
+      f7.innerHTML = "✖ خطأ";
+    }
+
+    /* ===== تصحيح سؤال الجدول ===== */
+    const t1 = document.getElementById("t1").value.trim().toLowerCase();
+    const t2 = document.getElementById("t2").value.trim().toLowerCase();
+    const t3 = document.getElementById("t3").value.trim().toLowerCase();
+    const t4 = document.getElementById("t4").value.trim().toLowerCase();
+    const fTable = document.getElementById("fTable");
+
+    if (
+      t1.includes("fast") &&
+      t2.includes("slow") &&
+      t3.includes("large") &&
+      t4.includes("small")
+    ) {
+      score++;
+      fTable.innerHTML = "✔ جدول صحيح";
+    } else {
+      fTable.innerHTML = "✖ جدول غير مكتمل";
+    }
+
+    /* ===== عرض البيانات ===== */
+    document.getElementById("imgName").textContent = name;
+    document.getElementById("imgScore").textContent = score + " درجة";
+    document.getElementById("imgDate").textContent =
+      new Date().toLocaleString("ar-EG");
+
+    const area = document.getElementById("printArea");
+    area.classList.add("show");
+
+    replaceInputsWithText();
+
+    html2canvas(area).then(canvas => {
+      const a = document.createElement("a");
+      a.download = "homework.png";
+      a.href = canvas.toDataURL();
+      a.click();
+
+      restoreInputs();
+      area.classList.remove("show");
+      lockHomework();
+    });
+  }
+
+  function replaceInputsWithText() {
+    document.querySelectorAll("input[type=text]").forEach(input => {
+      const span = document.createElement("span");
+      span.className = "fake-text" + (input.classList.contains("inline") ? " inline" : "");
+      span.textContent = input.value || " ";
+      span.dataset.for = input.id;
+      input.style.display = "none";
+      input.parentNode.insertBefore(span, input.nextSibling);
+    });
+  }
+
+  function restoreInputs() {
+    document.querySelectorAll(".fake-text").forEach(span => {
+      const id = span.dataset.for;
+      const input = document.getElementById(id);
+      if (input) input.style.display = "";
+      span.remove();
+    });
+  }
+
+  function normalizeText(text) {
+    return text.toLowerCase().replace(/[.,!?]/g, "").trim();
+  }
+
+  function checkEssay(answer, keywords) {
+    const txt = normalizeText(answer);
+    return keywords.every(word => txt.includes(word));
+  }
+</script>
+
+
+</body>
+
+</html>

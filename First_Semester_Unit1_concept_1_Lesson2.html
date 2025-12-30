@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second_Semester_Unit4_concept_1_Lesson1</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #1f2937, #3b82f6);
+      margin: 0;
+      padding: 0;
+      color: #f8fafc;
+      text-align: left;
+    }
+
+    header {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      color: white;
+      padding: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background: #111827;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    section img {
+      width: 180px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      margin-bottom: 15px;
+    }
+
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #60a5fa;
+    }
+
+    section p {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .4);
+    }
+
+    h1 {
+      text-align: center;
+      color: #60a5fa;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #3b4252;
+      border-radius: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+      font-size: 18px;
+      height: 50px;
+      line-height: 1.5;
+      box-sizing: border-box;
+      text-align: left;
+      direction: ltr;
+      background: #1e293b;
+      color: white;
+    }
+
+    input[type=radio] {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 20px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    button:disabled {
+      background: #555;
+      cursor: not-allowed;
+    }
+
+    .feedback {
+      display: none;
+      font-weight: bold;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .feedback {
+      display: block;
+    }
+
+    #infoBox {
+      display: none;
+      margin: 10px auto 20px;
+      background: rgba(59, 130, 246, 0.9);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 14px;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .info-item {
+      margin: 5px 8px;
+      padding: 3px 8px;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    #infoBox strong {
+      font-size: 15px;
+      color: #fef3c7;
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .show-correction #infoBox {
+      display: block;
+    }
+
+    #loading {
+      display: none;
+      margin: 15px 0;
+      color: #60a5fa;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #printArea {
+      font-family: "Segoe UI", Tahoma, sans-serif, "Arial", sans-serif;
+    }
+
+    #imgName {
+      max-width: 200px;
+      word-break: keep-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .fill-blank-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .fill-blank-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .blank-sentence {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .blank-input {
+      display: inline-block;
+      margin: 0 8px;
+      width: 180px;
+      padding: 8px 12px;
+      font-size: 17px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      outline: none;
+      transition: all 0.3s;
+      direction: ltr;
+    }
+
+    .blank-input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    }
+
+    .blank-number {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      margin-right: 10px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .blank-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .blank-feedback {
+      display: block;
+    }
+
+    .image-fill-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .image-fill-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .images-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .figure-box {
+      text-align: center;
+      margin: 15px;
+      padding: 15px;
+      background: #1e293b;
+      border-radius: 10px;
+      width: 250px;
+    }
+
+    .figure-box img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid #3b82f6;
+      background: #111827;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .figure-label {
+      font-size: 18px;
+      font-weight: bold;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .figure-placeholder {
+      width: 150px;
+      height: 150px;
+      background: #111827;
+      border: 3px dashed #3b82f6;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .blank-sentence-with-image {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #e2e8f0;
+      text-align: left;
+      direction: ltr;
+      padding: 10px 0;
+    }
+
+    .image-fill-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .image-fill-feedback {
+      display: block;
+    }
+
+    .what-if-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .what-if-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .what-if-item {
+      margin-bottom: 25px;
+    }
+
+    .what-if-item h4 {
+      color: #cbd5e1;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .what-if-textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #4f46e5;
+      background: #1e293b;
+      color: white;
+      font-size: 17px;
+      line-height: 1.5;
+      resize: vertical;
+      outline: none;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    .what-if-textarea:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    }
+
+    .what-if-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .what-if-feedback {
+      display: block;
+    }
+
+    .energy-chain-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .energy-chain-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .energy-chain-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .energy-chain-figure {
+      text-align: center;
+      margin: 10px;
+      padding: 15px;
+      background: #1e293b;
+      border-radius: 10px;
+      width: 100px;
+    }
+
+    .energy-chain-figure img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #3b82f6;
+      background: #111827;
+      padding: 5px;
+      margin-bottom: 8px;
+    }
+
+    .energy-chain-figure .figure-label {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .energy-chain-diagram {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .energy-chain-step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .chain-arrow {
+      font-size: 24px;
+      color: #60a5fa;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .chain-input {
+      width: 120px;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #111827;
+      color: white;
+      text-align: center;
+      outline: none;
+      margin: 0 5px;
+    }
+
+    .chain-input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+    }
+
+    .chain-label {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin: 0 10px;
+      min-width: 150px;
+    }
+
+    .energy-chain-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .energy-chain-feedback {
+      display: block;
+    }
+
+    .match-table-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .match-table-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .figure-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .figure-option {
+      text-align: center;
+      padding: 15px;
+      background: #1e293b;
+      border-radius: 10px;
+      border: 2px solid #3b82f6;
+      width: 180px;
+      transition: transform 0.3s;
+    }
+
+    .figure-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .figure-option img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: #111827;
+      padding: 10px;
+    }
+
+    .figure-option .figure-label {
+      font-size: 16px;
+      color: #60a5fa;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .figure-option .figure-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+
+    .simple-matching {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .simple-matching h4 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .matching-item {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #111827;
+      border-radius: 8px;
+    }
+
+    .match-question {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .image-options {
+      display: flex;
+      gap: 15px;
+      margin: 0 10px;
+    }
+
+    .image-option-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .image-option-label:hover {
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .image-option-label input[type="radio"] {
+      margin: 5px 0;
+    }
+
+    .table-image {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #111827;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+
+    .small-dropdown {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      outline: none;
+      min-width: 150px;
+    }
+
+    .small-dropdown:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+    }
+
+    .small-dropdown option {
+      background: #1e293b;
+      color: white;
+      padding: 10px;
+    }
+
+    .match-table-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .match-table-feedback {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>Second_Semester_Unit4_concept_1_Lesson1</header>
+
+  <section>
+    <img src="First_Semester.jpg" alt="Lesson Image">
+    <h2>Second_Semester_Unit4_concept_1_Lesson1</h2>
+    <p>Solve the following homework carefully then save your result as an image!</p>
+  </section>
+
+  <div class="container" id="printArea">
+
+    <h1>HOMEWORK</h1>
+
+    <div id="loading">⏳ Saving image...</div>
+
+    <div id="infoBox">
+      <div class="info-row">
+        <div class="info-item">Student Name: <strong id="imgName"></strong></div>
+        <div class="info-item">Score: <strong id="imgScore"></strong></div>
+        <div class="info-item">Date: <strong id="imgDate"></strong></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>Student Name:</label>
+      <input type="text" id="studentName">
+    </div>
+
+    <!-- وصل سؤال الجدول مع صور -->
+    <div class="match-table-question">
+      <h3>(B) Choose from column (A) what suits it in both columns (B) and (C):</h3>
+
+      <div class="figure-options">
+        <div class="figure-option">
+          <img src="img\A.png" alt="Item a"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBhPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Item a</div>
+          <div class="figure-desc">(Example: Fan)</div>
+        </div>
+
+        <div class="figure-option">
+          <img src="img\B.png" alt="Item b"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBiPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Item b</div>
+          <div class="figure-desc">(Example: Lamp)</div>
+        </div>
+
+        <div class="figure-option">
+          <img src="img\C.png" alt="Item c"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI1MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBjPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Item c</div>
+          <div class="figure-desc">(Example: Solar panel)</div>
+        </div>
+      </div>
+
+      <div class="simple-matching">
+        <h4>Match the energy with the correct item and energy produced:</h4>
+
+        <!-- استبدل الكود من السطر 500 تقريباً ببداية سؤال الجدول بهذا الكود: -->
+
+<div class="matching-item">
+  <div class="match-question" style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <span class="blank-number">1</span>
+    <strong>Kinetic energy →</strong>
+    <div class="image-options" style="display: flex; gap: 10px;">
+      <label class="image-option-label">
+        <input type="radio" name="match1_item" value="a">
+        <img src="img\A.png" alt="Item a" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBhPC90ZXh0Pjwvc3ZnPg=='">
+        <span>a</span>
+      </label>
+
+      <label class="image-option-label">
+        <input type="radio" name="match1_item" value="b">
+        <img src="img\B.png" alt="Item b" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBiPC90ZXh0Pjwvc3ZnPg=='">
+        <span>b</span>
+      </label>
+
+      <label class="image-option-label">
+        <input type="radio" name="match1_item" value="c">
+        <img src="img\C.png" alt="Item c" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBjPC90ZXh0Pjwvc3ZnPg=='">
+        <span>c</span>
+      </label>
+    </div>
+    <strong>→ Produces:</strong>
+    <select class="small-dropdown" id="match1_energy">
+      <option value="">Select</option>
+      <option value="A">Thermal energy</option>
+      <option value="B">Chemical energy</option>
+      <option value="C">Sound energy</option>
+    </select>
+  </div>
+</div>
+
+<div class="matching-item">
+  <div class="match-question" style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <span class="blank-number">2</span>
+    <strong>Electrical energy →</strong>
+    <div class="image-options" style="display: flex; gap: 10px;">
+      <label class="image-option-label">
+        <input type="radio" name="match2_item" value="a">
+        <img src="img\A.png" alt="Item a" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBhPC90ZXh0Pjwvc3ZnPg=='">
+        <span>a</span>
+      </label>
+
+      <label class="image-option-label">
+        <input type="radio" name="match2_item" value="b">
+        <img src="img\B.png" alt="Item b" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZHRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBiPC90ZXh0Pjwvc3ZnPg=='">
+        <span>b</span>
+      </label>
+
+      <label class="image-option-label">
+        <input type="radio" name="match2_item" value="c">
+        <img src="img\C.png" alt="Item c" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBjPC90ZXh0Pjwvc3ZnPg=='">
+        <span>c</span>
+      </label>
+    </div>
+    <strong>→ Produces:</strong>
+    <select class="small-dropdown" id="match2_energy">
+      <option value="">Select</option>
+      <option value="A">Thermal energy</option>
+      <option value="B">Chemical energy</option>
+      <option value="C">Sound energy</option>
+    </select>
+  </div>
+</div>
+
+<div class="matching-item">
+  <div class="match-question" style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <span class="blank-number">3</span>
+    <strong>Solar energy →</strong>
+    <div class="image-options" style="display: flex; gap: 10px;">
+      <label class="image-option-label">
+        <input type="radio" name="match3_item" value="a">
+        <img src="img\A.png" alt="Item a" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBhPC90ZXh0Pjwvc3ZnPg=='">
+        <span>a</span>
+      </label>
+
+      <label class="image-option-label">
+        <input type="radio" name="match3_item" value="b">
+        <img src="img\B.png" alt="Item b" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBiPC90ZXh0Pjwvc3ZnPg=='">
+        <span>b</span>
+      </label>
+
+      <label class="image-option-label">
+        <input type="radio" name="match3_item" value="c">
+        <img src="img\C.png" alt="Item c" class="table-image"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSIzMCIgeT0iMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+SXRlbSBjPC90ZXh0Pjwvc3ZnPg=='">
+        <span>c</span>
+      </label>
+    </div>
+    <strong>→ Produces:</strong>
+    <select class="small-dropdown" id="match3_energy">
+      <option value="">Select</option>
+      <option value="A">Thermal energy</option>
+      <option value="B">Chemical energy</option>
+      <option value="C">Sound energy</option>
+    </select>
+  </div>
+</div>
+
+    <!-- سؤال 6: What happens if...? -->
+    <div class="what-if-question">
+      <h3>6. What happens if ...?</h3>
+
+      <div class="what-if-item">
+        <h4>1. You use a mobile phone for a long time. (according to the wasted energy)</h4>
+        <textarea class="what-if-textarea" id="whatIf1" placeholder="Write your answer here..."></textarea>
+      </div>
+
+      <div class="what-if-item">
+        <h4>2. You turn on an electric fan. (according to the change of energy)</h4>
+        <textarea class="what-if-textarea" id="whatIf2" placeholder="Write your answer here..."></textarea>
+      </div>
+
+      <div class="what-if-feedback" id="fb-what-if"></div>
+    </div>
+
+    <!-- سؤال 7: سلسلة الطاقة مع صور -->
+    <div class="energy-chain-question">
+      <h3>7. Look at the following figures, then complete the following energy chain:</h3>
+
+      <div class="energy-chain-container">
+        <div class="energy-chain-figure">
+          <!-- <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (1)</div> -->
+          <img src="img\Figure (1).png" alt="Figure (1)" style="width: 80px; height: 80px; object-fit: contain;">
+          <div class="figure-label">Figure (1)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <!-- <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (2)</div> -->
+          <img src="img\Figure (2).png" alt="Figure (1)" style="width: 80px; height: 80px; object-fit: contain;">
+          <div class="figure-label">Figure (2)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <!-- <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (3)</div> -->
+          <img src="img\Figure (3).png" alt="Figure (1)" style="width: 80px; height: 80px; object-fit: contain;">
+          <div class="figure-label">Figure (3)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <!-- <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (4)</div> -->
+                     <img src="img\Figure (4).png" alt="Figure (4)" style="width: 80px; height: 80px; object-fit: contain;">
+          <div class="figure-label">Figure (4)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <!-- <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (5)</div> -->
+          <img src="img\Figure (5).png" alt="Figure (1)" style="width: 80px; height: 80px; object-fit: contain;">
+          <div class="figure-label">Figure (5)</div>
+        </div>
+      </div>
+
+      <div class="energy-chain-diagram">
+        <div class="energy-chain-step">
+          <span class="chain-label">Energy in figure</span>
+          <input type="text" class="chain-input" id="chain1" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">Chemical energy stored in figure</span>
+          <input type="text" class="chain-input" id="chain2" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">Thermal energy and kinetic energy in figure</span>
+          <input type="text" class="chain-input" id="chain3" placeholder="...">
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">Electrical energy that is travelled through figure</span>
+          <input type="text" class="chain-input" id="chain4" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">Thermal energy that is produced from the device in figure</span>
+          <input type="text" class="chain-input" id="chain5" placeholder="...">
+        </div>
+      </div>
+
+      <div class="energy-chain-feedback" id="fb-energy-chain"></div>
+    </div>
+
+    <!-- سؤال 8: أكمل الفراغات مع صور -->
+    <div class="image-fill-question">
+      <h3>8. Look at the following figures, then complete the sentences:</h3>
+      <div class="images-container">
+        <div class="figure-box">
+          <!-- <div class="figure-placeholder">⚡ Battery</div> -->
+          <img src="img\battery.jpg" alt="Battery">
+          <div class="figure-label">Figure (1)</div>
+        </div>
+
+        <div class="figure-box">
+          <!-- <div class="figure-placeholder">💡 Lamp</div> -->
+          <img src="img\lamp.jpg" alt="Lamp">
+          <div class="figure-label">Figure (2)</div>
+        </div>
+      </div>
+
+      <div class="blank-sentence-with-image">
+        <span class="blank-number">1</span>
+        Figure (1) stores
+        <input type="text" class="blank-input" id="imageBlank1" placeholder="......">
+        energy.
+      </div>
+
+      <div class="blank-sentence-with-image">
+        <span class="blank-number">2</span>
+        Figure (2) needs a source that produces
+        <input type="text" class="blank-input" id="imageBlank2" placeholder="......">
+        energy to be operated.
+      </div>
+      <div class="image-fill-feedback" id="fb-image-fill"></div>
+    </div>
+
+    <!-- سؤال 4: أكمل الفراغات العادي -->
+    <div class="fill-blank-question">
+      <h3>4. Complete the following sentences:</h3>
+
+      <div class="blank-sentence">
+        <span class="blank-number">1</span>
+        The energy produced from the battery and used to operate a toy car is
+        <input type="text" class="blank-input" id="blank1" placeholder="......">energy.
+      </div>
+
+      <div class="blank-sentence">
+        <span class="blank-number">2</span>
+        When you press on the soap dispenser,
+        <input type="text" class="blank-input" id="blank2" placeholder="......">
+        energy stored in its spring is converted into
+        <input type="text" class="blank-input" id="blank3" placeholder="......">
+        energy that moves the soap upward.
+      </div>
+      <div class="blank-feedback" id="fb-fill"></div>
+    </div>
+
+    <!-- أسئلة الاختيار من متعدد -->
+    <div class="question">
+      <h3>1) Helium is lighter than air; therefore:</h3>
+      <label><input type="radio" name="q1" value="a"> physical property</label>
+      <label><input type="radio" name="q1" value="b"> chemical property</label>
+      <label><input type="radio" name="q1" value="c"> chemical change</label>
+      <label><input type="radio" name="q1" value="d"> physical change</label>
+      <div class="feedback" id="f1"></div>
+    </div>
+
+    <div class="question">
+      <h3>3) Which of the following is considered an element:</h3>
+      <label><input type="radio" name="q3" value="a"> Water</label>
+      <label><input type="radio" name="q3" value="b"> Hydrogen</label>
+      <label><input type="radio" name="q3" value="c"> Carbon dioxide</label>
+      <div class="feedback" id="f3"></div>
+    </div>
+
+    <div class="question">
+      <h3>5) Helium is an inert gas and does not react easily:</h3>
+      <label><input type="radio" name="q5" value="true"> True</label>
+      <label><input type="radio" name="q5" value="false"> False</label>
+      <div class="feedback" id="f5"></div>
+    </div>
+
+    <button id="saveBtn" onclick="generateImage()">📸 Save Homework as Image</button>
+
+    <a href="index.html" id="backBtn"
+      style="display:inline-block; margin-top:20px; text-decoration:none; color:#111827; background:#60a5fa; padding:12px 25px; border-radius:12px;">⬅
+      Back to Home</a>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    const LOCK_DAYS = 0;
+    const STORAGE_KEY = "homework_locked";
+
+    window.onload = function () {
+      const lockData = localStorage.getItem(STORAGE_KEY);
+      if (lockData) {
+        const savedTime = parseInt(lockData, 10);
+        const now = Date.now();
+        const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
+        if (diffDays < LOCK_DAYS) {
+          lockHomework();
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    };
+
+    function lockHomework() {
+      document.getElementById("saveBtn").disabled = true;
+      document.getElementById("saveBtn").innerText = "✔️ Homework Submitted";
+      document.querySelectorAll("input, textarea, select").forEach(el => el.disabled = true);
+    }
+
+    function generateImage() {
+      if (document.getElementById("saveBtn").disabled) return;
+
+      const name = document.getElementById("studentName").value.trim();
+      if (!name) {
+        alert("Please enter student name");
+        return;
+      }
+
+      let score = 0;
+      const answers = {
+        q1: "a",
+        q3: "b",
+        q5: "true"
+      };
+
+      // إجابات سؤال أكمل الفراغات
+      const blankAnswers = {
+        blank1: "electrical",
+        blank2: "potential",
+        blank3: "kinetic"
+      };
+
+      // إجابات سؤال الصور
+      const imageBlankAnswers = {
+        imageBlank1: "chemical",
+        imageBlank2: "electrical"
+      };
+
+      // إجابات سؤال سلسلة الطاقة
+      const chainAnswers = {
+        chain1: "1",
+        chain2: "2",
+        chain3: "3",
+        chain4: "4",
+        chain5: "5"
+      };
+
+      // إجابات سؤال الجدول
+      const matchAnswers = {
+        match1_item: "a", match1_energy: "C",
+        match2_item: "b", match2_energy: "A",
+        match3_item: "c", match3_energy: "B"
+      };
+
+      // تصحيح أسئلة الاختيار من متعدد وصح/خطأ
+      Object.keys(answers).forEach((q) => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const fb = document.getElementById("f" + q.charAt(1));
+        if (selected && selected.value === answers[q]) {
+          score++;
+          fb.innerHTML = "✔️ Correct answer";
+          fb.style.color = "#10b981";
+        } else {
+          fb.innerHTML = "❌ Wrong answer";
+          fb.style.color = "#ef4444";
+        }
+      });
+
+      // تصحيح سؤال أكمل الفراغات العادي
+      let fillScore = 0;
+      let fillFeedback = "";
+
+      Object.keys(blankAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        if (input) {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = blankAnswers[blankId].toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            fillScore++;
+            fillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Blank ${index + 1}: Correct</div>`;
+          } else {
+            fillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Blank ${index + 1}: Wrong (Correct answer: ${blankAnswers[blankId]})</div>`;
+          }
+        }
+      });
+
+      // تصحيح سؤال أكمل الفراغات مع صور
+      let imageFillScore = 0;
+      let imageFillFeedback = "";
+
+      Object.keys(imageBlankAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        if (input) {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = imageBlankAnswers[blankId].toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            imageFillScore++;
+            imageFillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Blank ${index + 1}: Correct</div>`;
+          } else {
+            imageFillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Blank ${index + 1}: Wrong (Correct answer: ${imageBlankAnswers[blankId]})</div>`;
+          }
+        }
+      });
+
+      // تصحيح سؤال سلسلة الطاقة
+      let chainScore = 0;
+      let chainFeedback = "";
+
+      Object.keys(chainAnswers).forEach((chainId, index) => {
+        const input = document.getElementById(chainId);
+        if (input) {
+          const userAnswer = input.value.trim();
+          const correctAnswer = chainAnswers[chainId];
+
+          if (userAnswer === correctAnswer) {
+            chainScore++;
+            chainFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Step ${index + 1}: Correct</div>`;
+          } else {
+            chainFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Step ${index + 1}: Wrong (Correct answer: ${correctAnswer})</div>`;
+          }
+        }
+      });
+
+      // تصحيح سؤال الجدول
+      let matchScore = 0;
+      let matchFeedback = "";
+
+      Object.keys(matchAnswers).forEach((matchId, index) => {
+        let input;
+        if (matchId.includes("item")) {
+          const name = matchId.replace("match", "").replace("_item", "");
+          input = document.querySelector(`input[name="match${name}_item"]:checked`);
+        } else {
+          input = document.getElementById(matchId);
+        }
+
+        if (input) {
+          const userAnswer = input.value;
+          const correctAnswer = matchAnswers[matchId];
+
+          if (userAnswer === correctAnswer) {
+            matchScore++;
+            if (index % 2 === 0) {
+              const questionNum = Math.floor(index / 2) + 1;
+              matchFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Match ${questionNum}: Correct</div>`;
+            }
+          } else {
+            if (index % 2 === 0) {
+              const questionNum = Math.floor(index / 2) + 1;
+              matchFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Match ${questionNum}: Wrong (Check your answers)</div>`;
+            }
+          }
+        }
+      });
+
+      // سؤال "What happens if..."
+      const whatIf1 = document.getElementById("whatIf1").value.trim();
+      const whatIf2 = document.getElementById("whatIf2").value.trim();
+      let whatIfScore = 0;
+      let whatIfFeedback = "";
+
+      if (whatIf1.length > 10) {
+        whatIfScore++;
+        whatIfFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Question 1: Answer provided (manual check needed)</div>`;
+      } else {
+        whatIfFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Question 1: Please write a complete answer</div>`;
+      }
+
+      if (whatIf2.length > 10) {
+        whatIfScore++;
+        whatIfFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Question 2: Answer provided (manual check needed)</div>`;
+      } else {
+        whatIfFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Question 2: Please write a complete answer</div>`;
+      }
+
+      // حساب الدرجة الكلية
+      score += fillScore + imageFillScore + chainScore + whatIfScore + (matchScore / 2);
+
+      // عرض التغذية الراجعة
+      document.getElementById("fb-fill").innerHTML =
+        `<strong>Fill in the blanks score: ${fillScore}/3</strong><br>` + fillFeedback;
+
+      document.getElementById("fb-image-fill").innerHTML =
+        `<strong>Figure questions score: ${imageFillScore}/2</strong><br>` + imageFillFeedback;
+
+      document.getElementById("fb-energy-chain").innerHTML =
+        `<strong>Energy chain score: ${chainScore}/5</strong><br>` + chainFeedback;
+
+      document.getElementById("fb-what-if").innerHTML =
+        `<strong>"What happens if..." score: ${whatIfScore}/2</strong><br>` + whatIfFeedback;
+
+      document.getElementById("fb-match-table").innerHTML =
+        `<strong>Matching table score: ${Math.floor(matchScore / 2)}/3</strong><br>` + matchFeedback;
+
+      document.getElementById("imgName").textContent = name;
+      document.getElementById("imgScore").textContent = score.toFixed(1) + " / 23";
+
+      const now = new Date();
+      const dateStr = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
+      const timeStr = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+      document.getElementById("imgDate").textContent = dateStr + " " + timeStr;
+
+      const area = document.getElementById("printArea");
+      area.classList.add("show-correction");
+
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('saveBtn').style.display = 'none';
+      document.getElementById('backBtn').style.display = 'none';
+
+      setTimeout(() => {
+        html2canvas(area, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#1e293b',
+          letterRendering: true,
+          allowTaint: true,
+          logging: false
+        }).then(canvas => {
+          const link = document.createElement("a");
+          link.download = `Homework_${name}.png`;
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.click();
+
+          area.classList.remove("show-correction");
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('saveBtn').style.display = 'block';
+          document.getElementById('backBtn').style.display = 'inline-block';
+
+          document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback, .energy-chain-feedback, .what-if-feedback, .match-table-feedback').forEach(fb => {
+            fb.innerHTML = "";
+            fb.style.color = "";
+          });
+
+          localStorage.setItem(STORAGE_KEY, Date.now());
+          lockHomework();
+
+        }).catch(error => {
+          console.error("Error creating image:", error);
+          area.classList.remove("show-correction");
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('saveBtn').style.display = 'block';
+          document.getElementById('backBtn').style.display = 'inline-block';
+        });
+      }, 300);
+    }
+  </script>
+</body>
+
+</html>

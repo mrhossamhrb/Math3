@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="نظام الواجبات المدرسية الإلكترونية">
+    <title>الواجب - الفصل الأول - الوحدة الثانية - الدرس الرابع</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- شريط التحميل -->
+    <div id="loading" class="loading" aria-hidden="true">
+        <div class="spinner"></div>
+        <p>جاري معالجة طلبك...</p>
+    </div>
+
+    <!-- رسائل التنبيه -->
+    <div id="alert-container" class="alert-container"></div>
+
+    <!-- الرأس -->
+    <header class="main-header" role="banner">
+        <div class="header-content">
+            <h1 class="header-title">
+                <i class="fas fa-graduation-cap"></i>
+                الفصل الأول - الوحدة الثانية - المفهوم الثاني - الدرس الرابع
+            </h1>
+            <p class="header-subtitle">نظام الواجبات المدرسية الإلكترونية</p>
+        </div>
+        <div class="header-info">
+            <div class="info-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span id="current-date">--/--/----</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span id="current-time">--:--</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content" id="main-content">
+        <!-- قسم التعليمات -->
+        <section class="instructions-section" aria-labelledby="instructions-title">
+            <div class="section-header">
+                <h2 id="instructions-title">
+                    <i class="fas fa-info-circle"></i>
+                    تعليمات الواجب
+                </h2>
+            </div>
+            <div class="instructions-content">
+                <div class="instruction-card">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>أولاً: حل الواجب</h3>
+                    <p>قم بالإجابة على جميع الأسئلة بحرص ودقة</p>
+                </div>
+                <div class="instruction-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>ثانياً: تصحيح الإجابات</h3>
+                    <p>سيتم تصحيح إجاباتك تلقائياً عند الحفظ</p>
+                </div>
+                <div class="instruction-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>ثالثاً: حفظ النتيجة</h3>
+                    <p>احفظ الواجب كصورة لتسليمه للمعلم</p>
+                </div>
+                <div class="instruction-card">
+                    <i class="fas fa-history"></i>
+                    <h3>تلميح مهم</h3>
+                    <p>يمكنك تعديل إجاباتك قبل الضغط على زر الحفظ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- معلومات الطالب -->
+        <section class="student-info-section" aria-labelledby="student-info-title">
+            <div class="section-header">
+                <h2 id="student-info-title">
+                    <i class="fas fa-user-graduate"></i>
+                    معلومات الطالب
+                </h2>
+            </div>
+            <div class="student-form">
+                <div class="form-group">
+                    <label for="student-name" class="form-label">
+                        <i class="fas fa-signature"></i>
+                        الاسم الكامل للطالب
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" 
+                           id="student-name" 
+                           class="form-input"
+                           placeholder="أدخل اسمك الثلاثي"
+                           required
+                           aria-required="true">
+                    <div class="form-hint">يرجى كتابة الاسم كما هو مسجل في النظام</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-class" class="form-label">
+                        <i class="fas fa-school"></i>
+                        الصف الدراسي
+                    </label>
+                    <select id="student-class" class="form-select">
+                        <option value="">اختر الصف</option>
+                        <option value="grade1">الصف الأول</option>
+                        <option value="grade2">الصف الثاني</option>
+                        <option value="grade3">الصف الثالث</option>
+                        <option value="grade4">الصف الرابع</option>
+                        <option value="grade5">الصف الخامس</option>
+                        <option value="grade6">الصف السادس</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- منطقة الواجب -->
+        <div class="homework-container" id="print-area">
+            <!-- معلومات النتيجة (تظهر بعد التصحيح) -->
+            <div id="result-info" class="result-info" aria-live="polite">
+                <div class="result-card">
+                    <div class="result-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <span class="result-label">الطالب:</span>
+                            <span id="result-name" class="result-value">---</span>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <span class="result-label">الدرجة:</span>
+                            <span id="result-score" class="result-value">0/8</span>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <span class="result-label">التاريخ:</span>
+                            <span id="result-date" class="result-value">--/--/----</span>
+                        </div>
+                    </div>
+                    <div class="result-item">
+                        <i class="fas fa-percentage"></i>
+                        <div>
+                            <span class="result-label">النسبة:</span>
+                            <span id="result-percentage" class="result-value">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الأسئلة -->
+            <div class="questions-container">
+                <!-- سؤال 1 -->
+                <div class="question-card" data-question="1">
+                    <div class="question-header">
+                        <span class="question-number">السؤال الأول</span>
+                        <span class="question-type">(أكمل الفراغات)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            يمكننا إزالة الأعشاب البحرية من مياه المحيط باستخدام عملية
+                            <input type="text" 
+                                   id="q1a" 
+                                   class="inline-input"
+                                   placeholder="اكتب الإجابة"
+                                   maxlength="20">
+                            ، تماماً كما نزيل الملح من مياه المحيط بواسطة
+                            <input type="text" 
+                                   id="q1b" 
+                                   class="inline-input"
+                                   placeholder="اكتب الإجابة"
+                                   maxlength="20">
+                        </p>
+                    </div>
+                    <div class="question-feedback" id="f1" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 2 -->
+                <div class="question-card" data-question="2">
+                    <div class="question-header">
+                        <span class="question-number">السؤال الثاني</span>
+                        <span class="question-type">(مقالي)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            في الشبكات الغذائية البحرية، تعتبر الطحالب مصدر غذاء
+                            <input type="text" 
+                                   id="q2" 
+                                   class="full-input"
+                                   placeholder="أول/إنتاجي/ابتدائي..."
+                                   maxlength="50">
+                            بينما يعتبر القرش مصدر غذاء
+                            <input type="text" 
+                                   id="q2b" 
+                                   class="full-input"
+                                   placeholder="نهائي/مستهلك..."
+                                   maxlength="50">
+                        </p>
+                    </div>
+                    <div class="question-feedback" id="f2" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 3 -->
+                <div class="question-card" data-question="3">
+                    <div class="question-header">
+                        <span class="question-number">السؤال الثالث</span>
+                        <span class="question-type">(مقالي)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            يستخدم كأس القياس لقياس
+                            <input type="text" 
+                                   id="q3a" 
+                                   class="full-input"
+                                   placeholder="الحجم/الكتلة..."
+                                   maxlength="30">
+                            بينما يستخدم الترمومتر لقياس
+                            <input type="text" 
+                                   id="q3b" 
+                                   class="full-input"
+                                   placeholder="درجة الحرارة..."
+                                   maxlength="30">
+                        </p>
+                    </div>
+                    <div class="question-feedback" id="f3" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 4 -->
+                <div class="question-card" data-question="4">
+                    <div class="question-header">
+                        <span class="question-number">السؤال الرابع</span>
+                        <span class="question-type">(أعط السبب)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            أعط سبباً: يؤثر التغير في تعداد نوع واحد على تعداد الأنواع الأخرى.
+                        </p>
+                        <textarea id="q4" 
+                                  class="essay-input"
+                                  placeholder="اكتب السبب هنا..."
+                                  rows="3"
+                                  maxlength="200"></textarea>
+                    </div>
+                    <div class="question-feedback" id="f4" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 5 -->
+                <div class="question-card" data-question="5">
+                    <div class="question-header">
+                        <span class="question-number">السؤال الخامس</span>
+                        <span class="question-type">(صح/خطأ)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            يعتمد الطفو والغوص في الماء على كتلة المادة فقط.
+                        </p>
+                        <div class="options-container">
+                            <label class="option-label">
+                                <input type="radio" name="q5" value="true" class="option-input">
+                                <span class="option-text">
+                                    <i class="fas fa-check-circle"></i>
+                                    صح
+                                </span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="q5" value="false" class="option-input">
+                                <span class="option-text">
+                                    <i class="fas fa-times-circle"></i>
+                                    خطأ
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="question-feedback" id="f5" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 6 -->
+                <div class="question-card" data-question="6">
+                    <div class="question-header">
+                        <span class="question-number">السؤال السادس</span>
+                        <span class="question-type">(ماذا يحدث لـ...)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            ماذا يحدث لسرعة جزيئات المادة عند زيادة درجة الحرارة؟
+                        </p>
+                        <textarea id="q6" 
+                                  class="essay-input"
+                                  placeholder="اكتب إجابتك هنا..."
+                                  rows="2"
+                                  maxlength="100"></textarea>
+                    </div>
+                    <div class="question-feedback" id="f6" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 7 -->
+                <div class="question-card" data-question="7">
+                    <div class="question-header">
+                        <span class="question-number">السؤال السابع</span>
+                        <span class="question-type">(ماذا يحدث لـ...)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            ماذا يحدث للمنتجات والمستهلكين الثانويين في النظام البيئي عندما يزداد عدد الأرانب؟
+                        </p>
+                        <textarea id="q7" 
+                                  class="essay-input"
+                                  placeholder="اكتب إجابتك هنا..."
+                                  rows="2"
+                                  maxlength="150"></textarea>
+                    </div>
+                    <div class="question-feedback" id="f7" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال 8 -->
+                <div class="question-card" data-question="8">
+                    <div class="question-header">
+                        <span class="question-number">السؤال الثامن</span>
+                        <span class="question-type">(اختر الإجابة الصحيحة)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">
+                            هو إصلاح جميع أجزاء الموطن ومنع الأنواع من الانقراض.
+                        </p>
+                        <div class="options-container">
+                            <label class="option-label">
+                                <input type="radio" name="q8" value="a" class="option-input">
+                                <span class="option-text">
+                                    أ. تعداد السكان - الانخفاض
+                                </span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="q8" value="b" class="option-input">
+                                <span class="option-text">
+                                    ب. استعادة الموطن - الانقراض
+                                </span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="q8" value="c" class="option-input">
+                                <span class="option-text">
+                                    ج. تعداد السكان - الزيادة
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="question-feedback" id="f8" aria-live="polite"></div>
+                </div>
+
+                <!-- سؤال الجدول -->
+                <div class="question-card" data-question="9">
+                    <div class="question-header">
+                        <span class="question-number">السؤال التاسع</span>
+                        <span class="question-type">(قارن بين)</span>
+                        <span class="question-points">(درجة واحدة)</span>
+                    </div>
+                    <div class="question-content">
+                        <p class="question-text">قارن بين:</p>
+                        
+                        <div class="comparison-table-container">
+                            <div class="comparison-table">
+                                <div class="table-row header">
+                                    <div class="table-cell">وجه المقارنة</div>
+                                    <div class="table-cell">التبخر</div>
+                                    <div class="table-cell">التكثيف</div>
+                                </div>
+                                
+                                <div class="table-row">
+                                    <div class="table-cell">حركة الجزيئات</div>
+                                    <div class="table-cell">
+                                        <input type="text" 
+                                               id="t1" 
+                                               class="table-input"
+                                               placeholder="سريعة/بطيئة"
+                                               maxlength="20">
+                                    </div>
+                                    <div class="table-cell">
+                                        <input type="text" 
+                                               id="t2" 
+                                               class="table-input"
+                                               placeholder="سريعة/بطيئة"
+                                               maxlength="20">
+                                    </div>
+                                </div>
+                                
+                                <div class="table-row">
+                                    <div class="table-cell">المسافات بين الجزيئات</div>
+                                    <div class="table-cell">
+                                        <input type="text" 
+                                               id="t3" 
+                                               class="table-input"
+                                               placeholder="كبيرة/صغيرة"
+                                               maxlength="20">
+                                    </div>
+                                    <div class="table-cell">
+                                        <input type="text" 
+                                               id="t4" 
+                                               class="table-input"
+                                               placeholder="كبيرة/صغيرة"
+                                               maxlength="20">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-feedback" id="fTable" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- أزرار التحكم -->
+        <div class="controls-container">
+            <button id="preview-btn" class="btn btn-secondary" aria-label="معاينة الإجابات">
+                <i class="fas fa-eye"></i>
+                معاينة الإجابات
+            </button>
+            
+            <button id="check-btn" class="btn btn-primary" aria-label="تصحيح الواجب">
+                <i class="fas fa-check-double"></i>
+                تصحيح الواجب
+            </button>
+            
+            <button id="save-btn" class="btn btn-success" aria-label="حفظ الواجب كصورة">
+                <i class="fas fa-camera"></i>
+                حفظ كصورة
+            </button>
+            
+            <button id="reset-btn" class="btn btn-danger" aria-label="مسح جميع الإجابات">
+                <i class="fas fa-redo"></i>
+                بدء من جديد
+            </button>
+        </div>
+
+        <!-- إحصائيات -->
+        <div class="stats-container">
+            <div class="stats-card">
+                <div class="stat-item">
+                    <i class="fas fa-question-circle"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-questions">9</span>
+                        <span class="stat-label">عدد الأسئلة</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="answered-questions">0</span>
+                        <span class="stat-label">تمت الإجابة</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="timer">30:00</span>
+                        <span class="stat-label">الوقت المتبقي</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="progress-percent">0%</span>
+                        <span class="stat-label">معدل الإنجاز</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">
+                    <i class="fas fa-book"></i>
+                    نظام الواجبات المدرسية
+                </h3>
+                <p class="footer-text">أداة تعليمية ذكية لتقييم ومتابعة الواجبات المدرسية</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">مميزات النظام</h4>
+                <ul class="footer-features">
+                    <li><i class="fas fa-check"></i> تصحيح تلقائي فوري</li>
+                    <li><i class="fas fa-check"></i> حفظ النتائج كصور</li>
+                    <li><i class="fas fa-check"></i> تتبع التقدم الدراسي</li>
+                    <li><i class="fas fa-check"></i> واجهة مستخدم سهلة</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-subtitle">اتصل بنا</h4>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> support@school-system.edu</p>
+                    <p><i class="fas fa-phone"></i> ٠١٢٣٤٥٦٧٨٩</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">
+                <i class="far fa-copyright"></i>
+                جميع الحقوق محفوظة © ٢٠٢٤ نظام الواجبات المدرسية
+            </p>
+            <div class="footer-version">
+                <span class="version">الإصدار ٢.١.٠</span>
+                <span class="update">آخر تحديث: ربيع الأول ١٤٤٥</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- المكتبات الخارجية -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- الملفات المحلية -->
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="validation.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

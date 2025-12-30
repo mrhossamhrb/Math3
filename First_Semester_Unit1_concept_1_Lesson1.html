@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Adventure - Grade 5 Science</title>
+  <style>
+    :root {
+      --primary-blue: #3b82f6;
+      --light-blue: #60a5fa;
+      --dark-blue: #1e293b;
+      --background-dark: #111827;
+      --text-light: #f8fafc;
+      --text-muted: #cbd5e1;
+      --correct-green: #10b981;
+      --wrong-red: #ef4444;
+      --yellow-accent: #fbbf24;
+      --purple-accent: #8b5cf6;
+    }
+
+    body {
+      font-family: "Comic Sans MS", "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #1f2937 0%, #3b82f6 100%);
+      margin: 0;
+      padding: 0;
+      color: var(--text-light);
+      text-align: left;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* النجوم الزينة */
+    .star {
+      position: fixed;
+      background: var(--yellow-accent);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      opacity: 0.3;
+      animation: twinkle 4s infinite;
+      z-index: -1;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+    }
+
+    /* الفقاعات الزينة */
+    .bubble {
+      position: fixed;
+      background: rgba(96, 165, 250, 0.1);
+      border-radius: 50%;
+      animation: floatBubble 20s infinite linear;
+      z-index: -1;
+    }
+
+    @keyframes floatBubble {
+      0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-100px) translateX(100px) scale(1); opacity: 0; }
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--primary-blue), var(--purple-accent));
+      color: white;
+      padding: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fun-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .fun-title::before,
+    .fun-title::after {
+      content: "⚡";
+      font-size: 32px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background: rgba(30, 41, 59, 0.95);
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      border: 4px solid var(--yellow-accent);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 1;
+    }
+
+    section img {
+      width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      margin-bottom: 20px;
+      border: 4px solid var(--yellow-accent);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: var(--yellow-accent);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(90deg, var(--yellow-accent), var(--light-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    section p {
+      font-size: 22px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: rgba(30, 41, 59, 0.95);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border: 4px solid var(--light-blue);
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--yellow-accent);
+      margin-bottom: 30px;
+      font-size: 42px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(90deg, var(--light-blue), var(--yellow-accent), var(--purple-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 10px;
+    }
+
+    .student-info {
+      background: linear-gradient(135deg, var(--primary-blue), var(--purple-accent));
+      padding: 30px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      border: 4px solid var(--yellow-accent);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .student-info::before {
+      content: "👨‍🔬";
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 50px;
+      opacity: 0.2;
+    }
+
+    .student-info label {
+      font-size: 26px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 18px;
+      border-radius: 15px;
+      border: 3px solid var(--yellow-accent);
+      outline: none;
+      font-size: 24px;
+      height: 65px;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      transition: all 0.3s;
+      font-family: "Comic Sans MS", sans-serif;
+      box-sizing: border-box;
+    }
+
+    input[type=text]::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    input[type=text]:focus {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: var(--light-blue);
+      box-shadow: 0 0 25px rgba(96, 165, 250, 0.6);
+      transform: scale(1.02);
+    }
+
+    input[type=radio] {
+      transform: scale(1.5);
+      margin-right: 15px;
+      accent-color: var(--yellow-accent);
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 25px;
+      font-size: 28px;
+      background: linear-gradient(90deg, var(--primary-blue), var(--yellow-accent));
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 30px;
+      font-weight: bold;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::after {
+      content: "🎯";
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 32px;
+    }
+
+    button:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(90deg, var(--yellow-accent), var(--primary-blue));
+    }
+
+    button:active {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    button:disabled {
+      background: #666;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+
+    button:disabled::after {
+      content: "✅";
+    }
+
+    .question-card {
+      margin-bottom: 30px;
+      padding: 30px;
+      background: linear-gradient(135deg, #2d3748, #3b4252);
+      border-radius: 20px;
+      text-align: left;
+      border-left: 10px solid var(--yellow-accent);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .question-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .question-card h3 {
+      color: var(--light-blue);
+      margin-bottom: 25px;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .question-card h3::before {
+      font-size: 32px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 22px;
+      border: 2px solid transparent;
+    }
+
+    label:hover {
+      background: rgba(96, 165, 250, 0.15);
+      transform: translateX(10px);
+      border-color: var(--light-blue);
+    }
+
+    .feedback {
+      display: none;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      border: 2px solid;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .show-correction .feedback {
+      display: block;
+    }
+
+    #infoBox {
+      display: none;
+      margin: 25px auto 35px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(139, 92, 246, 0.9));
+      color: white;
+      border-radius: 20px;
+      padding: 25px;
+      font-size: 20px;
+      border: 4px solid var(--yellow-accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      animation: slideDown 0.5s ease-out;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .info-item {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 15px;
+      min-width: 220px;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      flex: 1;
+    }
+
+    #infoBox strong {
+      font-size: 24px;
+      color: var(--yellow-accent);
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .show-correction #infoBox {
+      display: block;
+    }
+
+    #loading {
+      display: none;
+      margin: 25px 0;
+      color: var(--yellow-accent);
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      animation: pulse 1.5s infinite;
+    }
+
+    #imgName {
+      max-width: 220px;
+      word-break: keep-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* أنماط الأسئلة الخاصة */
+    .fill-blank-question,
+    .image-fill-question,
+    .what-if-question,
+    .energy-chain-question,
+    .match-table-question {
+      background: linear-gradient(135deg, #2d3748, #3b4252);
+      border-left: 10px solid var(--primary-blue);
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .fill-blank-question:hover,
+    .image-fill-question:hover,
+    .what-if-question:hover,
+    .energy-chain-question:hover,
+    .match-table-question:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .fill-blank-question h3,
+    .image-fill-question h3,
+    .what-if-question h3,
+    .energy-chain-question h3,
+    .match-table-question h3 {
+      color: var(--light-blue);
+      margin-bottom: 30px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .fill-blank-question h3::before { content: "📝"; }
+    .image-fill-question h3::before { content: "🖼️"; }
+    .what-if-question h3::before { content: "🤔"; }
+    .energy-chain-question h3::before { content: "🔗"; }
+    .match-table-question h3::before { content: "📊"; }
+
+    .blank-sentence {
+      font-size: 24px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: var(--text-light);
+      text-align: left;
+    }
+
+    .blank-input {
+      display: inline-block;
+      margin: 0 12px;
+      width: 220px;
+      padding: 15px 18px;
+      font-size: 22px;
+      border-radius: 12px;
+      border: 3px solid var(--yellow-accent);
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      text-align: center;
+      outline: none;
+      transition: all 0.3s;
+      font-family: "Comic Sans MS", sans-serif;
+    }
+
+    .blank-input:focus {
+      border-color: var(--light-blue);
+      box-shadow: 0 0 25px rgba(96, 165, 250, 0.6);
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .blank-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--yellow-accent);
+      color: var(--dark-blue);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 38px;
+      margin-right: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .blank-feedback,
+    .image-fill-feedback,
+    .what-if-feedback,
+    .energy-chain-feedback,
+    .match-table-feedback {
+      display: none;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+    }
+
+    .show-correction .blank-feedback,
+    .show-correction .image-fill-feedback,
+    .show-correction .what-if-feedback,
+    .show-correction .energy-chain-feedback,
+    .show-correction .match-table-feedback {
+      display: block;
+    }
+
+    /* تحسين سؤال الجدول */
+    .matching-item {
+      margin-bottom: 25px;
+      padding: 25px;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 15px;
+      border: 3px solid rgba(96, 165, 250, 0.4);
+      transition: all 0.3s;
+    }
+
+    .matching-item:hover {
+      border-color: var(--yellow-accent);
+      background: rgba(30, 41, 59, 0.9);
+    }
+
+    .match-question {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 24px;
+    }
+
+    .image-options {
+      display: flex;
+      gap: 20px;
+      margin: 0 20px;
+    }
+
+    .image-option-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      padding: 20px;
+      border-radius: 15px;
+      transition: all 0.3s;
+      background: rgba(255, 255, 255, 0.08);
+      border: 3px solid transparent;
+      min-width: 120px;
+    }
+
+    .image-option-label:hover {
+      background: rgba(96, 165, 250, 0.15);
+      border-color: var(--light-blue);
+      transform: scale(1.08);
+    }
+
+    .table-image {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 3px solid var(--yellow-accent);
+      background: rgba(255, 255, 255, 0.12);
+      padding: 10px;
+      margin-bottom: 10px;
+      transition: all 0.3s;
+    }
+
+    .table-image:hover {
+      transform: scale(1.15);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .small-dropdown {
+      padding: 15px 20px;
+      font-size: 20px;
+      border-radius: 12px;
+      border: 3px solid var(--yellow-accent);
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      cursor: pointer;
+      outline: none;
+      min-width: 200px;
+      font-family: "Comic Sans MS", sans-serif;
+      transition: all 0.3s;
+    }
+
+    .small-dropdown:focus {
+      border-color: var(--light-blue);
+      box-shadow: 0 0 25px rgba(96, 165, 250, 0.6);
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .small-dropdown option {
+      background: var(--dark-blue);
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    /* تحسينات للصور */
+    .figure-options {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .figure-option {
+      text-align: center;
+      padding: 20px;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 15px;
+      border: 3px solid var(--light-blue);
+      width: 200px;
+      transition: all 0.3s;
+    }
+
+    .figure-option:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      border-color: var(--yellow-accent);
+    }
+
+    .figure-option img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px;
+    }
+
+    /* زر العودة */
+    #backBtn {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: var(--dark-blue);
+      background: linear-gradient(90deg, var(--yellow-accent), var(--light-blue));
+      padding: 20px 35px;
+      border-radius: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      transition: all 0.3s;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border: none;
+      width: 100%;
+    }
+
+    #backBtn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(90deg, var(--light-blue), var(--yellow-accent));
+    }
+
+    /* شريط التقدم */
+    .progress-container {
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      margin: 25px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--yellow-accent), var(--light-blue), var(--purple-accent));
+      width: 0%;
+      border-radius: 6px;
+      transition: width 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent
+      );
+      background-size: 20px 20px;
+      animation: progressStripes 1s linear infinite;
+    }
+
+    @keyframes progressStripes {
+      0% { background-position: 0 0; }
+      100% { background-position: 20px 0; }
+    }
+
+    /* تصميم متجاوب */
+    @media (max-width: 768px) {
+      .container, section {
+        margin: 10px;
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
+      header {
+        font-size: 24px;
+        padding: 20px;
+      }
+      
+      .fun-title {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .blank-input {
+        width: 150px;
+        font-size: 18px;
+        padding: 12px;
+      }
+      
+      .match-question {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .image-options {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .info-row {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .info-item {
+        min-width: auto;
+        width: 100%;
+      }
+      
+      .figure-options {
+        gap: 15px;
+      }
+      
+      .figure-option {
+        width: 160px;
+      }
+      
+      input[type=text] {
+        font-size: 20px;
+        height: 55px;
+        padding: 15px;
+      }
+      
+      button {
+        font-size: 24px;
+        padding: 20px;
+      }
+      
+      button::after {
+        font-size: 28px;
+        right: 20px;
+      }
+      
+      .question-card h3,
+      .fill-blank-question h3,
+      .image-fill-question h3,
+      .what-if-question h3,
+      .energy-chain-question h3,
+      .match-table-question h3 {
+        font-size: 24px;
+      }
+      
+      label {
+        font-size: 18px;
+        padding: 12px;
+      }
+      
+      .blank-sentence {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+      
+      header {
+        font-size: 20px;
+      }
+      
+      section h2 {
+        font-size: 24px;
+      }
+      
+      .blank-input {
+        width: 120px;
+        font-size: 16px;
+      }
+      
+      .small-dropdown {
+        min-width: 150px;
+        font-size: 16px;
+      }
+      
+      .image-option-label {
+        padding: 15px;
+        min-width: 100px;
+      }
+      
+      .table-image {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    /* تحسينات للنصوص الطويلة */
+    .what-if-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 15px;
+      border-radius: 15px;
+      border: 3px solid var(--yellow-accent);
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      font-family: "Comic Sans MS", sans-serif;
+      transition: all 0.3s;
+    }
+
+    .what-if-textarea:focus {
+      border-color: var(--light-blue);
+      box-shadow: 0 0 25px rgba(96, 165, 250, 0.6);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* تأثيرات خاصة للإجابات الصحيحة والخاطئة */
+    .correct {
+      color: var(--correct-green) !important;
+      border-color: var(--correct-green) !important;
+    }
+
+    .wrong {
+      color: var(--wrong-red) !important;
+      border-color: var(--wrong-red) !important;
+    }
+
+    /* تأكيد عند الإرسال */
+    @keyframes celebrate {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .celebrate {
+      animation: celebrate 0.5s ease-in-out 3;
+    }
+
+    /* تحسين الصور في سلسلة الطاقة */
+    .energy-chain-figure img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 3px solid var(--yellow-accent);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* إخفاء العناصر المطبوعة */
+    @media print {
+      button, #backBtn {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="starsContainer"></div>
+  <div id="bubblesContainer"></div>
+
+  <header>
+    <div class="fun-title">
+      ⚡ Energy Transformation Adventure 🔋
+    </div>
+  </header>
+
+  <section>
+    <img src="First_Semester.jpg" alt="Science Fun" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iIzNiODJmNiIvPjxwYXRoIGQ9Ik03MCAxMTBMMTMwIDExME0xMDAgNzBMMTAwIDEzME0xMjAgOTBMMTIwIDExME04MCA5MEw4MCAxMTBNMTMwIDkwTDE1MCA3ME0xMzAgMTEwTDE1MCAxMzBNNzAgOTBMNTAgNzBNNzAgMTEwTDUwIDEzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iMTAwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RW5lcmd5IEFkdmVudHVyZSE8L3RleHQ+PC9zdmc+'">
+    <h2>Welcome to the Energy Adventure! 🚀</h2>
+    <p>Hey there, young scientist! 👨‍🔬👩‍🔬<br>Get ready to explore the amazing world of energy transformation!<br>Complete all the challenges and earn your Science Expert Certificate! 🏆</p>
+  </section>
+
+  <div class="container" id="printArea">
+    <h1>🌟 SCIENCE SUPER CHALLENGE 🌟</h1>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="loading">🎨 Creating your awesome certificate... ✨</div>
+
+    <div id="infoBox">
+      <div class="info-row">
+        <div class="info-item">👤 SCIENTIST: <strong id="imgName"></strong></div>
+        <div class="info-item">🏆 SCORE: <strong id="imgScore"></strong></div>
+        <div class="info-item">📅 DATE: <strong id="imgDate"></strong></div>
+      </div>
+    </div>
+
+    <div class="student-info">
+      <label>✏️ What's your name, Scientist?</label>
+      <input type="text" id="studentName" placeholder="Type your name here...">
+    </div>
+
+    <!-- سؤال 1: اختيار من متعدد -->
+    <div class="question-card">
+      <h3>1️⃣ Helium is lighter than air; therefore:</h3>
+      <label><input type="radio" name="q1" value="a"> 💨 It's a physical property</label>
+      <label><input type="radio" name="q1" value="b"> 🧪 It's a chemical property</label>
+      <label><input type="radio" name="q1" value="c"> 🔥 It's a chemical change</label>
+      <label><input type="radio" name="q1" value="d"> 🌪️ It's a physical change</label>
+      <div class="feedback" id="f1"></div>
+    </div>
+
+    <!-- سؤال 2: اختيار من متعدد -->
+    <div class="question-card">
+      <h3>2️⃣ Which of the following is considered an element:</h3>
+      <label><input type="radio" name="q3" value="a"> 💧 Water (H₂O)</label>
+      <label><input type="radio" name="q3" value="b"> 🎈 Hydrogen (H)</label>
+      <label><input type="radio" name="q3" value="c"> ☁️ Carbon dioxide (CO₂)</label>
+      <div class="feedback" id="f3"></div>
+    </div>
+
+    <!-- سؤال 3: صح/خطأ -->
+    <div class="question-card">
+      <h3>3️⃣ Helium is an inert gas and does not react easily:</h3>
+      <label><input type="radio" name="q5" value="true"> ✅ True - It's very stable!</label>
+      <label><input type="radio" name="q5" value="false"> ❌ False - It reacts easily</label>
+      <div class="feedback" id="f5"></div>
+    </div>
+
+    <!-- سؤال 4: أكمل الفراغات العادي -->
+    <div class="fill-blank-question">
+      <h3>4️⃣ Complete the magic energy sentences:</h3>
+
+      <div class="blank-sentence">
+        <span class="blank-number">1</span>
+        The energy produced from the battery 🔋 and used to operate a toy car 🚗 is
+        <input type="text" class="blank-input" id="blank1" placeholder="......"> energy.
+      </div>
+
+      <div class="blank-sentence">
+        <span class="blank-number">2</span>
+        When you press on the soap dispenser 🧼,
+        <input type="text" class="blank-input" id="blank2" placeholder="......">
+        energy stored in its spring is converted into
+        <input type="text" class="blank-input" id="blank3" placeholder="......">
+        energy that moves the soap upward ⬆️.
+      </div>
+      <div class="blank-feedback" id="fb-fill"></div>
+    </div>
+
+    <!-- سؤال الجدول مع صور -->
+    <div class="match-table-question">
+      <h3>5️⃣ Match the energy with the correct item and energy produced:</h3>
+
+      <div class="figure-options">
+        <div class="figure-option">
+          <img src="img\A.png" alt="Item a"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxNSIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjQwIiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTYwIDMwVjcwTTkwIDYwSDMwTTQ1IDQ1TDc1IDc1TTc1IDQ1TDQ1IDc1IiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iNjAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkNvbWljIFNhbnMgTVMiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GYW4g8J+MqDwvdGV4dD48L3N2Zz4='">
+          <div class="figure-label">Item A</div>
+          <div class="figure-desc">(Fan 🌀)</div>
+        </div>
+
+        <div class="figure-option">
+          <img src="img\B.png" alt="Item b"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxNSIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjQwIiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTYwIDMwdjQwbTAtMjBsMjAgMTBoLTQweiIgc3Ryb2tlPSIjMTExODI3IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iNzAiIHI9IjUiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI2MCIgeT0iMTAwIiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxhbXAg8J+SlDwvdGV4dD48L3N2Zz4='">
+          <div class="figure-label">Item B</div>
+          <div class="figure-desc">(Lamp 💡)</div>
+        </div>
+
+        <div class="figure-option">
+          <img src="img\C.png" alt="Item c"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxNSIvPjxyZWN0IHg9IjMwIiB5PSIzMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiByeD0iMTAiIGZpbGw9IiNmYmJmMjQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjMwIiByPSIxNSIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNTAiIHI9IjgiIGZpbGw9IiMxMTE4MjciLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjUwIiByPSI4IiBmaWxsPSIjMTExODI3Ii8+PHRleHQgeD0iNjAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkNvbWljIFNhbnMgTVMiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Tb2xhciBQYW5lbCDwn5GAPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Item C</div>
+          <div class="figure-desc">(Solar Panel ☀️)</div>
+        </div>
+      </div>
+
+      <div class="simple-matching">
+        <div class="matching-item">
+          <div class="match-question">
+            <span class="blank-number">1</span>
+            <strong>Kinetic energy →</strong>
+            <div class="image-options">
+              <label class="image-option-label">
+                <input type="radio" name="match1_item" value="a">
+                <img src="img\A.png" alt="Item a" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjI1IiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTQwIDI1VjU1TTU1IDQwSDI1TTM1IDM1TDUwIDUwTTUwIDM1TDM1IDUwIiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iNDAiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSI4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD48L3N2Zz4='">
+                <span>🅰️</span>
+              </label>
+
+              <label class="image-option-label">
+                <input type="radio" name="match1_item" value="b">
+                <img src="img\B.png" alt="Item b" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjI1IiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTQwIDIwdjQwbTAtMTVsMTUgN2gtMzB6IiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSIjZmJiZjI0Ii8+PGNpcmNsZSBjeD0iNDAiIGN5PSI1MCIgcj0iNCIgZmlsbD0iIzExMTgyNyIvPjx0ZXh0IHg9IjQwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkNvbWljIFNhbnMgTVMiIGZvbnQtc2l6ZT0iOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkI8L3RleHQ+PC9zdmc+'">
+                <span>🅱️</span>
+              </label>
+
+              <label class="image-option-label">
+                <input type="radio" name="match1_item" value="c">
+                <img src="img\C.png" alt="Item c" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iMjAiIHI9IjEwIiBmaWxsPSIjMTExODI3Ii8+PGNpcmNsZSBjeD0iMzAiIGN5PSIzNSIgcj0iNSIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iMzUiIHI9IjUiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI0MCIgeT0iMTUiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DPC90ZXh0Pjwvc3ZnPg=='">
+                <span>©️</span>
+              </label>
+            </div>
+            <strong>→ Produces:</strong>
+            <select class="small-dropdown" id="match1_energy">
+              <option value="">🎯 Select</option>
+              <option value="A">🔥 Thermal energy</option>
+              <option value="B">🧪 Chemical energy</option>
+              <option value="C">🔊 Sound energy</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="matching-item">
+          <div class="match-question">
+            <span class="blank-number">2</span>
+            <strong>Electrical energy →</strong>
+            <div class="image-options">
+              <label class="image-option-label">
+                <input type="radio" name="match2_item" value="a">
+                <img src="img\A.png" alt="Item a" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjI1IiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTQwIDI1VjU1TTU1IDQwSDI1TTM1IDM1TDUwIDUwTTUwIDM1TDM1IDUwIiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iNDAiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSI4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD48L3N2Zz4='">
+                <span>🅰️</span>
+              </label>
+
+              <label class="image-option-label">
+                <input type="radio" name="match2_item" value="b">
+                <img src="img\B.png" alt="Item b" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjI1IiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTQwIDIwdjQwbTAtMTVsMTUgN2gtMzB6IiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSIjZmJiZjI0Ii8+PGNpcmNsZSBjeD0iNDAiIGN5PSI1MCIgcj0iNCIgZmlsbD0iIzExMTgyNyIvPjx0ZXh0IHg9IjQwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkNvbWljIFNhbnMgTVMiIGZvbnQtc2l6ZT0iOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkI8L3RleHQ+PC9zdmc+'">
+                <span>🅱️</span>
+              </label>
+
+              <label class="image-option-label">
+                <input type="radio" name="match2_item" value="c">
+                <img src="img\C.png" alt="Item c" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iMjAiIHI9IjEwIiBmaWxsPSIjMTExODI3Ii8+PGNpcmNsZSBjeD0iMzAiIGN5PSIzNSIgcj0iNSIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iMzUiIHI9IjUiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI0MCIgeT0iMTUiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DPC90ZXh0Pjwvc3ZnPg=='">
+                <span>©️</span>
+              </label>
+            </div>
+            <strong>→ Produces:</strong>
+            <select class="small-dropdown" id="match2_energy">
+              <option value="">🎯 Select</option>
+              <option value="A">🔥 Thermal energy</option>
+              <option value="B">🧪 Chemical energy</option>
+              <option value="C">🔊 Sound energy</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="matching-item">
+          <div class="match-question">
+            <span class="blank-number">3</span>
+            <strong>Solar energy →</strong>
+            <div class="image-options">
+              <label class="image-option-label">
+                <input type="radio" name="match3_item" value="a">
+                <img src="img\A.png" alt="Item a" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjI1IiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTQwIDI1VjU1TTU1IDQwSDI1TTM1IDM1TDUwIDUwTTUwIDM1TDM1IDUwIiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iNDAiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSI4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD48L3N2Zz4='">
+                <span>🅰️</span>
+              </label>
+
+              <label class="image-option-label">
+                <input type="radio" name="match3_item" value="b">
+                <img src="img\B.png" alt="Item b" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjI1IiBmaWxsPSIjZmJiZjI0Ii8+PHBhdGggZD0iTTQwIDIwdjQwbTAtMTVsMTUgN2gtMzB6IiBzdHJva2U9IiMxMTE4MjciIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSIjZmJiZjI0Ii8+PGNpcmNsZSBjeD0iNDAiIGN5PSI1MCIgcj0iNCIgZmlsbD0iIzExMTgyNyIvPjx0ZXh0IHg9IjQwIiB5PSIxNSIgZm9udC1mYW1pbHk9IkNvbWljIFNhbnMgTVMiIGZvbnQtc2l6ZT0iOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkI8L3RleHQ+PC9zdmc+'">
+                <span>🅱️</span>
+              </label>
+
+              <label class="image-option-label">
+                <input type="radio" name="match3_item" value="c">
+                <img src="img\C.png" alt="Item c" class="table-image"
+                  onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzYjgyZjYiIHJ4PSIxMCIvPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iMjAiIHI9IjEwIiBmaWxsPSIjMTExODI3Ii8+PGNpcmNsZSBjeD0iMzAiIGN5PSIzNSIgcj0iNSIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iMzUiIHI9IjUiIGZpbGw9IiMxMTE4MjciLz48dGV4dCB4PSI0MCIgeT0iMTUiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjgiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DPC90ZXh0Pjwvc3ZnPg=='">
+                <span>©️</span>
+              </label>
+            </div>
+            <strong>→ Produces:</strong>
+            <select class="small-dropdown" id="match3_energy">
+              <option value="">🎯 Select</option>
+              <option value="A">🔥 Thermal energy</option>
+              <option value="B">🧪 Chemical energy</option>
+              <option value="C">🔊 Sound energy</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="match-table-feedback" id="fb-match-table"></div>
+    </div>
+
+    <!-- سؤال 6: What happens if...? -->
+    <div class="what-if-question">
+      <h3>6️⃣ What happens if ...? 🤔</h3>
+
+      <div class="what-if-item">
+        <h4>📱 1. You use a mobile phone for a long time. (according to the wasted energy)</h4>
+        <textarea class="what-if-textarea" id="whatIf1" placeholder="Write your amazing answer here... ✨"></textarea>
+      </div>
+
+      <div class="what-if-item">
+        <h4>🌀 2. You turn on an electric fan. (according to the change of energy)</h4>
+        <textarea class="what-if-textarea" id="whatIf2" placeholder="What kind of energy transformation happens? 🔄"></textarea>
+      </div>
+
+      <div class="what-if-feedback" id="fb-what-if"></div>
+    </div>
+
+    <!-- سؤال 8: أكمل الفراغات مع صور -->
+    <!-- <div class="image-fill-question"> -->
+      <!-- <h3>7️⃣ Look at these cool devices! 🔍</h3> -->
+<div class="image-fill-question">
+      <h3>7️⃣ Look at these cool devices! 🔍</h3>
+      <div class="images-container">
+        <div class="figure-box">
+          <img src="img\battery.jpg" alt="Battery"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMjUiIHk9IjI1IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZmJiZjI0Ii8+PHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHJ4PSIxNSIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNzUiIHI9IjgiIGZpbGw9IiNiZmZmMjQiLz48Y2lyY2xlIGN4PSIxMTAiIGN5PSI3NSIgcj0iOCIgZmlsbD0iI2ZmMmIyNCIvPjx0ZXh0IHg9Ijc1IiB5PSIxMzAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmF0dGVyeSDwn5KQPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">🔋 Battery</div>
+        </div>
+
+        <div class="figure-box">
+          <img src="img\lamp.jpg" alt="Lamp"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgeD0iMzUiIHk9IjMwIiB3aWR0aD0iODAiIGhlaWdodD0iOTAiIHJ4PSIxMCIgZmlsbD0iI2ZiYmYyNCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iMzAiIHI9IjIwIiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNjUiIHk9IjUwIiB3aWR0aD0iMjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxMTE4MjciLz48Y2lyY2xlIGN4PSI3NSIgY3k9IjExNSIgcj0iMTUiIGZpbGw9IiMzYjgyZjYiLz48Y2lyY2xlIGN4PSI3NSIgY3k9IjUwIiByPSIyMCIgZmlsbD0iI2ZmZmYwMCIvPjx0ZXh0IHg9Ijc1IiB5PSIxMzAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjEyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGFtcCDwn5KTPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">💡 Lamp</div>
+        </div>
+      </div>
+
+      <div class="blank-sentence-with-image">
+        <span class="blank-number">1</span>
+        The battery 🔋 stores
+        <input type="text" class="blank-input" id="imageBlank1" placeholder="......">
+        energy.
+      </div>
+
+      <div class="blank-sentence-with-image">
+        <span class="blank-number">2</span>
+        The lamp 💡 needs a source that produces
+        <input type="text" class="blank-input" id="imageBlank2" placeholder="......">
+        energy to be operated.
+      </div>
+      <div class="image-fill-feedback" id="fb-image-fill"></div>
+    </div>
+
+    <!-- سؤال 7: سلسلة الطاقة مع صور -->
+    <div class="energy-chain-question">
+      <h3>8️⃣ Energy Transformation Chain! 🔗</h3>
+
+      <div class="energy-chain-container">
+        <div class="energy-chain-figure">
+          <img src="img\Figure (1).png" alt="Figure (1)" 
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI0NSIgY3k9IjQ1IiByPSI0MCIgZmlsbD0iIzNiODJmNiIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDUiIHI9IjIwIiBmaWxsPSIjZmJiZjI0Ii8+PHRleHQgeD0iNDUiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkYxPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Figure (1)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <img src="img\Figure (2).png" alt="Figure (2)"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI0NSIgY3k9IjQ1IiByPSI0MCIgZmlsbD0iIzNiODJmNiIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDUiIHI9IjIwIiBmaWxsPSIjZmJiZjI0Ii8+PHRleHQgeD0iNDUiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkYyPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Figure (2)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <img src="img\Figure (3).png" alt="Figure (3)"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI0NSIgY3k9IjQ1IiByPSI0MCIgZmlsbD0iIzNiODJmNiIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDUiIHI9IjIwIiBmaWxsPSIjZmJiZjI0Ii8+PHRleHQgeD0iNDUiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkYzPC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Figure (3)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <img src="img\Figure (4).png" alt="Figure (4)"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI0NSIgY3k9IjQ1IiByPSI0MCIgZmlsbD0iIzNiODJmNiIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDUiIHI9IjIwIiBmaWxsPSIjZmJiZjI0Ii8+PHRleHQgeD0iNDUiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkY0PC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Figure (4)</div>
+        </div>
+
+        <div class="energy-chain-figure">
+          <img src="img\Figure (5).png" alt="Figure (5)"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI0NSIgY3k9IjQ1IiByPSI0MCIgZmlsbD0iIzNiODJmNiIvPjxjaXJjbGUgY3g9IjQ1IiBjeT0iNDUiIHI9IjIwIiBmaWxsPSIjZmJiZjI0Ii8+PHRleHQgeD0iNDUiIHk9IjE1IiBmb250LWZhbWlseT0iQ29taWMgU2FucyBNUyIgZm9udC1zaXplPSIxMiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkY1PC90ZXh0Pjwvc3ZnPg=='">
+          <div class="figure-label">Figure (5)</div>
+        </div>
+      </div>
+
+      <div class="energy-chain-diagram">
+        <div class="energy-chain-step">
+          <span class="chain-label">☀️ Energy in figure</span>
+          <input type="text" class="chain-input" id="chain1" placeholder="...">
+          <span class="chain-arrow">➡️</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">🔋 Chemical energy stored in figure</span>
+          <input type="text" class="chain-input" id="chain2" placeholder="...">
+          <span class="chain-arrow">➡️</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">🔥 Thermal energy and 🏃 kinetic energy in figure</span>
+          <input type="text" class="chain-input" id="chain3" placeholder="...">
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">⚡ Electrical energy that travels through figure</span>
+          <input type="text" class="chain-input" id="chain4" placeholder="...">
+          <span class="chain-arrow">➡️</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+
+        <div class="energy-chain-step">
+          <span class="chain-label">🔥 Thermal energy produced from the device in figure</span>
+          <input type="text" class="chain-input" id="chain5" placeholder="...">
+        </div>
+      </div>
+
+      <div class="energy-chain-feedback" id="fb-energy-chain"></div>
+    </div>
+
+    <button id="saveBtn" onclick="generateImage()">
+      📸 SAVE MY HOMEWORK & GET CERTIFICATE! 🏆
+    </button>
+
+    <a href="index.html" id="backBtn">
+      ⬅ BACK TO HOME PAGE 🏠
+    </a>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    // إنشاء نجوم زينة
+    function createStars() {
+      const starsContainer = document.getElementById('starsContainer');
+      if (!starsContainer) return;
+      
+      for (let i = 0; i < 25; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 25 + 8;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.animationDelay = Math.random() * 4 + 's';
+        star.style.animationDuration = Math.random() * 2 + 3 + 's';
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // إنشاء فقاعات زينة
+    function createBubbles() {
+      const bubblesContainer = document.getElementById('bubblesContainer');
+      if (!bubblesContainer) return;
+      
+      for (let i = 0; i < 15; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = Math.random() * 80 + 40;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = Math.random() * 100 + 'vw';
+        bubble.style.animationDuration = Math.random() * 15 + 20 + 's';
+        bubble.style.animationDelay = Math.random() * 8 + 's';
+        bubblesContainer.appendChild(bubble);
+      }
+    }
+
+    // تحديث شريط التقدم
+    function updateProgress() {
+      const inputs = document.querySelectorAll('input[type="radio"]:checked, .blank-input, .small-dropdown, textarea');
+      const totalInputs = document.querySelectorAll('input[type="radio"], .blank-input, .small-dropdown, textarea').length;
+      let filledCount = 0;
+      
+      inputs.forEach(input => {
+        if (input.type === 'radio' || 
+            (input.type === 'text' && input.value.trim() !== '') ||
+            (input.tagName === 'SELECT' && input.value !== '') ||
+            (input.tagName === 'TEXTAREA' && input.value.trim() !== '')) {
+          filledCount++;
+        }
+      });
+      
+      const progress = (filledCount / totalInputs) * 100;
+      
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = progress + '%';
+      }
+    }
+
+    // تهيئة الصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+      createStars();
+      createBubbles();
+      
+      // تحديث شريط التقدم عند أي تغيير
+      document.querySelectorAll('input, textarea, select').forEach(element => {
+        element.addEventListener('input', updateProgress);
+        element.addEventListener('change', updateProgress);
+        element.addEventListener('click', updateProgress);
+      });
+      
+      // تحديث أولي
+      updateProgress();
+    });
+
+    // متغيرات التخزين
+    const LOCK_DAYS = 0;
+    const STORAGE_KEY = "energy_homework_locked";
+
+    window.onload = function () {
+      const lockData = localStorage.getItem(STORAGE_KEY);
+      if (lockData) {
+        const savedTime = parseInt(lockData, 10);
+        const now = Date.now();
+        const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
+        if (diffDays < LOCK_DAYS) {
+          lockHomework();
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    };
+
+    function lockHomework() {
+      const saveBtn = document.getElementById("saveBtn");
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = "✅ HOMEWORK SUBMITTED! 🎉";
+        saveBtn.classList.add('celebrate');
+      }
+      document.querySelectorAll("input, textarea, select").forEach(el => el.disabled = true);
+    }
+
+    function generateImage() {
+      const saveBtn = document.getElementById("saveBtn");
+      if (saveBtn && saveBtn.disabled) return;
+
+      const name = document.getElementById("studentName").value.trim();
+      if (!name) {
+        alert("🌟 Please enter your name first, Scientist!");
+        document.getElementById("studentName").focus();
+        return;
+      }
+
+      let score = 0;
+      const totalQuestions = 23;
+      
+      // الإجابات الصحيحة
+      const answers = {
+        q1: "a",
+        q3: "b",
+        q5: "true"
+      };
+
+      const blankAnswers = {
+        blank1: "electrical",
+        blank2: "potential",
+        blank3: "kinetic"
+      };
+
+      const imageBlankAnswers = {
+        imageBlank1: "chemical",
+        imageBlank2: "electrical"
+      };
+
+      const chainAnswers = {
+        chain1: "1",
+        chain2: "2",
+        chain3: "3",
+        chain4: "4",
+        chain5: "5"
+      };
+
+      const matchAnswers = {
+        match1_item: "a", match1_energy: "C",
+        match2_item: "b", match2_energy: "A",
+        match3_item: "c", match3_energy: "B"
+      };
+
+      // تصحيح أسئلة الاختيار من متعدد
+      Object.keys(answers).forEach((q) => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const fb = document.getElementById("f" + q.charAt(1));
+        if (selected && selected.value === answers[q]) {
+          score++;
+          fb.innerHTML = "✅ Correct answer! Great job! 🎉";
+          fb.style.color = "#10b981";
+          fb.classList.add('correct');
+        } else if (selected) {
+          fb.innerHTML = "❌ Not quite right. Keep learning! 📚";
+          fb.style.color = "#ef4444";
+          fb.classList.add('wrong');
+        }
+      });
+
+      // تصحيح سؤال أكمل الفراغات العادي
+      let fillScore = 0;
+      let fillFeedback = "";
+
+      Object.keys(blankAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        if (input) {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = blankAnswers[blankId].toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            fillScore++;
+            fillFeedback += `<div style="color:#10b981; margin:8px 0; font-size:18px;">✅ Blank ${index + 1}: Correct! 🎯</div>`;
+            input.classList.add('correct');
+          } else {
+            fillFeedback += `<div style="color:#ef4444; margin:8px 0; font-size:18px;">❌ Blank ${index + 1}: The answer is "${blankAnswers[blankId]}" 📝</div>`;
+            input.classList.add('wrong');
+          }
+        }
+      });
+
+      // تصحيح سؤال أكمل الفراغات مع صور
+      let imageFillScore = 0;
+      let imageFillFeedback = "";
+
+      Object.keys(imageBlankAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        if (input) {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = imageBlankAnswers[blankId].toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            imageFillScore++;
+            imageFillFeedback += `<div style="color:#10b981; margin:8px 0; font-size:18px;">✅ Blank ${index + 1}: Perfect! 🌟</div>`;
+            input.classList.add('correct');
+          } else {
+            imageFillFeedback += `<div style="color:#ef4444; margin:8px 0; font-size:18px;">❌ Blank ${index + 1}: Try "${imageBlankAnswers[blankId]}" 🔍</div>`;
+            input.classList.add('wrong');
+          }
+        }
+      });
+
+      // تصحيح سؤال سلسلة الطاقة
+      let chainScore = 0;
+      let chainFeedback = "";
+
+      Object.keys(chainAnswers).forEach((chainId, index) => {
+        const input = document.getElementById(chainId);
+        if (input) {
+          const userAnswer = input.value.trim();
+          const correctAnswer = chainAnswers[chainId];
+
+          if (userAnswer === correctAnswer) {
+            chainScore++;
+            chainFeedback += `<div style="color:#10b981; margin:8px 0; font-size:18px;">✅ Step ${index + 1}: Excellent! 🔗</div>`;
+            input.classList.add('correct');
+          } else {
+            chainFeedback += `<div style="color:#ef4444; margin:8px 0; font-size:18px;">❌ Step ${index + 1}: Should be "${correctAnswer}" 🔄</div>`;
+            input.classList.add('wrong');
+          }
+        }
+      });
+
+      // تصحيح سؤال الجدول
+      let matchScore = 0;
+      let matchFeedback = "";
+
+      Object.keys(matchAnswers).forEach((matchId, index) => {
+        let input;
+        if (matchId.includes("item")) {
+          const name = matchId.replace("match", "").replace("_item", "");
+          input = document.querySelector(`input[name="match${name}_item"]:checked`);
+        } else {
+          input = document.getElementById(matchId);
+        }
+
+        if (input) {
+          const userAnswer = input.value;
+          const correctAnswer = matchAnswers[matchId];
+
+          if (userAnswer === correctAnswer) {
+            matchScore++;
+            if (index % 2 === 0) {
+              const questionNum = Math.floor(index / 2) + 1;
+              matchFeedback += `<div style="color:#10b981; margin:8px 0; font-size:18px;">✅ Match ${questionNum}: Great matching! 🎯</div>`;
+            }
+          } else {
+            if (index % 2 === 0) {
+              const questionNum = Math.floor(index / 2) + 1;
+              matchFeedback += `<div style="color:#ef4444; margin:8px 0; font-size:18px;">❌ Match ${questionNum}: Check your choices 🔍</div>`;
+            }
+          }
+        }
+      });
+
+      // سؤال "What happens if..."
+      const whatIf1 = document.getElementById("whatIf1").value.trim();
+      const whatIf2 = document.getElementById("whatIf2").value.trim();
+      let whatIfScore = 0;
+      let whatIfFeedback = "";
+
+      if (whatIf1.length > 20) {
+        whatIfScore += 2;
+        whatIfFeedback += `<div style="color:#10b981; margin:8px 0; font-size:18px;">✅ Question 1: Great thinking! 🧠 (2 points)</div>`;
+      } else if (whatIf1.length > 10) {
+        whatIfScore++;
+        whatIfFeedback += `<div style="color:#fbbf24; margin:8px 0; font-size:18px;">⚠️ Question 1: Good start! Add more details 📝 (1 point)</div>`;
+      } else {
+        whatIfFeedback += `<div style="color:#ef4444; margin:8px 0; font-size:18px;">❌ Question 1: Please write a complete answer ✍️</div>`;
+      }
+
+      if (whatIf2.length > 20) {
+        whatIfScore += 2;
+        whatIfFeedback += `<div style="color:#10b981; margin:8px 0; font-size:18px;">✅ Question 2: Amazing explanation! 🌟 (2 points)</div>`;
+      } else if (whatIf2.length > 10) {
+        whatIfScore++;
+        whatIfFeedback += `<div style="color:#fbbf24; margin:8px 0; font-size:18px;">⚠️ Question 2: Good effort! Explain more 🔄 (1 point)</div>`;
+      } else {
+        whatIfFeedback += `<div style="color:#ef4444; margin:8px 0; font-size:18px;">❌ Question 2: Please describe the energy transformation ⚡</div>`;
+      }
+
+      // حساب الدرجة الكلية
+      const mcqScore = Object.keys(answers).filter(q => {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        return selected && selected.value === answers[q];
+      }).length * 2;
+
+      const matchFinalScore = Math.floor(matchScore / 2);
+      
+      score = mcqScore + fillScore + imageFillScore + chainScore + whatIfScore + matchFinalScore;
+
+      // عرض التغذية الراجعة
+      document.getElementById("fb-fill").innerHTML =
+        `<strong style="font-size:20px; display:block; margin-bottom:10px;">📝 Fill in the blanks: ${fillScore}/3 points</strong>` + fillFeedback;
+
+      document.getElementById("fb-image-fill").innerHTML =
+        `<strong style="font-size:20px; display:block; margin-bottom:10px;">🖼️ Picture questions: ${imageFillScore}/2 points</strong>` + imageFillFeedback;
+
+      document.getElementById("fb-energy-chain").innerHTML =
+        `<strong style="font-size:20px; display:block; margin-bottom:10px;">🔗 Energy chain: ${chainScore}/5 points</strong>` + chainFeedback;
+
+      document.getElementById("fb-what-if").innerHTML =
+        `<strong style="font-size:20px; display:block; margin-bottom:10px;">🤔 Thinking questions: ${whatIfScore}/4 points</strong>` + whatIfFeedback;
+
+      document.getElementById("fb-match-table").innerHTML =
+        `<strong style="font-size:20px; display:block; margin-bottom:10px;">📊 Matching table: ${matchFinalScore}/3 points</strong>` + matchFeedback;
+
+      // تحديث المعلومات
+      document.getElementById("imgName").textContent = name;
+      document.getElementById("imgScore").textContent = score + " / " + totalQuestions + " points";
+
+      const now = new Date();
+      const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      document.getElementById("imgDate").textContent = dateStr + " at " + timeStr;
+
+      // إظهار التصحيح
+      const area = document.getElementById("printArea");
+      area.classList.add("show-correction");
+
+      document.getElementById('loading').style.display = 'block';
+      if (saveBtn) saveBtn.style.display = 'none';
+      const backBtn = document.getElementById('backBtn');
+      if (backBtn) backBtn.style.display = 'none';
+
+      // تحريك الصفحة للأعلى لرؤية النتائج
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        html2canvas(area, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#1e293b',
+          letterRendering: true,
+          allowTaint: true,
+          logging: false,
+          windowWidth: area.scrollWidth,
+          windowHeight: area.scrollHeight
+        }).then(canvas => {
+          const link = document.createElement("a");
+          link.download = `Energy_Homework_${name.replace(/\s+/g, '_')}.png`;
+          link.href = canvas.toDataURL('image/png', 1.0);
+          link.click();
+
+          // إخفاء التصحيح
+          setTimeout(() => {
+            area.classList.remove("show-correction");
+            document.getElementById('loading').style.display = 'none';
+            if (saveBtn) saveBtn.style.display = 'block';
+            if (backBtn) backBtn.style.display = 'inline-block';
+
+            // إزالة التغذية الراجعة
+            document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback, .energy-chain-feedback, .what-if-feedback, .match-table-feedback').forEach(fb => {
+              fb.innerHTML = "";
+              fb.style.color = "";
+              fb.classList.remove('correct', 'wrong');
+            });
+
+            // إزالة ألوان الإجابات
+            document.querySelectorAll('.blank-input, .chain-input').forEach(input => {
+              input.classList.remove('correct', 'wrong');
+            });
+
+            localStorage.setItem(STORAGE_KEY, Date.now());
+            lockHomework();
+
+            // رسالة نجاح
+            alert(`🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${score}/${totalQuestions} points\nKeep up the great work, Scientist! 🔬`);
+          }, 500);
+
+        }).catch(error => {
+          console.error("Error creating image:", error);
+          area.classList.remove("show-correction");
+          document.getElementById('loading').style.display = 'none';
+          if (saveBtn) saveBtn.style.display = 'block';
+          if (backBtn) backBtn.style.display = 'inline-block';
+          
+          alert("⚠️ Oops! There was an error saving your certificate. Please try again!");
+        });
+      }, 1000);
+    }
+
+    // إضافة مؤثرات إضافية
+    document.addEventListener('click', function(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+        e.target.classList.add('celebrate');
+        setTimeout(() => {
+          e.target.classList.remove('celebrate');
+        }, 500);
+      }
+    });
+
+    // تأثير عند تحميل الصفحة
+    window.addEventListener('load', function() {
+      document.body.classList.add('celebrate');
+      setTimeout(() => {
+        document.body.classList.remove('celebrate');
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>

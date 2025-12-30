@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Semester - Lesson 4</title>
+
+<style>
+body{
+  font-family:"Segoe UI",Tahoma;
+  background:linear-gradient(to bottom,#1f2937,#3b82f6);
+  margin:0;
+  color:#f8fafc;
+  text-align:center;
+}
+header{
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  padding:25px;
+  font-size:28px;
+  font-weight:bold;
+  border-radius:0 0 20px 20px;
+}
+section{
+  max-width:900px;
+  margin:25px auto;
+  background:#111827;
+  padding:25px;
+  border-radius:20px;
+}
+.container{
+  max-width:900px;
+  margin:20px auto;
+  background:#1e293b;
+  padding:25px;
+  border-radius:20px;
+}
+.question{
+  background:#3b4252;
+  padding:20px;
+  margin-bottom:15px;
+  border-radius:15px;
+  text-align:left;
+}
+label{display:block;margin:6px 0;cursor:pointer}
+input[type=text]{width:100%;padding:10px;border-radius:10px;border:none}
+button{
+  width:100%;
+  padding:15px;
+  font-size:20px;
+  border:none;
+  border-radius:15px;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  cursor:pointer;
+}
+.feedback{display:none;font-weight:bold;margin-top:8px}
+.show .feedback{display:block}
+#infoBox{
+  display:none;
+  background:#60a5fa;
+  color:#111827;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+.show #infoBox{display:block}
+</style>
+</head>
+
+<body>
+
+<header>Second Semester - Lesson 1</header>
+
+<section>
+<h2>Unit 4 – Concept 1</h2>
+<p>حل الواجب ثم احفظه كصورة 📸</p>
+</section>
+
+<div class="container" id="printArea">
+
+<h2>Homework</h2>
+
+<div id="infoBox">
+الاسم: <b id="imgName"></b><br>
+الدرجة: <b id="imgScore"></b><br>
+التاريخ: <b id="imgDate"></b>
+</div>
+
+<div class="question">
+اسم الطالب:
+<input type="text" id="studentName">
+</div>
+
+
+<!-- أكمل -->
+<div class='question'><h3>1 We can remove sea weeds from ocean's water by using______a process, just as we remove salt from ocean's water by ______</h3>
+<input type='text' id='q1'>
+<div class='feedback' id='f1'></div></div>
+<div class='question'><h3>2 In marine food webs, algae is considered as______ a food source, while shark is considered a food source. ______</h3>
+<input type='text' id='q2'>
+<div class='feedback' id='f2'></div></div>
+<div class='question'><h3>3 A measuring cup is used to measure the______, while a thermometer is used to measure the. ______</h3>
+<input type='text' id='q3'>
+<div class='feedback' id='f3'></div></div>
+<div class='question'><h3>4 Give a reason for:The change in population of one species affects the population of other species. ______</h3>
+<input type='text' id='q4'>
+<div class='feedback' id='f4'></div></div>
+<!-- صح وخطأ -->
+<div class="question"><h3>Floating and sinking in water depend on the mass of the substance.</h3>
+<label><input type="radio" name="q5" value="true"> True</label>
+<label><input type="radio" name="q5" value="false"> False</label>
+<div class="feedback" id="f5"></div></div>
+<!-- أكمل -->
+ <div class='question'><h3>6(B) What happens to...? 1. The speed of particles of a substance when the temperature increases. ______</h3>
+<input type='text' id='q6'>
+<div class='feedback' id='f6'></div></div>
+<div class='question'><h3>7(B) What happens to...? 2. The producers and secondary consumers in an ecosystem when the number of rabbits increases. ______</h3>
+<input type='text' id='q7'>
+<div class='feedback' id='f7'></div></div>
+<!-- اختيار من متعدد -->
+<div class="question"><h3>8is repairing all parts of the habitat and preventing species from</h3>
+<label><input type="radio" name="q8" value="a">a. Population - decrease</label>
+<label><input type="radio" name="q8" value="b">b. Habitat restoration - extinction.</label>
+<label><input type="radio" name="q8" value="c">c. Population - increase.</label>
+<div class="feedback" id="f8"></div></div>
+
+
+
+<button id="saveBtn" onclick="generateImage()">📸 حفظ الواجب كصورة</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+function generateImage(){
+  const name=document.getElementById("studentName").value.trim();
+  if(!name){alert("اكتب الاسم");return;}
+
+  let score=0;
+  const answers={
+    q1:"filtration - evaporation",
+    q2:"producer - consumer",
+    q3:"volume - temperature",
+    q4:"because in the ecosystem, all species depend on other species to survive, so an increase or decrease in one species affects the population of other species",
+    q5:"false",
+    q6:"The speed of particles will increase",
+    q7:"The number of producers decreases, while the number of secondary consumers increases",
+    q8:"b"
+  };
+
+  Object.keys(answers).forEach((q,i)=>{
+    const fb=document.getElementById("f"+(i+1));
+    if(q<="q5"){
+      const sel=document.querySelector(`input[name="${q}"]:checked`);
+      if(sel && sel.value===answers[q]){
+        score++; fb.innerHTML="✔ صحيح";
+      }else fb.innerHTML="✖ خطأ";
+    }else{
+      const val=document.getElementById(q).value.trim().toLowerCase();
+      if(val===answers[q]){
+        score++; fb.innerHTML="✔ صحيح";
+      }else fb.innerHTML="✖ خطأ";
+    }
+  });
+
+  document.getElementById("imgName").textContent=name;
+  document.getElementById("imgScore").textContent=score+" / 7";
+  document.getElementById("imgDate").textContent=new Date().toLocaleString("ar-EG");
+
+  const area=document.getElementById("printArea");
+  area.classList.add("show");
+
+  html2canvas(area).then(canvas=>{
+    const a=document.createElement("a");
+    a.download="homework.png";
+    a.href=canvas.toDataURL();
+    a.click();
+    area.classList.remove("show");
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second_Semester_Unit3_concept_1</title>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1f2937; /* أزرق غامق */
+    color: #f8fafc;
+  }
+
+  header {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #111827;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    text-align: center;
+  }
+
+  section h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #60a5fa;
+  }
+
+  section p {
+    font-size: 20px;
+    color: #cbd5e1;
+  }
+
+  img {
+    width: 220px;
+    border-radius: 50%;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .card {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    width: 180px;
+    height: 130px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-7px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+  }
+
+  .card::after {
+    content: "📚";
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 22px;
+  }
+
+  a.button {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #1f2937;
+    background-color: #60a5fa;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  a.button:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+  }
+</style>
+</head>
+<body>
+
+<header>Second_Semester_Unit3_concept_1</header>
+
+<section>
+  <img src="First_Semester.jpg" alt="First Semester">
+  <h2>Second_Semester_Unit3_concept_1 ❤️</h2>
+  <p>اختر الوحدة التي تريد استكشافها:</p>
+
+  <div class="card-container">
+    <div class="card" onclick="window.location.href='Second_Semester_Unit3_concept_1_Lesson1.html'">Lesson1</div>
+    <div class="card" onclick="window.location.href='Second_Semester_Unit3_concept_1_Lesson2.html'">Lesson2</div>
+    <div class="card" onclick="window.location.href='Second_Semester_Unit3_concept_1_Lesson3.html'">Lesson3</div>
+    <div class="card" onclick="window.location.href='Second_Semester_Unit3_concept_1_Lesson4.html'">Lesson4</div>
+  </div>
+
+  <a href="index.html" class="button">⬅ العودة إلى الرئيسية</a>
+</section>
+
+</body>
+</html>

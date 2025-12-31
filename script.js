@@ -104,8 +104,73 @@ const questionsData = {
             placeholder: "أدخل الرقم..."
         }
             // ##############################################################
-    ]
+    ],
         // ##############################################################
+fillInBlank: [
+        {
+            id: "blank1",
+            number: 3,
+            question: "(2 × 1) × 3 = 2 × (1 × ",
+            afterText: ")",
+            correctAnswer: "3",
+            explanation: "(2×1)×3 = 2×(1×3)",
+            points: 1
+        }
+    ],
+    completeSentences: [
+        {
+            id: "complete1",
+            number: 4,
+            type: "simple", // نوع بسيط - فراغ واحد
+            question: "Property of multiplication that says (a × b) × c = a × (b × c) is called ",
+            correctAnswers: ["associative property", "الخاصية التجميعية"],
+            explanation: "The associative property of multiplication",
+            points: 2,
+            placeholder: "اكتب الإجابة هنا..."
+        },
+        {
+            id: "complete2",
+            number: 5,
+            type: "multi", // نوع متعدد الفراغات
+            question: "In the expression: (",
+            parts: [
+                { text: " × 3) × 4 = 2 × (3 × ", inputId: "input1", correctAnswer: "2", placeholder: "?" },
+                { text: ")", inputId: "input2", correctAnswer: "4", placeholder: "?" }
+            ],
+            explanation: "(2 × 3) × 4 = 2 × (3 × 4)",
+            points: 3
+        },
+        {
+            id: "complete3",
+            number: 6,
+            type: "multi",
+            question: "Complete using associative property: ",
+            parts: [
+                { text: "5 × (", inputId: "input1", correctAnswer: "2", placeholder: "?" },
+                { text: " × ", inputId: "input2", correctAnswer: "3", placeholder: "?" },
+                { text: ") = (5 × ", inputId: "input3", correctAnswer: "2", placeholder: "?" },
+                { text: ") × ", inputId: "input4", correctAnswer: "3", placeholder: "?" }
+            ],
+            explanation: "5 × (2 × 3) = (5 × 2) × 3",
+            points: 4
+        },
+        {
+            id: "complete4",
+            number: 7,
+            type: "multi",
+            question: "Fill in the blanks: ",
+            parts: [
+                { text: "(", inputId: "input1", correctAnswer: "4", placeholder: "?" },
+                { text: " + ", inputId: "input2", correctAnswer: "5", placeholder: "?" },
+                { text: ") + ", inputId: "input3", correctAnswer: "6", placeholder: "?" },
+                { text: " = 4 + (", inputId: "input4", correctAnswer: "5", placeholder: "?" },
+                { text: " + ", inputId: "input5", correctAnswer: "6", placeholder: "?" },
+                { text: ")", inputId: "input6", correctAnswer: "", placeholder: "" }
+            ],
+            explanation: "(4 + 5) + 6 = 4 + (5 + 6)",
+            points: 6
+        }
+    ]
 };
 
 
@@ -234,42 +299,64 @@ function generateCompleteQuestions() {
 }
 
 // تحديث شريط التقدم
+// تحديث شريط التقدم
 function updateProgress() {
-    const totalQuestions = questionsData.multipleChoice.length +
-        questionsData.fillInBlank.length +
-        questionsData.completeSentences.length;
-
-    let answeredCount = 0;
+    let totalInputs = 0;
+    let filledInputs = 0;
 
     // حساب الأسئلة متعددة الخيارات
     questionsData.multipleChoice.forEach(q => {
+        totalInputs++;
         if (document.querySelector(`input[name="${q.id}"]:checked`)) {
-            answeredCount++;
+            filledInputs++;
         }
     });
 
     // حساب أسئلة ملء الفراغات
     questionsData.fillInBlank.forEach(q => {
+        totalInputs++;
         const input = document.getElementById(q.id);
         if (input && input.value.trim() !== '') {
-            answeredCount++;
+            filledInputs++;
         }
     });
 
     // حساب أسئلة "أكمل"
     questionsData.completeSentences.forEach(q => {
-        const input = document.getElementById(q.id);
-        if (input && input.value.trim() !== '') {
-            answeredCount++;
+        if (q.type === "simple") {
+            totalInputs++;
+            const input = document.getElementById(q.id);
+            if (input && input.value.trim() !== '') {
+                filledInputs++;
+            }
+        } else if (q.type === "multi") {
+            q.parts.forEach(part => {
+                if (part.inputId) {
+                    totalInputs++;
+                    const input = document.getElementById(`${q.id}_${part.inputId}`);
+                    if (input && input.value.trim() !== '') {
+                        filledInputs++;
+                    }
+                }
+            });
         }
     });
 
-    const progress = Math.min(100, (answeredCount / totalQuestions) * 100);
+    const progress = Math.min(100, (filledInputs / totalInputs) * 100);
     const progressBar = document.getElementById("progressBar");
     if (progressBar) {
         progressBar.style.width = progress + '%';
     }
 }
+// إضافة مستمعات الأحداث لتحديث التقدم
+document.addEventListener('input', function(e) {
+    if (e.target.classList.contains('small-input') || 
+        e.target.classList.contains('complete-input') || 
+        e.target.classList.contains('multi-input') || 
+        e.target.type === 'radio') {
+        updateProgress();
+    }
+});
 
 // تصحيح جميع الأسئلة
 function gradeAllQuestions() {
@@ -561,3 +648,58 @@ function addCompleteQuestion() {
 }
 */
 
+// إنشاء أسئلة "أكمل"
+function generateCompleteQuestions() {
+    const container = document.querySelector('.fill-question-group');
+    if (!container) return;
+
+    container.innerHTML = '<h3>Complete the Sentences (اكمل الجمل)</h3>';
+
+    questionsData.completeSentences.forEach(q => {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'complete-question';
+        
+        if (q.type === "simple") {
+            // نوع بسيط - فراغ واحد
+            questionDiv.innerHTML = `
+                <div class="question-header">
+                    <span class="question-number">${q.number}</span>
+                    <span class="question-points">[${q.points} نقطة]</span>
+                </div>
+                <div class="question-content">
+                    <span class="question-text">${q.question}</span>
+                    <input type="text" class="complete-input" 
+                           id="${q.id}" 
+                           placeholder="${q.placeholder || 'اكتب الإجابة...'}"
+                           style="width: ${(q.correctAnswers[0]?.length || 10) * 12 + 40}px">
+                </div>
+                <div class="complete-feedback" id="fb-${q.id}"></div>
+            `;
+        } else if (q.type === "multi") {
+            // نوع متعدد الفراغات
+            questionDiv.innerHTML = `
+                <div class="question-header">
+                    <span class="question-number">${q.number}</span>
+                    <span class="question-points">[${q.points} نقطة]</span>
+                </div>
+                <div class="multi-question-content">
+                    <span class="question-text">${q.question}</span>
+                    ${q.parts.map((part, index) => `
+                        ${part.text ? `<span class="question-text">${part.text}</span>` : ''}
+                        ${part.inputId ? `
+                            <input type="text" 
+                                   class="multi-input" 
+                                   id="${q.id}_${part.inputId}" 
+                                   placeholder="${part.placeholder}"
+                                   style="width: ${(part.correctAnswer.length || 1) * 20 + 20}px"
+                                   data-correct="${part.correctAnswer}">
+                        ` : ''}
+                    `).join('')}
+                </div>
+                <div class="complete-feedback" id="fb-${q.id}"></div>
+            `;
+        }
+        
+        container.appendChild(questionDiv);
+    });
+}

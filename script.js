@@ -192,7 +192,7 @@ const questionsData = {
     {
       text: "Area =",
       inputId: "input3",
-      correctAnswer: "24",
+      correctAnswer: "20",
       placeholder: "?"
     }
   ],

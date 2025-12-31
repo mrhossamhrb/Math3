@@ -1729,4 +1729,12 @@ button:disabled::after {
         font-size: 1.1em;
         min-width: 100px;
     }
+    
+}
+.question-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: block;
+    width: 100%;
 }

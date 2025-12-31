@@ -1672,3 +1672,61 @@ button:disabled::after {
 .complete-question.multi-type:hover {
     box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
 }
+/* في ملف CSS أضف هذا */
+.question-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.long-question {
+    color: #e2e8f0;
+    font-size: 1.1em;
+    line-height: 1.6;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+}
+
+.answer-input-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.complete-input-large {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #3b82f6;
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    min-width: 120px;
+    max-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.complete-input-large:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* للأجهزة المحمولة */
+@media (max-width: 768px) {
+    .long-question {
+        font-size: 1em;
+        padding: 12px;
+    }
+    
+    .complete-input-large {
+        padding: 10px 16px;
+        font-size: 1.1em;
+        min-width: 100px;
+    }
+}

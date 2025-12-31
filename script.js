@@ -32,14 +32,25 @@ const questionsData = {
             correctAnswer: "C", explanation: "[3 + 7] × 3 = 10 × 3 = 30", points: 1
         },
         {
-            id: "q4", number: 4, question: "4. The tape diagram in the opposite figure represents",
+            id: "q4",
+            number: 4,
+            question: `
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+            <span>4. The tape diagram in the opposite figure represents</span>
+            <img src="img/55555.png" 
+                 alt="Tape Diagram" 
+                 style="width: 100px; height: auto; border-radius: 10px; border: 2px solid #3b82f6;">
+        </div>
+    `,
             options: [
                 { letter: "A", text: "A. 40" },
                 { letter: "B", text: "B. 5 - 5" },
                 { letter: "C", text: "C. 5 × 5" },
                 { letter: "D", text: "D. 5 + 5" }
             ],
-            correctAnswer: "C", explanation: "Tape diagram shows multiplication", points: 1
+            correctAnswer: "C",
+            explanation: "Tape diagram shows multiplication",
+            points: 1
         },
         {
             id: "q5", number: 5, question: "5. The place value of the number 4 in the number 124,356,952 is",
@@ -138,7 +149,9 @@ const questionsData = {
             id: "complete14",
             number: 14,
             type: "simple",
-            question: "14. A number of balloons were distributed among 7 children, so each child took 3 balloons and 6 balloons remained. How many balloons are there? Number of all balloons = ",
+            question: `
+14. A number of balloons were distributed among 7 children, so each child took 3 balloons and 6 balloons remained. How many balloons are there?
+    `,
             correctAnswers: ["27"],
             explanation: "(7 × 3) + 6 = 21 + 6 = 27 balloons",
             points: 2,
@@ -146,59 +159,59 @@ const questionsData = {
         },
         // #######################################
 
-{
-  id: "complete15",
-  number: 15,
-  type: "multi",
-  question: "Complete the equation:",
-  parts: [
-    {
-      text: "4. Arrange the following numbers in descending order:\n23,125 - 20,137 - 37,123\nThe order is:",
-      inputId: "input1",
-      correctAnswer: "37123",
-      placeholder: "?"
-    },
-    {
-      text: "",
-      inputId: "input2",
-      correctAnswer: "23125",
-      placeholder: "?"
-    },
-    {
-      text: "",
-      inputId: "input3",
-      correctAnswer: "20137",
-      placeholder: "?"
-    }
-  ],
-  explanation: "",
-  points: 6
-},
-{
-  id: "complete16",
-  number: 16,
-  type: "multi",
-  question: "Complete the equation:",
-  parts: [
         {
-      text: "5. Calculate the area and the perimeter of the opposite figure 4cm H 6cm W ",
-    },
+            id: "complete15",
+            number: 15,
+            type: "multi",
+            question: "Complete the equation:",
+            parts: [
+                {
+                    text: "4. Arrange the following numbers in descending order:\n23,125 - 20,137 - 37,123\nThe order is:",
+                    inputId: "input1",
+                    correctAnswer: "37123",
+                    placeholder: "?"
+                },
+                {
+                    text: "",
+                    inputId: "input2",
+                    correctAnswer: "23125",
+                    placeholder: "?"
+                },
+                {
+                    text: "",
+                    inputId: "input3",
+                    correctAnswer: "20137",
+                    placeholder: "?"
+                }
+            ],
+            explanation: "",
+            points: 6
+        },
         {
-      text: "Perimeter =",
-      inputId: "input2",
-      correctAnswer: "24",
-      placeholder: "?"
-    },
-    {
-      text: "Area =",
-      inputId: "input3",
-      correctAnswer: "20",
-      placeholder: "?"
-    }
-  ],
-  explanation: "",
-  points: 6
-}
+            id: "complete16",
+            number: 16,
+            type: "multi",
+            question: "Complete the equation:",
+            parts: [
+                {
+                    text: "5. Calculate the area and the perimeter of the opposite figure 4cm H 6cm W ",
+                },
+                {
+                    text: "Perimeter =",
+                    inputId: "input2",
+                    correctAnswer: "24",
+                    placeholder: "?"
+                },
+                {
+                    text: "Area =",
+                    inputId: "input3",
+                    correctAnswer: "20",
+                    placeholder: "?"
+                }
+            ],
+            explanation: "",
+            points: 6
+        }
 
         // #######################################
     ],

@@ -145,19 +145,60 @@ const questionsData = {
             placeholder: "أدخل الرقم..."
         },
         // #######################################
-{id: "complete15",number:15,type: "multi",question: "Complete the equation: ",parts: [
-"{ text: ""4. Arrange the following numbers in descending order:
-23,125-20,137-37,123
-The order is:
-"", inputId: ""input1"", correctAnswer: ""37123"", placeholder: ""?"" },"
-{ text: "", inputId: "input2", correctAnswer: "23125", placeholder: "?" },
-{ text: "", inputId: "input3", correctAnswer: "20137", placeholder: "?" },
-],explanation: "",points: 6},
-{id: "complete15",number:15,type: multi",question: "Complete the equation: ",parts: [
-{ text: "Area= ", inputId: "input1", correctAnswer: "24", placeholder: "?" },
-],explanation: "",points: 6},
 
-
+{
+  id: "complete15",
+  number: 15,
+  type: "multi",
+  question: "Complete the equation:",
+  parts: [
+    {
+      text: "4. Arrange the following numbers in descending order:\n23,125 - 20,137 - 37,123\nThe order is:",
+      inputId: "input1",
+      correctAnswer: "37123",
+      placeholder: "?"
+    },
+    {
+      text: "",
+      inputId: "input2",
+      correctAnswer: "23125",
+      placeholder: "?"
+    },
+    {
+      text: "",
+      inputId: "input3",
+      correctAnswer: "20137",
+      placeholder: "?"
+    }
+  ],
+  explanation: "",
+  points: 6
+},
+{
+  id: "complete16",
+  number: 16,
+  type: "multi",
+  question: "Complete the equation:",
+  parts: [
+        {
+      text: "5. Calculate the area and the perimeter of the opposite figure 4cm H 6cm W ",
+    },
+        {
+      text: "Perimeter =",
+      inputId: "input2",
+      correctAnswer: "24",
+      placeholder: "?"
+    },
+    {
+      text: "Area =",
+      inputId: "input3",
+      correctAnswer: "24",
+      placeholder: "?"
+    }
+  ],
+  explanation: "",
+  points: 6
+}
 
         // #######################################
     ],

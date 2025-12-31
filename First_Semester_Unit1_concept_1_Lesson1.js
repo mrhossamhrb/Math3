@@ -134,7 +134,97 @@ const questionsData = {
                 { letter: "C", text: "C. 82 " },
                 { letter: "D", text: "D. 72" },], correctAnswer: "B", explanation: "B", points: 1
         },
-
+        // #########################################
+{id: "q27",number: 27,question: "1. The value of the digit 8 in the number 618,409 is",options: [
+{ letter: "A", text: "A. 800 " },
+{ letter: "B", text: "B. 8,000 " },
+{ letter: "C", text: "C. 80,000 " },
+{ letter: "D", text: "D. 800,000" },],correctAnswer: "B",explanation: "B",points: 1},{
+id: "q28",number: 28,question: "2.Rounding the number 35,084 to the nearest thousand is ——————",options: [
+{ letter: "A", text: "A. 3,000 " },
+{ letter: "B", text: "B. 30,000 " },
+{ letter: "C", text: "C. 35,000 " },
+{ letter: "D", text: "D. 36,000" },],correctAnswer: "C",explanation: "C",points: 1},{
+id: "q29",number: 29,question: "3.2x6-37+3=-",options: [
+{ letter: "A", text: "A.2 " },
+{ letter: "B", text: "B.4 " },
+{ letter: "C", text: "C.6 " },
+{ letter: "D", text: "D. 11" },],correctAnswer: "D",explanation: "D",points: 1},{
+id: "q30",number: 30,question: "4.18 +171 = 171 + -",options: [
+{ letter: "A", text: "A.18 " },
+{ letter: "B", text: "B. 171 " },
+{ letter: "C", text: "C.198 " },
+{ letter: "D", text: "D.189" },],correctAnswer: "A",explanation: "A",points: 1},{
+id: "q31",number: 31,question: "5.3,247+2,374=",options: [
+{ letter: "A", text: "A.5,261 " },
+{ letter: "B", text: "B. 5,621 " },
+{ letter: "C", text: "C.5,57) " },
+{ letter: "D", text: "D. 5,521" },],correctAnswer: "B",explanation: "B",points: 1},{
+id: "q32",number: 32,question: "6. The quotient of: 7,200 + 8is",options: [
+{ letter: "A", text: "A. 900 " },
+{ letter: "B", text: "B.90 " },
+{ letter: "C", text: "Cc. 800 " },
+{ letter: "D", text: "D. 80" },],correctAnswer: "A",explanation: "A",points: 1},{
+id: "q33",number: 33,question: "7. A square with a side length of 6cm ; then its perimeter is —-———— cm.",options: [
+{ letter: "A", text: "A. 24 " },
+{ letter: "B", text: "B. 36 " },
+{ letter: "C", text: "C.18 " },
+{ letter: "D", text: "D. 12" },],correctAnswer: "A",explanation: "A",points: 1},{
+id: "q34",number: 34,question: "8.3: 25+ 35 minutes =",options: [
+{ letter: "A", text: "A.3:00 " },
+{ letter: "B", text: "B.3:50 " },
+{ letter: "C", text: "C.4:55 " },
+{ letter: "D", text: "D. 4:00" },],correctAnswer: "D",explanation: "D",points: 1},{
+id: "q35",number: 35,question: "9.120 seconds = ——————— minutes",options: [
+{ letter: "A", text: "A.2 " },
+{ letter: "B", text: "B.3 " },
+{ letter: "C", text: "C35 " },
+{ letter: "D", text: "D. 2.5" },],correctAnswer: "A",explanation: "A",points: 1},{
+id: "q36",number: 36,question: "1. If the width of rectangle is 4 m and its length is 6m » then its area = ——— m7?",options: [
+{ letter: "A", text: "A. 60 " },
+{ letter: "B", text: "B. 24 " },
+{ letter: "C", text: "C.10 " },
+{ letter: "D", text: "D. 30" },],correctAnswer: "B",explanation: "B",points: 1},{
+id: "q37",number: 37,question: "2.4 x 300 =",options: [
+{ letter: "A", text: "A. 1,200 " },
+{ letter: "B", text: "B.120,000 " },
+{ letter: "C", text: "C. 12,000 " },
+{ letter: "D", text: "D.120" },],correctAnswer: "A",explanation: "A",points: 1},{
+id: "q38",number: 38,question: "3. The place value of digit 1in the number: 7,213,456 is ——————",options: [
+{ letter: "A", text: "A. million " },
+{ letter: "B", text: "B.ten thousands " },
+{ letter: "C", text: "C.tens " },
+{ letter: "D", text: "D. thousands" },],correctAnswer: "B",explanation: "B",points: 1},{
+id: "q39",number: 39,question: "4.6km =",options: [
+{ letter: "A", text: "A.6mm " },
+{ letter: "B", text: "B. 600 cm " },
+{ letter: "C", text: "C.6cm " },
+{ letter: "D", text: "D. 6,000 m" },],correctAnswer: "D",explanation: "D",points: 1},{
+id: "q40",number: 40,question: "5. The additive identity is",options: [
+{ letter: "A", text: "A.1 " },
+{ letter: "B", text: "B. 2 " },
+{ letter: "C", text: "C.0 " },
+{ letter: "D", text: "D.10" },],correctAnswer: "C",explanation: "C",points: 1},{
+id: "q41",number: 41,question: "6.5 x 12 = 12 x 5is called the —--———— property.",options: [
+{ letter: "A", text: "A. associative " },
+{ letter: "B", text: "B. commutative " },
+{ letter: "C", text: "C. identity " },
+{ letter: "D", text: "D. distributive" },],correctAnswer: "B",explanation: "B",points: 1},{
+id: "q42",number: 42,question: "7.3 hours = ——————_ minutes",options: [
+{ letter: "A", text: "A. 60 " },
+{ letter: "B", text: "B. 120 " },
+{ letter: "C", text: "C. 180 " },
+{ letter: "D", text: "D. 30" },],correctAnswer: "C",explanation: "C",points: 1},{
+id: "q43",number: 43,question: "8. The value of the digit 7 in the number : 53,476,952 is",options: [
+{ letter: "A", text: "A. 70 " },
+{ letter: "B", text: "B. 70,000 " },
+{ letter: "C", text: "C. 7,000,000 " },
+{ letter: "D", text: "D. 700,000" },],correctAnswer: "B",explanation: "B",points: 1},{
+id: "q44",number: 44,question: "9, Milliard is the smallest —————— digit number.",options: [
+{ letter: "A", text: "A.5 " },
+{ letter: "B", text: "B.7 " },
+{ letter: "C", text: "C.10 " },
+{ letter: "D", text: "D.6" },],correctAnswer: "C",explanation: "C",points: 1},
     ],
     fillInBlank: [],
     completeSentences: [
@@ -182,9 +272,7 @@ const questionsData = {
             id: "complete14",
             number: 14,
             type: "simple",
-            question: `
-14. A number of balloons were distributed among 7 children, so each child took 3 balloons and 6 balloons remained. How many balloons are there?
-    `,
+            question: `14. A number of balloons were distributed among 7 children, so each child took 3 balloons and 6 balloons remained. How many balloons are there?`,
             correctAnswers: ["27"],
             explanation: "(7 × 3) + 6 = 21 + 6 = 27 balloons",
             points: 2,
@@ -245,8 +333,10 @@ const questionsData = {
             explanation: "",
             points: 6
         },
-
-
+{id: "complete29",number:15,type: "multi",question: "Complete the equation: ",parts: [
+{ text: "2. The number of boys and girls in a school is 4,354 , the number Bar model of girls in this school is 2,150. What is the number of boys? Equation: ", inputId: "input1", correctAnswer: "4354", placeholder: "?" },
+{ text: "Solution:", inputId: "input2", correctAnswer: "2204", placeholder: "?" },
+],explanation: "",points: 6},
         // #######################################
         {
             id: 'complete17', number: 17, type: 'simple', question: '1.45 kg 568 g = ————_g', correctAnswers: [45068], explanation: ' ',
@@ -282,6 +372,29 @@ const questionsData = {
             points: 2, placeholder: '-----------'
         },
 
+{id: 'complete30', number: 30,type: 'simple', question: '1, Using the area model » find the product of: 14 x5 a',correctAnswers: [70],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete31', number: 31,type: 'simple', question: '3. What is the number which its prime factors are: 2 » 2 and 3?',correctAnswers: [12],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete32', number: 32,type: 'simple', question: '4. Find the [G.C.F] of 16 and 20',correctAnswers: [4],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete33', number: 33,type: 'simple', question: '5. Write an equation represents ""a number is 4 times the number 3"".',correctAnswers: ["A=4X3"],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete34', number: 34,type: 'simple', question: '6. Find the missing numbers.صوره',correctAnswers: ["360ml"],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete35', number: 35,type: 'simple', question: '7. Find the area of the opposite figure.صوره',correctAnswers: ["19m2"],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete36', number: 36,type: 'simple', question: '10. Find the value of :5 + 8÷ 2',correctAnswers: [9],explanation: ' ',
+points: 2,placeholder: '-----------'},
+
+{id: 'complete37', number: 37,type: 'simple', question: '11. Find the G.C.F of the two numbers : 20 and 30',correctAnswers: [10],explanation: ' ',
+points: 2,placeholder: '-----------'},
 
 
     ],

@@ -371,6 +371,15 @@ id: "q44",number: 44,question: "9, Milliard is the smallest —————— d
             id: 'complete28', number: 28, type: 'simple', question: 'b. The game started at 7:50 P.M. It ended at 10:05 P.M. How long was the game ?', correctAnswers: ["2 hours and 15minutes"], explanation: ' ',
             points: 2, placeholder: '-----------'
         },
+        {id: "complete30",number:15,type: "multi",
+            question: `<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+<span>6. Find the missing numbers.</span>
+<img src="img/figer6.png" alt="Tape Diagram" style="width: 200px; height: 200px; border-radius: 10px; border: 2px solid #3b82f6;">
+</div>`,
+            parts: [
+{ text: "L =", inputId: "input1", correctAnswer: "6", placeholder: "?" },
+{ text: "ML =", inputId: "input2", correctAnswer: "360", placeholder: "?" },
+],explanation: "",points: 6},
 
 {id: 'complete30', number: 30,type: 'simple', question: '1, Using the area model » find the product of: 14 x5 a',correctAnswers: [70],explanation: ' ',
 points: 2,placeholder: '-----------'},
@@ -384,11 +393,13 @@ points: 2,placeholder: '-----------'},
 {id: 'complete33', number: 33,type: 'simple', question: '5. Write an equation represents ""a number is 4 times the number 3"".',correctAnswers: ["A=4X3"],explanation: ' ',
 points: 2,placeholder: '-----------'},
 
-{id: 'complete34', number: 34,type: 'simple', question: '6. Find the missing numbers.صوره',correctAnswers: ["360ml"],explanation: ' ',
-points: 2,placeholder: '-----------'},
+// ###################################
 
-{id: 'complete35', number: 35,type: 'simple', question: '7. Find the area of the opposite figure.صوره',correctAnswers: ["19m2"],explanation: ' ',
-points: 2,placeholder: '-----------'},
+{id: 'complete35', number: 35,type: 'simple', question:`<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+<span>7. Find the area of the opposite figure.</span>
+<img src="img/figer6.png" alt="Tape Diagram" style="width: 500px; height: auto; border-radius: 10px; border: 2px solid #3b82f6;"> </div>`,
+correctAnswers: ["19m2"],explanation: ' ',points: 2,placeholder: '-----------'},
+
 
 {id: 'complete36', number: 36,type: 'simple', question: '10. Find the value of :5 + 8÷ 2',correctAnswers: [9],explanation: ' ',
 points: 2,placeholder: '-----------'},

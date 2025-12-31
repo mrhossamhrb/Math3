@@ -2,149 +2,168 @@
 const questionsData = {
     multipleChoice: [
         {
-            id: "q1", number: 1, question: "1. 3 Weeks and two days = days", 
+            id: "q1", number: 1, question: "1. 3 Weeks and two days = days",
             options: [
                 { letter: "A", text: "A. 21" },
                 { letter: "B", text: "B. 17" },
                 { letter: "C", text: "C. 19" },
                 { letter: "D", text: "D. 23" }
-            ], 
+            ],
             correctAnswer: "D", explanation: "3 weeks (21 days) + 2 days = 23 days", points: 1
         },
         {
-            id: "q2", number: 2, question: "2. A square with side length S, what is its area?", 
+            id: "q2", number: 2, question: "2. A square with side length S, what is its area?",
             options: [
                 { letter: "A", text: "A. 4 + S" },
                 { letter: "B", text: "B. 4 + S" },
                 { letter: "C", text: "C. 4 × S" },
                 { letter: "D", text: "D. S x S" }
-            ], 
+            ],
             correctAnswer: "D", explanation: "Area of square = side × side = S × S", points: 1
         },
         {
-            id: "q3", number: 3, question: "3. = [3 + 7] × 3", 
+            id: "q3", number: 3, question: "3. = [3 + 7] × 3",
             options: [
                 { letter: "A", text: "A. 6" },
                 { letter: "B", text: "B. 5" },
                 { letter: "C", text: "C. 30" },
                 { letter: "D", text: "D. 1" }
-            ], 
+            ],
             correctAnswer: "C", explanation: "[3 + 7] × 3 = 10 × 3 = 30", points: 1
         },
         {
-            id: "q4", number: 4, question: "4. The tape diagram in the opposite figure represents", 
+            id: "q4", number: 4, question: "4. The tape diagram in the opposite figure represents",
             options: [
                 { letter: "A", text: "A. 40" },
                 { letter: "B", text: "B. 5 - 5" },
                 { letter: "C", text: "C. 5 × 5" },
                 { letter: "D", text: "D. 5 + 5" }
-            ], 
+            ],
             correctAnswer: "C", explanation: "Tape diagram shows multiplication", points: 1
         },
         {
-            id: "q5", number: 5, question: "5. The place value of the number 4 in the number 124,356,952 is", 
+            id: "q5", number: 5, question: "5. The place value of the number 4 in the number 124,356,952 is",
             options: [
                 { letter: "A", text: "A. Thousands." },
                 { letter: "B", text: "B. Hundred thousands." },
                 { letter: "C", text: "C. Millions." },
                 { letter: "D", text: "D. Tens millions." }
-            ], 
+            ],
             correctAnswer: "C", explanation: "4 is in the millions place", points: 1
         },
         {
-            id: "q6", number: 6, question: "6. The number 500 + 2,000 + 30,000 is written in the form.", 
+            id: "q6", number: 6, question: "6. The number 500 + 2,000 + 30,000 is written in the form.",
             options: [
                 { letter: "A", text: "A. standard" },
                 { letter: "B", text: "B. expanded" },
                 { letter: "C", text: "C. verbal" },
                 { letter: "D", text: "D. analytical" }
-            ], 
+            ],
             correctAnswer: "B", explanation: "It's in expanded form", points: 1
         },
         {
-            id: "q7", number: 7, question: "7. All of the following are properties of addition operation except", 
+            id: "q7", number: 7, question: "7. All of the following are properties of addition operation except",
             options: [
                 { letter: "A", text: "A. associative" },
                 { letter: "B", text: "B. commutative" },
                 { letter: "C", text: "C. estimation" },
                 { letter: "D", text: "D. neutral element" }
-            ], 
+            ],
             correctAnswer: "C", explanation: "Estimation is not a property of addition", points: 1
         },
         {
-            id: "q8", number: 8, question: "8. Which of the following numbers is a prime number?", 
+            id: "q8", number: 8, question: "8. Which of the following numbers is a prime number?",
             options: [
                 { letter: "A", text: "A. 0" },
                 { letter: "B", text: "B. 1" },
                 { letter: "C", text: "C. 10" },
                 { letter: "D", text: "D. 11" }
-            ], 
+            ],
             correctAnswer: "D", explanation: "11 is a prime number", points: 1
         },
         {
-            id: "q9", number: 9, question: "9. The number 12 is equal to 3 times the number", 
+            id: "q9", number: 9, question: "9. The number 12 is equal to 3 times the number",
             options: [
                 { letter: "A", text: "A. 4" },
                 { letter: "B", text: "B. 40" },
                 { letter: "C", text: "C. 30" },
                 { letter: "D", text: "D. 3" }
-            ], 
+            ],
             correctAnswer: "A", explanation: "3 × 4 = 12", points: 1
         }
     ],
     fillInBlank: [],
     completeSentences: [
         {
-            id: "complete10", 
-            number: 10, 
-            type: "simple", 
-            question: "10. Hossam has 1,200 minutes in his call balance, so he used 700 minutes of them. How many minutes are left? Number of remaining minutes = ", 
-            correctAnswers: ["500"], 
+            id: "complete10",
+            number: 10,
+            type: "simple",
+            question: "10. Hossam has 1,200 minutes in his call balance, so he used 700 minutes of them. How many minutes are left? Number of remaining minutes = ",
+            correctAnswers: ["500"],
             explanation: "1200 - 700 = 500 minutes",
-            points: 2, 
+            points: 2,
             placeholder: "أدخل الرقم..."
         },
         {
-            id: "complete11", 
-            number: 11, 
-            type: "simple", 
-            question: "11. Using a rectangular area model, find the result of 5 × 34. ", 
-            correctAnswers: ["170"], 
+            id: "complete11",
+            number: 11,
+            type: "simple",
+            question: "11. Using a rectangular area model, find the result of 5 × 34. ",
+            correctAnswers: ["170"],
             explanation: "5 × 34 = 170",
-            points: 2, 
+            points: 2,
             placeholder: "أدخل الرقم..."
         },
         {
-            id: "complete12", 
-            number: 12, 
-            type: "simple", 
-            question: "12. Mahi walked 14 kilometers every day for two weeks. The following week she walked 56 km. How many kilometers did she walk during those three weeks? She walked = ", 
-            correctAnswers: ["252"], 
+            id: "complete12",
+            number: 12,
+            type: "simple",
+            question: "12. Mahi walked 14 kilometers every day for two weeks. The following week she walked 56 km. How many kilometers did she walk during those three weeks? She walked = ",
+            correctAnswers: ["252"],
             explanation: "(14 × 14) + 56 = 196 + 56 = 252 km",
-            points: 2, 
+            points: 2,
             placeholder: "أدخل الرقم..."
         },
         {
-            id: "complete13", 
-            number: 13, 
-            type: "simple", 
-            question: "13. Find the greatest common factor (GCF) of the numbers 40 and 50 ", 
-            correctAnswers: ["10"], 
+            id: "complete13",
+            number: 13,
+            type: "simple",
+            question: "13. Find the greatest common factor (GCF) of the numbers 40 and 50 ",
+            correctAnswers: ["10"],
             explanation: "GCF of 40 and 50 is 10",
-            points: 2, 
+            points: 2,
             placeholder: "أدخل الرقم..."
         },
         {
-            id: "complete14", 
-            number: 14, 
-            type: "simple", 
-            question: "14. A number of balloons were distributed among 7 children, so each child took 3 balloons and 6 balloons remained. How many balloons are there? Number of all balloons = ", 
-            correctAnswers: ["27"], 
+            id: "complete14",
+            number: 14,
+            type: "simple",
+            question: "14. A number of balloons were distributed among 7 children, so each child took 3 balloons and 6 balloons remained. How many balloons are there? Number of all balloons = ",
+            correctAnswers: ["27"],
             explanation: "(7 × 3) + 6 = 21 + 6 = 27 balloons",
-            points: 2, 
+            points: 2,
             placeholder: "أدخل الرقم..."
+        },
+        {
+            id: "complete15",
+            number: 15,
+            type: "multi",
+            question: "Complete using associative property:",
+            displayType: "grid", // نوع جديد للعرض
+            parts: [
+                { row: 1, text: "(", inputId: "input1", correctAnswer: "4", placeholder: "?" },
+                { row: 1, text: " + ", inputId: "input2", correctAnswer: "5", placeholder: "?" },
+                { row: 1, text: ") + ", inputId: "input3", correctAnswer: "6", placeholder: "?" },
+                { row: 1, text: " = ", inputId: "input4", correctAnswer: "4", placeholder: "?" },
+                { row: 1, text: " + (", inputId: "input5", correctAnswer: "5", placeholder: "?" },
+                { row: 1, text: " + ", inputId: "input6", correctAnswer: "6", placeholder: "?" },
+                { row: 1, text: ")", inputId: "input7", correctAnswer: "", placeholder: "" }
+            ],
+            explanation: "(4 + 5) + 6 = 4 + (5 + 6)",
+            points: 6
         }
-    ]
+        
+    ],
 };
 
 // ============ وظائف المساعدة ============
@@ -325,21 +344,21 @@ function gradeCompleteQuestions() {
         totalPoints += q.points;
         let questionScore = 0;
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
-        
+
         if (q.type === "simple") {
             // تصحيح النوع البسيط
             const input = document.getElementById(q.id);
             if (input) {
                 const userAnswer = input.value.trim();
                 let isCorrect = false;
-                
+
                 for (const correctAnswer of q.correctAnswers) {
                     if (userAnswer === correctAnswer.toString()) {
                         isCorrect = true;
                         break;
                     }
                 }
-                
+
                 if (isCorrect) {
                     questionScore = q.points;
                     input.classList.add('correct');
@@ -359,14 +378,14 @@ function gradeCompleteQuestions() {
             let allCorrect = true;
             let correctCount = 0;
             const totalParts = q.parts.filter(p => p.inputId).length;
-            
+
             q.parts.forEach((part, index) => {
                 if (part.inputId) {
                     const input = document.getElementById(`${q.id}_${part.inputId}`);
                     if (input) {
                         const userAnswer = input.value.trim();
                         const correctAnswer = part.correctAnswer;
-                        
+
                         if (userAnswer === correctAnswer) {
                             input.classList.add('correct');
                             correctCount++;
@@ -377,9 +396,9 @@ function gradeCompleteQuestions() {
                     }
                 }
             });
-            
+
             questionScore = Math.round((correctCount / totalParts) * q.points);
-            
+
             if (feedbackDiv) {
                 if (allCorrect) {
                     feedbackDiv.innerHTML = `<div style="color:#10b981;">✅ Perfect! ${q.explanation}</div>`;
@@ -388,7 +407,7 @@ function gradeCompleteQuestions() {
                 }
             }
         }
-        
+
         totalScore += questionScore;
     });
 
@@ -405,13 +424,13 @@ function gradeAllQuestions() {
         totalPoints += q.points;
         const selectedOption = document.querySelector(`input[name="${q.id}"]:checked`);
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
-        
+
         if (selectedOption) {
             if (selectedOption.value === q.correctAnswer) {
                 totalScore += q.points;
                 const correctLabel = document.querySelector(`label[for="${q.id}_${q.correctAnswer.toLowerCase()}"]`);
                 if (correctLabel) correctLabel.style.color = "#10b981";
-                
+
                 if (feedbackDiv) {
                     feedbackDiv.innerHTML = `<div style="color:#10b981;">✅ Correct! ${q.explanation}</div>`;
                 }
@@ -419,7 +438,7 @@ function gradeAllQuestions() {
                 selectedOption.parentElement.classList.add('wrong-checkbox');
                 const correctLabel = document.querySelector(`label[for="${q.id}_${q.correctAnswer.toLowerCase()}"]`);
                 if (correctLabel) correctLabel.style.color = "#10b981";
-                
+
                 if (feedbackDiv) {
                     feedbackDiv.innerHTML = `<div style="color:#ef4444;">❌ الإجابة الصحيحة: ${q.correctAnswer} - ${q.explanation}</div>`;
                 }
@@ -441,15 +460,15 @@ function gradeAllQuestions() {
 document.addEventListener('DOMContentLoaded', function () {
     createStars();
     createBubbles();
-    
+
     // إنشاء جميع أنواع الأسئلة
     generateMultipleChoiceQuestions();
     generateCompleteQuestions();
 
     // إضافة مستمعات الأحداث لتحديث التقدم
-    document.addEventListener('input', function(e) {
-        if (e.target.classList.contains('complete-input') || 
-            e.target.classList.contains('multi-input') || 
+    document.addEventListener('input', function (e) {
+        if (e.target.classList.contains('complete-input') ||
+            e.target.classList.contains('multi-input') ||
             e.target.type === 'radio') {
             updateProgress();
         }
@@ -460,8 +479,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // تأثيرات إضافية
     document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('complete-input') || 
-            e.target.type === 'checkbox' || 
+        if (e.target.classList.contains('complete-input') ||
+            e.target.type === 'checkbox' ||
             e.target.type === 'radio') {
             e.target.classList.add('celebrate');
             setTimeout(() => {
@@ -612,7 +631,7 @@ function generateImage() {
 
 // ============ إضافة أسئلة جديدة بسهولة ============
 // مثال لإضافة سؤال متعدد الفراغات:
-/*
+
 function addMultiCompleteQuestion() {
     questionsData.completeSentences.push({
         id: "complete15",
@@ -630,8 +649,7 @@ function addMultiCompleteQuestion() {
         explanation: "(8 × 9) × 7 = 8 × (9 × 7)",
         points: 6
     });
-    
+
     generateCompleteQuestions();
     updateProgress();
 }
-*/

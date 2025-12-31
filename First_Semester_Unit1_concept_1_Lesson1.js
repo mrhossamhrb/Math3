@@ -101,7 +101,40 @@ const questionsData = {
                 { letter: "D", text: "D. 3" }
             ],
             correctAnswer: "A", explanation: "3 × 4 = 12", points: 1
-        }
+        },
+        // #########################################
+        {
+            id: "q22", number: 22, question: "1. Milliard is the smallest number formed from ————_ digits.", options: [
+                { letter: "A", text: "A. 6" },
+                { letter: "B", text: "B.9" },
+                { letter: "C", text: "C. 10" },
+                { letter: "D", text: "D. 12" },], correctAnswer: "C", explanation: "C", points: 1
+        }, {
+            id: "q23", number: 23, question: "2. The liter ({L] is the basic unit of", options: [
+                { letter: "A", text: "A. length. " },
+                { letter: "B", text: "B. mass," },
+                { letter: "C", text: "C. time. " },
+                { letter: "D", text: "D. capacity." },], correctAnswer: "D", explanation: "D", points: 1
+        }, {
+            id: "q24", number: 24, question: "3. The additive identity element is ——_—", options: [
+                { letter: "A", text: "A. zero. " },
+                { letter: "B", text: "B. 1" },
+                { letter: "C", text: "C. 10 " },
+                { letter: "D", text: "D. 100" },], correctAnswer: "A", explanation: "A", points: 1
+        }, {
+            id: "q25", number: 25, question: "4.[5x1]+[8x1,000] + [4x 10,000] =", options: [
+                { letter: "A", text: "A. 485 " },
+                { letter: "B", text: "B. 4,805" },
+                { letter: "C", text: "C. 48,005 " },
+                { letter: "D", text: "D. 480,005" },], correctAnswer: "C", explanation: "C", points: 1
+        }, {
+            id: "q26", number: 26, question: "5. if 35 + X = 47, then the value of X is", options: [
+                { letter: "A", text: "A. 7 " },
+                { letter: "B", text: "B. 12" },
+                { letter: "C", text: "C. 82 " },
+                { letter: "D", text: "D. 72" },], correctAnswer: "B", explanation: "B", points: 1
+        },
+
     ],
     fillInBlank: [],
     completeSentences: [
@@ -211,9 +244,46 @@ const questionsData = {
             ],
             explanation: "",
             points: 6
-        }
+        },
+
 
         // #######################################
+        {
+            id: 'complete17', number: 17, type: 'simple', question: '1.45 kg 568 g = ————_g', correctAnswers: [45068], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+
+        {
+            id: 'complete18', number: 18, type: 'simple', question: '2. Three milliard » one hundred thirty-seven million » six hundred nineteen thousand eighty-eight = ————— [in standard form]', correctAnswers: [3137619], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+
+        {
+            id: 'complete19', number: 19, type: 'simple', question: '3. Rounding the number 8,532 to the nearest 1,000 is', correctAnswers: [9000], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+
+        {
+            id: 'complete20', number: 20, type: 'simple', question: '4, The place value of the digit 4 in the number 547,621,398 is ———___—', correctAnswers: ["ten millions"], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+
+        {
+            id: 'complete21', number: 21, type: 'simple', question: '5.9 L- 3,000 mL = ————— mL', correctAnswers: [6000], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+        {
+            id: 'complete27', number: 27, type: 'simple', question: '5. a. Sandy purchased 3 kg, 400 g of sugar and 5 kg, 217 g of rice. What is the total mass which Sandy carried ?', correctAnswers: ["8kg and 617g"], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+
+        {
+            id: 'complete28', number: 28, type: 'simple', question: 'b. The game started at 7:50 P.M. It ended at 10:05 P.M. How long was the game ?', correctAnswers: ["2 hours and 15minutes"], explanation: ' ',
+            points: 2, placeholder: '-----------'
+        },
+
+
+
     ],
 };
 

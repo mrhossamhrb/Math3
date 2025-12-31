@@ -57,77 +57,23 @@
       <h3>Multiplication Questions (×)</h3>
       <!-- سيتم إنشاء الأسئلة ديناميكياً هنا -->
     </div>
-
-    <!-- سؤال 3: مسألة ضرب بسيطة -->
-    <div class="question-group">
-      <h3>Multiplication Questions (×)</h3>
-      <div class="math-question">
-        <div class="question-line">
-          <span class="question-number">3</span>
-          <span class="question-text">(2 × 1) × 3 = 2 × (1 ×</span>
-          <input type="text" class="small-input" id="blank4" placeholder="?">
-          <span class="question-text">)</span>
-        </div>
-        <div class="blank-feedback" id="fb-blank4"></div>
-      </div>
+    <!-- أسئلة أكمل -->
+    <div class="fill-question-group">
+      <h3>Complete the Sentences (اكمل الجمل)</h3>
+      <!-- سيتم إنشاء الأسئلة ديناميكياً هنا -->
     </div>
+
+
 
     <button id="saveBtn" onclick="generateImage()">
       📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
     </button>
 
     <a href="index.html" id="backBtn">
-      ⬅ BACK TO HOME PAGE 🏠
-    </a>
+      ⬅ BACK TO HOME PAGE 🏠</a>
   </div>
-
-
-  <script>
-    // ============ بيانات الأسئلة ============
-    const questionsData = {
-      multipleChoice: [
-        {
-          id: "q1",
-          number: 1,
-          question: "3 Weeks and two days = days",
-          options: [
-            { letter: "A", text: "21" },
-            { letter: "B", text: "17" },
-            { letter: "C", text: "19" },
-            { letter: "D", text: "23" }
-          ],
-          correctAnswer: "D",
-          explanation: "3 weeks (21 days) + 2 days = 23 days"
-        },
-        {
-          id: "q2",
-          number: 2,
-          question: "A square with side length S, what is its area?",
-          options: [
-            { letter: "A", text: "4 + S" },
-            { letter: "B", text: "4 + S" },
-            { letter: "C", text: "4 × S" },
-            { letter: "D", text: "S x S" }
-          ],
-          correctAnswer: "D",
-          explanation: "Area of square = side × side = S × S"
-        }
-        // يمكن إضافة المزيد بسهولة هنا
-      ],
-      fillInBlank: [
-        {
-          id: "blank4",
-          number: 3,
-          question: "(2 × 1) × 3 = 2 × (1 × ",
-          afterText: ")",
-          correctAnswer: "3",
-          explanation: "(2×1)×3 = 2×(1×3)"
-        }
-        // يمكن إضافة المزيد بسهولة هنا
-      ]
-    };
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

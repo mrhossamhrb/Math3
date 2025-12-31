@@ -1,4 +1,84 @@
 
+// ============ بيانات الأسئلة ============
+const questionsData = {
+    multipleChoice: [
+        {
+            id: "q1",
+            number: 1,
+            question: "3 Weeks and two days = days",
+            options: [
+                { letter: "A", text: "21" },
+                { letter: "B", text: "17" },
+                { letter: "C", text: "19" },
+                { letter: "D", text: "23" }
+            ],
+            correctAnswer: "D",
+            explanation: "3 weeks (21 days) + 2 days = 23 days",
+            points: 1
+        },
+        {
+            id: "q2",
+            number: 2,
+            question: "A square with side length S, what is its area?",
+            options: [
+                { letter: "A", text: "4 + S" },
+                { letter: "B", text: "4 + S" },
+                { letter: "C", text: "4 × S" },
+                { letter: "D", text: "S x S" }
+            ],
+            correctAnswer: "D",
+            explanation: "Area of square = side × side = S × S",
+            points: 1
+        }
+    ],
+    fillInBlank: [
+        {
+            id: "blank1",
+            number: 3,
+            question: "(2 × 1) × 3 = 2 × (1 × ",
+            afterText: ")",
+            correctAnswer: "3",
+            explanation: "(2×1)×3 = 2×(1×3)",
+            points: 1
+        }
+    ],
+    completeSentences: [
+        {
+            id: "complete1",
+            number: 4,
+            type: "complete",
+            question: "Property of multiplication that says (a × b) × c = a × (b × c) is called ",
+            correctAnswers: ["associative property", "الخاصية التجميعية"],
+            explanation: "The associative property of multiplication",
+            points: 2,
+            placeholder: "اكتب الإجابة هنا..."
+        },
+        {
+            id: "complete2",
+            number: 5,
+            type: "complete",
+            question: "The result of 5 × (2 × 3) is the same as (5 × 2) × ",
+            correctAnswers: ["3"],
+            explanation: "5 × (2 × 3) = (5 × 2) × 3",
+            points: 2,
+            placeholder: "أدخل الرقم..."
+        },
+        {
+            id: "complete3",
+            number: 6,
+            type: "complete",
+            question: "In the expression 4 × (7 × 2), if we use associative property it becomes (4 × ",
+            afterText: ") × 2",
+            correctAnswers: ["7"],
+            explanation: "4 × (7 × 2) = (4 × 7) × 2",
+            points: 2,
+            placeholder: "أدخل الرقم..."
+        }
+    ]
+};
+
+
+
 // ============ وظائف المساعدة ============
 // إنشاء نجوم زينة
 function createStars() {
@@ -42,7 +122,6 @@ function generateMultipleChoiceQuestions() {
     const container = document.querySelector('.circle-question');
     if (!container) return;
 
-    // تنظيف المحتوى القديم وإضافة العنوان
     container.innerHTML = '<h3>Choose ONE correct answer</h3>';
 
     questionsData.multipleChoice.forEach(q => {
@@ -94,9 +173,41 @@ function generateFillInBlankQuestions() {
     });
 }
 
+// إنشاء أسئلة "أكمل"
+function generateCompleteQuestions() {
+    const container = document.querySelector('.fill-question-group');
+    if (!container) return;
+
+    container.innerHTML = '<h3>Complete the Sentences (اكمل الجمل)</h3>';
+
+    questionsData.completeSentences.forEach(q => {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'complete-question';
+        questionDiv.innerHTML = `
+            <div class="question-header">
+                <span class="question-number">${q.number}</span>
+                <span class="question-points">[${q.points} نقطة]</span>
+            </div>
+            <div class="question-content">
+                <span class="question-text">${q.question}</span>
+                <input type="text" class="complete-input" 
+                       id="${q.id}" 
+                       placeholder="${q.placeholder || 'اكتب الإجابة...'}"
+                       style="width: ${q.correctAnswers[0].length * 12 + 40}px">
+                <span class="question-text">${q.afterText || ''}</span>
+            </div>
+            <div class="complete-feedback" id="fb-${q.id}"></div>
+        `;
+        container.appendChild(questionDiv);
+    });
+}
+
 // تحديث شريط التقدم
 function updateProgress() {
-    const totalQuestions = questionsData.multipleChoice.length + questionsData.fillInBlank.length;
+    const totalQuestions = questionsData.multipleChoice.length + 
+                          questionsData.fillInBlank.length + 
+                          questionsData.completeSentences.length;
+    
     let answeredCount = 0;
 
     // حساب الأسئلة متعددة الخيارات
@@ -114,6 +225,14 @@ function updateProgress() {
         }
     });
 
+    // حساب أسئلة "أكمل"
+    questionsData.completeSentences.forEach(q => {
+        const input = document.getElementById(q.id);
+        if (input && input.value.trim() !== '') {
+            answeredCount++;
+        }
+    });
+
     const progress = Math.min(100, (answeredCount / totalQuestions) * 100);
     const progressBar = document.getElementById("progressBar");
     if (progressBar) {
@@ -124,17 +243,17 @@ function updateProgress() {
 // تصحيح جميع الأسئلة
 function gradeAllQuestions() {
     let totalScore = 0;
-    const totalQuestions = questionsData.multipleChoice.length + questionsData.fillInBlank.length;
+    let totalPoints = 0;
 
     // تصحيح أسئلة الاختيار من متعدد
     questionsData.multipleChoice.forEach(q => {
+        totalPoints += q.points;
         const selectedOption = document.querySelector(`input[name="${q.id}"]:checked`);
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
         
         if (selectedOption) {
             if (selectedOption.value === q.correctAnswer) {
-                totalScore++;
-                // تلوين الإجابة الصحيحة
+                totalScore += q.points;
                 const correctLabel = document.querySelector(`label[for="${q.id}_${q.correctAnswer.toLowerCase()}"]`);
                 if (correctLabel) correctLabel.style.color = "#10b981";
                 
@@ -142,7 +261,6 @@ function gradeAllQuestions() {
                     feedbackDiv.innerHTML = `<div style="color:#10b981;">✅ Correct! ${q.explanation}</div>`;
                 }
             } else {
-                // تلوين الإجابة الخاطئة
                 selectedOption.parentElement.classList.add('wrong-checkbox');
                 const correctLabel = document.querySelector(`label[for="${q.id}_${q.correctAnswer.toLowerCase()}"]`);
                 if (correctLabel) correctLabel.style.color = "#10b981";
@@ -158,13 +276,14 @@ function gradeAllQuestions() {
 
     // تصحيح أسئلة ملء الفراغات
     questionsData.fillInBlank.forEach(q => {
+        totalPoints += q.points;
         const input = document.getElementById(q.id);
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
         
         if (input) {
-            const userAnswer = input.value.trim();
-            if (userAnswer === q.correctAnswer) {
-                totalScore++;
+            const userAnswer = input.value.trim().toLowerCase();
+            if (userAnswer === q.correctAnswer.toLowerCase()) {
+                totalScore += q.points;
                 input.classList.add('correct');
                 if (feedbackDiv) {
                     feedbackDiv.innerHTML = `<div style="color:#10b981;">✅ Correct! ${q.explanation}</div>`;
@@ -178,7 +297,41 @@ function gradeAllQuestions() {
         }
     });
 
-    return { totalScore, totalQuestions };
+    // تصحيح أسئلة "أكمل"
+    questionsData.completeSentences.forEach(q => {
+        totalPoints += q.points;
+        const input = document.getElementById(q.id);
+        const feedbackDiv = document.getElementById(`fb-${q.id}`);
+        
+        if (input) {
+            const userAnswer = input.value.trim().toLowerCase();
+            let isCorrect = false;
+            
+            // التحقق من جميع الإجابات الصحيحة الممكنة
+            for (const correctAnswer of q.correctAnswers) {
+                if (userAnswer === correctAnswer.toLowerCase()) {
+                    isCorrect = true;
+                    break;
+                }
+            }
+            
+            if (isCorrect) {
+                totalScore += q.points;
+                input.classList.add('correct');
+                if (feedbackDiv) {
+                    feedbackDiv.innerHTML = `<div style="color:#10b981;">✅ Excellent! ${q.explanation}</div>`;
+                }
+            } else {
+                input.classList.add('wrong');
+                if (feedbackDiv) {
+                    const correctAnswersText = q.correctAnswers.join(' أو ');
+                    feedbackDiv.innerHTML = `<div style="color:#ef4444;">❌ Correct answer: ${correctAnswersText} - ${q.explanation}</div>`;
+                }
+            }
+        }
+    });
+
+    return { totalScore, totalPoints };
 }
 
 // ============ التهيئة الرئيسية ============
@@ -186,13 +339,16 @@ document.addEventListener('DOMContentLoaded', function () {
     createStars();
     createBubbles();
     
-    // إنشاء الأسئلة ديناميكياً
+    // إنشاء جميع أنواع الأسئلة
     generateMultipleChoiceQuestions();
     generateFillInBlankQuestions();
+    generateCompleteQuestions();
 
     // إضافة مستمعات الأحداث لتحديث التقدم
     document.addEventListener('input', function(e) {
-        if (e.target.classList.contains('small-input') || e.target.type === 'radio') {
+        if (e.target.classList.contains('small-input') || 
+            e.target.classList.contains('complete-input') || 
+            e.target.type === 'radio') {
             updateProgress();
         }
     });
@@ -202,7 +358,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // تأثيرات إضافية
     document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('small-input') || e.target.type === 'checkbox' || e.target.type === 'radio') {
+        if (e.target.classList.contains('small-input') || 
+            e.target.classList.contains('complete-input') || 
+            e.target.type === 'checkbox' || 
+            e.target.type === 'radio') {
             e.target.classList.add('celebrate');
             setTimeout(() => {
                 e.target.classList.remove('celebrate');
@@ -221,7 +380,6 @@ document.addEventListener('DOMContentLoaded', function () {
 const LOCK_DAYS = 0;
 const STORAGE_KEY = "math_homework_locked";
 
-// التحقق من حالة القفل عند التحميل
 window.onload = function () {
     const lockData = localStorage.getItem(STORAGE_KEY);
     if (lockData) {
@@ -259,11 +417,11 @@ function generateImage() {
     }
 
     // تصحيح جميع الأسئلة
-    const { totalScore, totalQuestions } = gradeAllQuestions();
+    const { totalScore, totalPoints } = gradeAllQuestions();
 
     // تحديث المعلومات في الشهادة
     document.getElementById("imgName").textContent = name;
-    document.getElementById("imgScore").textContent = `${totalScore} / ${totalQuestions}`;
+    document.getElementById("imgScore").textContent = `${totalScore} / ${totalPoints} points`;
 
     const now = new Date();
     const dateStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`;
@@ -306,7 +464,7 @@ function generateImage() {
                 if (backBtn) backBtn.style.display = 'inline-block';
 
                 // إعادة تعيين الألوان
-                document.querySelectorAll('.small-input').forEach(input => {
+                document.querySelectorAll('.small-input, .complete-input').forEach(input => {
                     input.classList.remove('correct', 'wrong');
                 });
 
@@ -323,8 +481,8 @@ function generateImage() {
                 lockHomework();
 
                 // رسالة نجاح
-                const percentage = Math.round((totalScore / totalQuestions) * 100);
-                let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore}/${totalQuestions} (${percentage}%)\n\n`;
+                const percentage = Math.round((totalScore / totalPoints) * 100);
+                let message = `🎉 Excellent work, ${name}! Your certificate has been saved!\n\nYour score: ${totalScore}/${totalPoints} points (${percentage}%)\n\n`;
 
                 if (percentage === 100) {
                     message += "Perfect score! You're a math genius! 🧠";
@@ -352,37 +510,23 @@ function generateImage() {
 }
 
 // ============ إضافة أسئلة جديدة بسهولة ============
-// يمكنك إضافة أسئلة جديدة هنا:
+// مثال لإضافة سؤال "أكمل" جديد:
 /*
-function addMoreQuestions() {
-    // أسئلة اختيار من متعدد
-    questionsData.multipleChoice.push({
-        id: "q3",
-        number: 3,
-        question: "What is 5 × 6?",
-        options: [
-            { letter: "A", text: "25" },
-            { letter: "B", text: "30" },
-            { letter: "C", text: "35" },
-            { letter: "D", text: "40" }
-        ],
-        correctAnswer: "B",
-        explanation: "5 multiplied by 6 equals 30"
+function addCompleteQuestion() {
+    questionsData.completeSentences.push({
+        id: "complete4",
+        number: 7,
+        type: "complete",
+        question: "The commutative property says that a × b = ",
+        afterText: " × a",
+        correctAnswers: ["b"],
+        explanation: "Commutative property: a × b = b × a",
+        points: 2,
+        placeholder: "أدخل الحرف..."
     });
-
-    // أسئلة ملء فراغ
-    questionsData.fillInBlank.push({
-        id: "blank5",
-        number: 4,
-        question: "7 × 8 = ",
-        afterText: "",
-        correctAnswer: "56",
-        explanation: "7 times 8 equals 56"
-    });
-
-    // إعادة توليد الأسئلة
-    generateMultipleChoiceQuestions();
-    generateFillInBlankQuestions();
+    
+    generateCompleteQuestions();
     updateProgress();
 }
 */
+

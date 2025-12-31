@@ -170,7 +170,7 @@ section p {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 15px auto;
     background: rgba(30, 41, 59, 0.95);
     padding: 20px;
@@ -614,7 +614,7 @@ button:disabled::after {
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     border: none;
-    width: 95%;
+    width: 100%;
 }
 
 #backBtn:hover {
@@ -1662,7 +1662,7 @@ button:disabled::after {
 .multi-question-content .question-text {
     color: #e2e8f0;
     font-weight: 500;
-    white-space: wrap;
+    white-space: nowrap;
 }
 
 .complete-question.multi-type {
@@ -1737,162 +1737,4 @@ button:disabled::after {
     white-space: normal;
     display: block;
     width: 100%;
-}
-
-/* إضافة إلى ملف styles.css */
-.multi-question-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 2px dashed #3b82f6;
-}
-
-.equation-line {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 5px 0;
-    font-size: 1.2em;
-    color: white;
-}
-
-.equation-symbol {
-    font-size: 1.5em;
-    color: #fbbf24;
-    font-weight: bold;
-    margin: 0 15px;
-}
-
-/* ============ تنسيقات المعادلات الأفقي ============ */
-.equation-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin: 15px 0;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    border: 2px solid #3b82f6;
-}
-
-.equation-text {
-    font-size: 1.3em;
-    color: white;
-    font-weight: bold;
-    margin: 0 5px;
-}
-
-.input-with-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 3px;
-}
-
-.equation-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid #8b5cf6;
-    border-radius: 8px;
-    padding: 10px 12px;
-    color: white;
-    font-size: 1.2em;
-    text-align: center;
-    min-width: 60px;
-    max-width: 80px;
-    height: 50px;
-    transition: all 0.3s ease;
-}
-
-.equation-input:focus {
-    outline: none;
-    border-color: #fbbf24;
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-}
-
-.input-label {
-    font-size: 0.8em;
-    color: #94a3b8;
-    margin-top: 5px;
-    text-align: center;
-    min-width: 60px;
-}
-
-.long-question {
-    color: #e2e8f0;
-    font-size: 1.1em;
-    line-height: 1.6;
-    padding: 10px 0;
-    text-align: center;
-    display: block;
-    width: 100%;
-}
-
-/* تنسيق خاص لأسئلة الجمل */
-.sentence-blank .equation-container {
-    border-color: #10b981;
-    background: rgba(16, 185, 129, 0.1);
-}
-
-.sentence-blank .equation-input {
-    border-color: #10b981;
-}
-
-.sentence-blank .equation-input:focus {
-    border-color: #fbbf24;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
-}
-
-/* تنسيق للأجهزة المحمولة */
-@media (max-width: 768px) {
-    .equation-container {
-        gap: 3px;
-        padding: 10px;
-    }
-    
-    .equation-text {
-        font-size: 1.1em;
-    }
-    
-    .equation-input {
-        padding: 8px 10px;
-        font-size: 1em;
-        min-width: 50px;
-        max-width: 70px;
-        height: 45px;
-    }
-    
-    .input-label {
-        font-size: 0.7em;
-    }
-    
-    .long-question {
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .equation-container {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-    
-    .equation-text {
-        font-size: 1em;
-    }
-    
-    .equation-input {
-        min-width: 45px;
-        max-width: 60px;
-        height: 40px;
-        padding: 6px 8px;
-        font-size: 0.9em;
-    }
 }

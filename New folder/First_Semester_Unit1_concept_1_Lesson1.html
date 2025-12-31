@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Homework - Associative Property</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="starsContainer"></div>
+  <div id="bubblesContainer"></div>
+
+  <header>
+    <div class="fun-title">
+      🧮 Math Adventure - Associative Property 🔢
+    </div>
+  </header>
+
+  <section>
+    <img src="https://cdn.pixabay.com/photo/2020/01/21/18/39/math-4784988_1280.png" alt="Math Fun"
+      onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iIzIyYzU1ZSIvPjxwYXRoIGQ9Ik03MCAxMjBMMTMwIDEyME0xMDAgNzBMMTAwIDEzME0xMjAgOTBMMTIwIDExME04MCA5MEw4MCAxMTBNMTMwIDkwTDE1MCA3ME0xMzAgMTEwTDE1MCAxMzBNNzAgOTBMNTAgNzBNNzAgMTEwTDUwIDEzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iMTAwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJDb21pYyBTYW5zIE1TIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWF0aCBBZHZlbnR1cmUhPC90ZXh0Pjwvc3ZnPg=='">
+    <h2>Welcome to the Math Adventure! 🚀</h2>
+    <p>Hey there, young mathematician! 👨‍🏫👩‍🏫<br>Get ready to explore the amazing world of the associative
+      property!<br>Complete all the challenges and earn your Math Expert Certificate! 🏆</p>
+  </section>
+
+  <div class="container" id="printArea">
+    <h1>🌟 MATH SUPER CHALLENGE 🌟</h1>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="loading">🎨 Creating your awesome certificate... ✨</div>
+
+    <div id="infoBox">
+      <div class="info-row">
+        <div class="info-item">👤 MATHEMATICIAN: <strong id="imgName"></strong></div>
+        <div class="info-item">🏆 SCORE: <strong id="imgScore"></strong></div>
+        <div class="info-item">📅 DATE: <strong id="imgDate"></strong></div>
+      </div>
+    </div>
+
+    <div class="student-info">
+      <label>✏️ What's your name, Mathematician?</label>
+      <input type="text" id="studentName" placeholder="Type your name here...">
+    </div>
+    <div class="circle-question">
+      <h3>Choose ONE correct answer</h3>
+      <!-- سيتم إنشاء الأسئلة ديناميكياً هنا -->
+    </div>
+
+    <!-- سؤال 3: مسألة ضرب بسيطة -->
+    <div class="question-group">
+      <h3>Multiplication Questions (×)</h3>
+      <!-- سيتم إنشاء الأسئلة ديناميكياً هنا -->
+    </div>
+    <!-- أسئلة أكمل -->
+    <div class="fill-question-group">
+      <h3>Complete the Sentences (اكمل الجمل)</h3>
+      <!-- سيتم إنشاء الأسئلة ديناميكياً هنا -->
+    </div>
+
+
+
+    <button id="saveBtn" onclick="generateImage()">
+      📸 SAVE MY MATH HOMEWORK & GET CERTIFICATE! 🏆
+    </button>
+
+    <a href="index.html" id="backBtn">
+      ⬅ BACK TO HOME PAGE 🏠</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

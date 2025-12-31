@@ -144,22 +144,23 @@ const questionsData = {
             points: 2,
             placeholder: "أدخل الرقم..."
         },
-        // #######################################
-{id: "complete15",number:15,type: "multi",question: "Complete the equation: ",parts: [
-"{ text: ""4. Arrange the following numbers in descending order:
-23,125-20,137-37,123
-The order is:
-"", inputId: ""input1"", correctAnswer: ""37123"", placeholder: ""?"" },"
-{ text: "", inputId: "input2", correctAnswer: "23125", placeholder: "?" },
-{ text: "", inputId: "input3", correctAnswer: "20137", placeholder: "?" },
-],explanation: "",points: 6},
-{id: "complete15",number:15,type: multi",question: "Complete the equation: ",parts: [
-{ text: "Area= ", inputId: "input1", correctAnswer: "24", placeholder: "?" },
-],explanation: "",points: 6},
-
-
-
-        // #######################################
+    {
+        id: "complete15",
+        number: 15,
+        type: "multi",
+        question: "Complete the equation: ",
+        parts: [
+            { text: "(", inputId: "input1", correctAnswer: "4", placeholder: "?" },
+            { text: " + ", inputId: "input2", correctAnswer: "5", placeholder: "?" },
+            { text: ") + ", inputId: "input3", correctAnswer: "6", placeholder: "?" },
+            { text: " = ", inputId: "input4", correctAnswer: "4", placeholder: "?" },
+            { text: " + (", inputId: "input5", correctAnswer: "5", placeholder: "?" },
+            { text: " + ", inputId: "input6", correctAnswer: "6", placeholder: "?" },
+            { text: ")", inputId: "input7", correctAnswer: "", placeholder: "" }
+        ],
+        explanation: "(4 + 5) + 6 = 4 + (5 + 6)",
+        points: 6
+    }
     ],
 };
 
@@ -234,7 +235,6 @@ function generateMultipleChoiceQuestions() {
     });
 }
 
-// تعديل دالة إنشاء أسئلة "أكمل" لدعم النوع الجديد
 // إنشاء أسئلة "أكمل" (نفسيعدلة لدعم كلا النوعين)
 function generateCompleteQuestions() {
     const container = document.querySelector('.fill-question-group');
@@ -263,33 +263,26 @@ function generateCompleteQuestions() {
                 </div>
                 <div class="complete-feedback" id="fb-${q.id}"></div>
             `;
-        } else if (q.type === "multi" || q.type === "sentence-blank") {
-            // نوع متعدد الفراغات أو الجملة ذات الفراغات
+        } else if (q.type === "multi") {
+            // نوع متعدد الفراغات
             questionDiv.innerHTML = `
                 <div class="question-header">
                     <span class="question-number">${q.number}</span>
                     <span class="question-points">[${q.points} نقطة]</span>
                 </div>
-                <div class="question-content">
-                    <div class="multi-question-content ${q.type === 'sentence-blank' ? 'sentence-blank' : ''}">
-                        <span class="question-text long-question">${q.question}</span>
-                        <div class="equation-container">
-                            ${q.parts.map((part, index) => `
-                                ${part.text ? `<span class="equation-text">${part.text}</span>` : ''}
-                                ${part.inputId ? `
-                                    <div class="input-with-label">
-                                        <input type="text" 
-                                               class="multi-input equation-input" 
-                                               id="${q.id}_${part.inputId}" 
-                                               placeholder="${part.placeholder || '...'}"
-                                               style="width: ${(part.correctAnswer?.length || 1) * 25 + 25}px"
-                                               data-correct="${part.correctAnswer}">
-                                        <span class="input-label">${part.placeholder || ''}</span>
-                                    </div>
-                                ` : ''}
-                            `).join('')}
-                        </div>
-                    </div>
+                <div class="multi-question-content">
+                    <span class="question-text">${q.question}</span>
+                    ${q.parts.map((part, index) => `
+                        ${part.text ? `<span class="question-text">${part.text}</span>` : ''}
+                        ${part.inputId ? `
+                            <input type="text" 
+                                   class="multi-input" 
+                                   id="${q.id}_${part.inputId}" 
+                                   placeholder="${part.placeholder || '...'}"
+                                   style="width: ${(part.correctAnswer?.length || 1) * 20 + 20}px"
+                                   data-correct="${part.correctAnswer}">
+                        ` : ''}
+                    `).join('')}
                 </div>
                 <div class="complete-feedback" id="fb-${q.id}"></div>
             `;
@@ -320,7 +313,7 @@ function updateProgress() {
             if (input && input.value.trim() !== '') {
                 filledInputs++;
             }
-        } else if (q.type === "multi" || q.type === "sentence-blank") {
+        } else if (q.type === "multi") {
             q.parts.forEach(part => {
                 if (part.inputId) {
                     totalInputs++;
@@ -340,7 +333,7 @@ function updateProgress() {
     }
 }
 
-// تعديل دالة تصحيح أسئلة "أكمل" لدعم النوع الجديد
+// تصحيح أسئلة "أكمل"
 function gradeCompleteQuestions() {
     let totalScore = 0;
     let totalPoints = 0;
@@ -378,8 +371,8 @@ function gradeCompleteQuestions() {
                     }
                 }
             }
-        } else if (q.type === "multi" || q.type === "sentence-blank") {
-            // تصحيح النوع متعدد الفراغات أو الجملة ذات الفراغات
+        } else if (q.type === "multi") {
+            // تصحيح النوع المتعدد الفراغات
             let allCorrect = true;
             let correctCount = 0;
             const totalParts = q.parts.filter(p => p.inputId).length;
@@ -474,7 +467,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('input', function (e) {
         if (e.target.classList.contains('complete-input') ||
             e.target.classList.contains('multi-input') ||
-            e.target.classList.contains('sentence-input') ||
             e.target.type === 'radio') {
             updateProgress();
         }
@@ -486,8 +478,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // تأثيرات إضافية
     document.addEventListener('click', function (e) {
         if (e.target.classList.contains('complete-input') ||
-            e.target.classList.contains('multi-input') ||
-            e.target.classList.contains('sentence-input') ||
             e.target.type === 'checkbox' ||
             e.target.type === 'radio') {
             e.target.classList.add('celebrate');
@@ -592,7 +582,7 @@ function generateImage() {
                 if (backBtn) backBtn.style.display = 'inline-block';
 
                 // إعادة تعيين الألوان
-                document.querySelectorAll('.complete-input, .multi-input, .sentence-input').forEach(input => {
+                document.querySelectorAll('.complete-input, .multi-input').forEach(input => {
                     input.classList.remove('correct', 'wrong');
                 });
 
@@ -638,23 +628,26 @@ function generateImage() {
 }
 
 // ============ إضافة أسئلة جديدة بسهولة ============
-// مثال لإضافة سؤال من نوع "جمله بها فراغات"
-function addSentenceBlankQuestion() {
-    questionsData.completeSentences.push({
-        id: "complete" + (questionsData.completeSentences.length + 10),
-        number: questionsData.completeSentences.length + 10,
-        type: "sentence-blank",
-        question: "The commutative property states that changing the order of numbers in addition does not change the sum. For example: ",
-        parts: [
-            { text: "", inputId: "num1", correctAnswer: "3", placeholder: "الرقم الأول" },
-            { text: " + ", inputId: "num2", correctAnswer: "7", placeholder: "الرقم الثاني" },
-            { text: " = ", inputId: "num3", correctAnswer: "7", placeholder: "الرقم الثاني" },
-            { text: " + ", inputId: "num4", correctAnswer: "3", placeholder: "الرقم الأول" }
-        ],
-        explanation: "This demonstrates the commutative property: 3 + 7 = 7 + 3",
-        points: 4
-    });
+// مثال لإضافة سؤال متعدد الفراغات:
 
+function addMultiCompleteQuestion() {
+    questionsData.completeSentences.push({
+        id: "complete15",
+        number: 15,
+        type: "multi",
+        question: "Complete: ",
+        parts: [
+            { text: "(", inputId: "input1", correctAnswer: "8", placeholder: "?" },
+            { text: " × ", inputId: "input2", correctAnswer: "9", placeholder: "?" },
+            { text: ") × ", inputId: "input3", correctAnswer: "7", placeholder: "?" },
+            { text: " = 8 × (", inputId: "input4", correctAnswer: "9", placeholder: "?" },
+            { text: " × ", inputId: "input5", correctAnswer: "7", placeholder: "?" },
+            { text: ")", inputId: "input6", correctAnswer: "", placeholder: "" }
+        ],
+        explanation: "(8 × 9) × 7 = 8 × (9 × 7)",
+        points: 6
+    });
+    
     generateCompleteQuestions();
     updateProgress();
 }

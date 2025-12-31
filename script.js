@@ -1,5 +1,3 @@
-
-
 // ============ بيانات الأسئلة ============
 const questionsData = {
     multipleChoice: [{

@@ -1,36 +1,67 @@
 
+
 // ============ بيانات الأسئلة ============
 const questionsData = {
-    multipleChoice: [
-        {
-            id: "q1",
-            number: 1,
-            question: "3 Weeks and two days = days",
-            options: [
-                { letter: "A", text: "21" },
-                { letter: "B", text: "17" },
-                { letter: "C", text: "19" },
-                { letter: "D", text: "23" }
-            ],
-            correctAnswer: "D",
-            explanation: "3 weeks (21 days) + 2 days = 23 days",
-            points: 1
-        },
-        {
-            id: "q2",
-            number: 2,
-            question: "A square with side length S, what is its area?",
-            options: [
-                { letter: "A", text: "4 + S" },
-                { letter: "B", text: "4 + S" },
-                { letter: "C", text: "4 × S" },
-                { letter: "D", text: "S x S" }
-            ],
-            correctAnswer: "D",
-            explanation: "Area of square = side × side = S × S",
-            points: 1
-        }
-    ],
+    multipleChoice: [{
+        id: "q1", number: 1, question: "1.3 Weeks and two days = days", options: [
+            { letter: "A", text: "A. 21" },
+            { letter: "B", text: "B. 17" },
+            { letter: "C", text: "C. 19" },
+            { letter: "D", text: "D. 23" },], correctAnswer: "D", explanation: "D", points: 1
+    }, {
+        id: "q2", number: 2, question: "2. A square with side length S, what is its area?", options: [
+            { letter: "A", text: "A. 4 + S" },
+            { letter: "B", text: "B. 4 + S" },
+            { letter: "C", text: "C. 4 × S" },
+            { letter: "D", text: "D. S x S" },], correctAnswer: "D", explanation: "D", points: 1
+    }, {
+        id: "q3", number: 3, question: "3. = [3 + 7] × 3", options: [
+            { letter: "A", text: "A. 6" },
+            { letter: "B", text: "B. 5" },
+            { letter: "C", text: "C. 30" },
+            { letter: "D", text: "D. 1" },], correctAnswer: "C", explanation: "C", points: 1
+    }, {
+        id: "q4", number: 4, question: "4. The tape diagram in the opposite figure represents", options: [
+            { letter: "A", text: "A. 40" },
+            { letter: "B", text: "B. 5 - 5" },
+            { letter: "C", text: "C. 5 × 5" },
+            { letter: "D", text: "D. 5 + 5" },], correctAnswer: "C", explanation: "C", points: 1
+    }, {
+        id: "q5", number: 5, question: "5. The place value of the number 4 in the number 124,356,952 is", options: [
+            { letter: "A", text: "A. Thousands." },
+            { letter: "B", text: "B. Hundred thousands." },
+            { letter: "C", text: "C. Millions." },
+            { letter: "D", text: "D. Tens millions." },], correctAnswer: "C", explanation: "C", points: 1
+    }, {
+        id: "q6", number: 6, question: "6. The number 500 + 2,000 + 30,000 is written in the form.", options: [
+            { letter: "A", text: "A. standard" },
+            { letter: "B", text: "B. expanded" },
+            { letter: "C", text: "C. verbal" },
+            { letter: "D", text: "D. analytical" },], correctAnswer: "B", explanation: "B", points: 1
+    }, {
+        id: "q7", number: 7, question: "property. 7. All of the following are properties of addition operation except", options: [
+            { letter: "A", text: "A. associative" },
+            { letter: "B", text: "B. commutative" },
+            { letter: "C", text: "C. estimation" },
+            { letter: "D", text: "D. neutral element" },], correctAnswer: "C", explanation: "C", points: 1
+    }, {
+        id: "q8", number: 8, question: "8. Which of the following numbers is a prime number?", options: [
+            { letter: "A", text: "A. 0" },
+            { letter: "B", text: "B. 1" },
+            { letter: "C", text: "C. 10" },
+            { letter: "D", text: "D. 11" },], correctAnswer: "D", explanation: "D", points: 1
+    }, {
+        id: "q9", number: 9, question: "9. The number 12 is equal to 3 times the number", options: [
+            { letter: "A", text: "A. 4" },
+            { letter: "B", text: "B. 40" },
+            { letter: "C", text: "C. 30" },
+            { letter: "D", text: "D. 3" },], correctAnswer: "A", explanation: "A", points: 1
+    },
+
+
+                    // ##############################################################
+                    ],
+    // ##############################################################
     fillInBlank: [
         {
             id: "blank1",
@@ -204,10 +235,10 @@ function generateCompleteQuestions() {
 
 // تحديث شريط التقدم
 function updateProgress() {
-    const totalQuestions = questionsData.multipleChoice.length + 
-                          questionsData.fillInBlank.length + 
-                          questionsData.completeSentences.length;
-    
+    const totalQuestions = questionsData.multipleChoice.length +
+        questionsData.fillInBlank.length +
+        questionsData.completeSentences.length;
+
     let answeredCount = 0;
 
     // حساب الأسئلة متعددة الخيارات
@@ -250,13 +281,13 @@ function gradeAllQuestions() {
         totalPoints += q.points;
         const selectedOption = document.querySelector(`input[name="${q.id}"]:checked`);
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
-        
+
         if (selectedOption) {
             if (selectedOption.value === q.correctAnswer) {
                 totalScore += q.points;
                 const correctLabel = document.querySelector(`label[for="${q.id}_${q.correctAnswer.toLowerCase()}"]`);
                 if (correctLabel) correctLabel.style.color = "#10b981";
-                
+
                 if (feedbackDiv) {
                     feedbackDiv.innerHTML = `<div style="color:#10b981;">✅ Correct! ${q.explanation}</div>`;
                 }
@@ -264,7 +295,7 @@ function gradeAllQuestions() {
                 selectedOption.parentElement.classList.add('wrong-checkbox');
                 const correctLabel = document.querySelector(`label[for="${q.id}_${q.correctAnswer.toLowerCase()}"]`);
                 if (correctLabel) correctLabel.style.color = "#10b981";
-                
+
                 if (feedbackDiv) {
                     feedbackDiv.innerHTML = `<div style="color:#ef4444;">❌ The correct answer is "${q.correctAnswer}" - ${q.explanation}</div>`;
                 }
@@ -279,7 +310,7 @@ function gradeAllQuestions() {
         totalPoints += q.points;
         const input = document.getElementById(q.id);
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
-        
+
         if (input) {
             const userAnswer = input.value.trim().toLowerCase();
             if (userAnswer === q.correctAnswer.toLowerCase()) {
@@ -302,11 +333,11 @@ function gradeAllQuestions() {
         totalPoints += q.points;
         const input = document.getElementById(q.id);
         const feedbackDiv = document.getElementById(`fb-${q.id}`);
-        
+
         if (input) {
             const userAnswer = input.value.trim().toLowerCase();
             let isCorrect = false;
-            
+
             // التحقق من جميع الإجابات الصحيحة الممكنة
             for (const correctAnswer of q.correctAnswers) {
                 if (userAnswer === correctAnswer.toLowerCase()) {
@@ -314,7 +345,7 @@ function gradeAllQuestions() {
                     break;
                 }
             }
-            
+
             if (isCorrect) {
                 totalScore += q.points;
                 input.classList.add('correct');
@@ -338,16 +369,16 @@ function gradeAllQuestions() {
 document.addEventListener('DOMContentLoaded', function () {
     createStars();
     createBubbles();
-    
+
     // إنشاء جميع أنواع الأسئلة
     generateMultipleChoiceQuestions();
     generateFillInBlankQuestions();
     generateCompleteQuestions();
 
     // إضافة مستمعات الأحداث لتحديث التقدم
-    document.addEventListener('input', function(e) {
-        if (e.target.classList.contains('small-input') || 
-            e.target.classList.contains('complete-input') || 
+    document.addEventListener('input', function (e) {
+        if (e.target.classList.contains('small-input') ||
+            e.target.classList.contains('complete-input') ||
             e.target.type === 'radio') {
             updateProgress();
         }
@@ -358,9 +389,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // تأثيرات إضافية
     document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('small-input') || 
-            e.target.classList.contains('complete-input') || 
-            e.target.type === 'checkbox' || 
+        if (e.target.classList.contains('small-input') ||
+            e.target.classList.contains('complete-input') ||
+            e.target.type === 'checkbox' ||
             e.target.type === 'radio') {
             e.target.classList.add('celebrate');
             setTimeout(() => {
